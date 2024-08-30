@@ -4,24 +4,23 @@ import {
   Link,
   useColorMode,
   useColorModeValue,
+  Text,
 } from "@chakra-ui/react";
 import { WiDaySunny, WiNightClear } from "react-icons/wi";
 import { CustomRoutes } from "./Routes";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 
 const Header: React.FC = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode();
   const { pathname } = useLocation();
 
   return (
-    <Flex
-      className={`h-10 border-b-1 fixed top-0 w-full z-50 ${useColorModeValue(
-        "bg-slate-200",
-        "bg-slate-600"
-      )}`}
-      as="nav"
-    >
-      <ul className="flex flex-1">
+    <Flex as="nav" className="w-full justify-center">
+      <Text h={10} p={2} className="absolute left-5 text-center">
+        {"{Placeholder}"}
+      </Text>
+
+      <Flex>
         {CustomRoutes.map((route: CustomRoute) => (
           <Link
             className={`!no-underline relative min-w-[6rem] cursor-pointer 
@@ -35,7 +34,7 @@ const Header: React.FC = () => {
                     "bg-slate-700"
                   )} `
                 : "before:w-0"
-            } before:transition-width before:duration-300 before:ease-in-out`}
+            } before:transition-width before:duration-300 before:ease-in-out `}
             as={RouterLink}
             to={route.path}
             key={route.path}
@@ -43,20 +42,17 @@ const Header: React.FC = () => {
             {route.name}
           </Link>
         ))}
-      </ul>
+      </Flex>
 
       <IconButton
-        className={`!rounded-none ${useColorModeValue(
-          "!bg-slate-200 hover:!bg-slate-300",
-          "!bg-slate-600 hover:!bg-slate-700"
+        className={`!absolute !right-5 !rounded-none ${useColorModeValue(
+          "!bg-transparent hover:!bg-slate-300",
+          "!bg-transparent hover:!bg-slate-700"
         )} `}
-        icon={
-          colorMode === "light" ? (
-            <WiDaySunny size={24} />
-          ) : (
-            <WiNightClear size={24} />
-          )
-        }
+        icon={useColorModeValue(
+          <WiDaySunny size={24} />,
+          <WiNightClear size={24} />
+        )}
         onClick={toggleColorMode}
         aria-label={"Toggle color mode"}
       />
