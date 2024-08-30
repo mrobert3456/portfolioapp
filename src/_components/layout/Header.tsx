@@ -5,22 +5,28 @@ import {
   useColorMode,
   useColorModeValue,
   Text,
+  MenuButton,
+  Menu,
+  MenuList,
+  MenuItem,
+  Switch,
+  MenuDivider,
 } from "@chakra-ui/react";
 import { WiDaySunny, WiNightClear } from "react-icons/wi";
 import { CustomRoutes } from "./Routes";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-
+import { GiHamburgerMenu } from "react-icons/gi";
 const Header: React.FC = () => {
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
   const { pathname } = useLocation();
 
   return (
-    <Flex as="nav" className="w-full justify-center">
-      <Text h={10} p={2} className="absolute left-5 text-center">
+    <Flex as="nav" className="w-full px-6">
+      <Text h={10} p={2} className="text-center">
         {"{Placeholder}"}
       </Text>
 
-      <Flex>
+      <Flex className="!hidden sm:!flex gap-5 justify-center w-full">
         {CustomRoutes.map((route: CustomRoute) => (
           <Link
             className={`!no-underline relative min-w-[6rem] cursor-pointer 
@@ -34,7 +40,7 @@ const Header: React.FC = () => {
                     "bg-slate-700"
                   )} `
                 : "before:w-0"
-            } before:transition-width before:duration-300 before:ease-in-out `}
+            } before:transition-width before:duration-300 before:ease-in-out shadow-md shadow-gray-600`}
             as={RouterLink}
             to={route.path}
             key={route.path}
@@ -45,7 +51,7 @@ const Header: React.FC = () => {
       </Flex>
 
       <IconButton
-        className={`!absolute !right-5 !rounded-none ${useColorModeValue(
+        className={`!hidden sm:!flex !rounded-none ${useColorModeValue(
           "!bg-transparent hover:!bg-slate-300",
           "!bg-transparent hover:!bg-slate-700"
         )} `}
@@ -56,6 +62,26 @@ const Header: React.FC = () => {
         onClick={toggleColorMode}
         aria-label={"Toggle color mode"}
       />
+      <Flex className="sm:!hidden justify-end w-full">
+        <Menu closeOnSelect={false}>
+          <MenuButton
+            className="!rounded-none"
+            as={IconButton}
+            icon={<GiHamburgerMenu size={24} />}
+          />
+          <MenuList className="!rounded-none ">
+            <MenuItem as="div">
+              {colorMode === "light" ? "Dark" : "Light"}{" "}
+              {useColorModeValue(
+                <WiDaySunny size={24} />,
+                <WiNightClear size={24} />
+              )}
+              <Switch onChange={toggleColorMode} />
+            </MenuItem>
+            <MenuDivider />
+          </MenuList>
+        </Menu>
+      </Flex>
     </Flex>
   );
 };
