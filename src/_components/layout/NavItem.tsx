@@ -9,6 +9,7 @@ const NavItem: React.FC<CustomRoute> = ({ path, name }) => {
     "hover:bg-slate-700"
   );
   const bgColor = useColorModeValue("bg-slate-300", "bg-slate-700");
+  const shadowColor = useColorModeValue("shadow-gray-300", "shadow-gray-600");
 
   return (
     <Link
@@ -18,7 +19,7 @@ const NavItem: React.FC<CustomRoute> = ({ path, name }) => {
             before:bg-blue-500 before:h-[4px] 
             ${hoverBgColor} ${
         pathname === path ? `before:w-full ${bgColor} ` : "before:w-0"
-      } before:transition-width before:duration-300 before:ease-in-out shadow-md shadow-gray-600`}
+      } before:transition-width before:duration-300 before:ease-in-out shadow-md ${shadowColor}`}
       as={RouterLink}
       to={path}
       key={path}
