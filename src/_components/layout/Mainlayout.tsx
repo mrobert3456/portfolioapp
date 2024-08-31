@@ -1,4 +1,4 @@
-import { Box, Flex, Stack } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
@@ -9,8 +9,13 @@ const MainLayout: React.FC = () => {
         <Header />
       </Flex>
 
-      <Box as="main" p="2rem" h="100%">
+      <Box as="main" className="p-8 h-full">
         <Outlet />
+      </Box>
+      <Box as="footer" className="p-10">
+        <Text className="text-right text-slate-500">
+          {"{Placeholder}@2024"}
+        </Text>
       </Box>
     </Stack>
   );
