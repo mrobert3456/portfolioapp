@@ -5,11 +5,11 @@ import Header from "./Header";
 const MainLayout: React.FC = () => {
   return (
     <Stack h="100vh" w="100%" className="overflow-auto">
-      <Flex className="justify-center fixed top-5 z-50 w-full">
+      <Flex className="justify-center py-[1rem] z-50 w-full">
         <Header />
       </Flex>
 
-      <Box as="main" px="2rem" py={"4rem"} h="100%">
+      <Box as="main" p="2rem" h="100%">
         <Outlet />
       </Box>
     </Stack>
