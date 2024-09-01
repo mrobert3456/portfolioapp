@@ -1,10 +1,14 @@
 import BlogItemCard from "./BlogItemCard";
+import blogs from "../../config/blogs.json";
+import { Flex } from "@chakra-ui/react";
 
 const FeaturedBlogs: React.FC = () => {
   return (
-    <>
-      <BlogItemCard />
-    </>
+    <Flex className="gap-2 mt-10 items-center">
+      {blogs.map((blog: Blog) => (
+        <BlogItemCard blog={blog} />
+      ))}
+    </Flex>
   );
 };
 export default FeaturedBlogs;
