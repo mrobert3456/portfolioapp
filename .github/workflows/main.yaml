@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Detect secrets
-        run: "echo 'detecting secrets not specified"
+        run: echo "🖥️ detect secrets not specified"
 
   build:
     runs-on: ubuntu-latest
