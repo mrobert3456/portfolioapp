@@ -23,6 +23,10 @@ jobs:
           GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+
   build:
     runs-on: ubuntu-latest
     needs: Scan
