@@ -12,10 +12,11 @@ const Home: React.FC = () => {
           </Text>
         </Text>
       </Flex>
-      <Flex id="Featured" className="flex-col ">
-        <Text className="text-left text-2xl">📖 Check out my latest blogs</Text>
+      <Flex id="Featured" className="flex-col">
+        <Text className="text-center text-1xl">
+          📖 Check out my latest blogs
+        </Text>
         <Flex className="justify-center">
-          {/* https://pagedone.io/docs/carousel */}
           <FeaturedBlogs />
         </Flex>
       </Flex>

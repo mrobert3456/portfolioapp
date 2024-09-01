@@ -8,14 +8,14 @@ import {
   Icon,
   Image,
   Flex,
-  Link,
+  CardProps,
 } from "@chakra-ui/react";
-import { RxExternalLink } from "react-icons/rx";
 import { hoverUnderlined } from "./CommonStyles";
 interface BlogItemCardProps {
   blog: Blog;
+  cardProps?: CardProps;
 }
-const BlogItemCard: React.FC<BlogItemCardProps> = ({ blog }) => {
+const BlogItemCard: React.FC<BlogItemCardProps> = ({ blog, cardProps }) => {
   const handleClick = () => {
     window.open(blog.link, "_blank");
   };
@@ -23,6 +23,7 @@ const BlogItemCard: React.FC<BlogItemCardProps> = ({ blog }) => {
     <Card
       className={`!rounded-none max-w-[15rem] ${hoverUnderlined} cursor-pointer `}
       onClick={handleClick}
+      {...cardProps}
     >
       <CardBody>
         <Stack>
@@ -40,13 +41,7 @@ const BlogItemCard: React.FC<BlogItemCardProps> = ({ blog }) => {
             />
             <Text className="text-xs">{blog.publisher}</Text>
           </Flex>
-          <Link
-            href={blog.link}
-            target="_blank"
-            className="transition-all duration-200 ease-in hover:scale-150"
-          >
-            <RxExternalLink size={16} />
-          </Link>
+          <Text className="text-xs text-right">{blog.date}</Text>
         </Flex>
       </CardFooter>
     </Card>
