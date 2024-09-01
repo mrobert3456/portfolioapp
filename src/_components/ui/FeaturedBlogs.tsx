@@ -4,7 +4,7 @@ import { Flex } from "@chakra-ui/react";
 
 const FeaturedBlogs: React.FC = () => {
   return (
-    <Flex className="gap-2 mt-10 items-center">
+    <Flex className="gap-2 mt-10 justify-center flex-wrap">
       {blogs.map((blog: Blog) => (
         <BlogItemCard blog={blog} />
       ))}
