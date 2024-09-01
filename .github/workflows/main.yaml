@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: GitGuardian scan
         uses: GitGuardian/ggshield/actions/secret@v1.31.0
         env:
