@@ -6,13 +6,13 @@ import Educations from "./Educations";
 
 const AboutCard: React.FC = () => {
   return (
-    <Card className="!rounded-none ">
+    <Card id="about__card" className="!rounded-none ">
       <CardBody className="flex flex-col gap-5 flex-wrap">
-        <Flex className="gap-10 flex-wrap">
+        <Flex id="metadata__items" className="gap-10 flex-wrap">
           <Metadata />
           <Bio />
         </Flex>
-        <Flex className="gap-10 flex-wrap">
+        <Flex id="education__items" className="gap-10 flex-wrap">
           <Certificates />
           <Educations />
         </Flex>

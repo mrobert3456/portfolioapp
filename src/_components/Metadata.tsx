@@ -11,7 +11,7 @@ import { INTRO } from "../config/metadata";
 
 const Metadata: React.FC = () => {
   return (
-    <Stack>
+    <Stack id="metadata">
       <Heading as="h1" className="!text-sm">
         Information
       </Heading>

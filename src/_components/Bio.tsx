@@ -3,7 +3,7 @@ import { BIO } from "../config/metadata";
 
 const Bio: React.FC = () => {
   return (
-    <Stack>
+    <Stack id="Bio">
       <Heading as="h1" className="!text-sm">
         Bio
       </Heading>

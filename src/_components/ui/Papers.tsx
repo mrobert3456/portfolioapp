@@ -2,18 +2,20 @@ import { Stack, Heading, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { hoverImgScaling } from "./CommonStyles";
 
 interface PaperProps {
+  id?: string;
   title: string;
   papers: Certificate[];
   showDetails?: boolean;
 }
 
 const Papers: React.FC<PaperProps> = ({
+  id,
   title,
   papers,
   showDetails = false,
 }) => {
   return (
-    <Stack className="gap-2">
+    <Stack id={id} className="gap-2">
       <Heading as="h1" className="!text-sm">
         {title}
       </Heading>

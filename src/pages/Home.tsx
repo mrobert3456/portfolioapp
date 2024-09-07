@@ -4,7 +4,7 @@ import FeaturedBlogs from "../_components/ui/FeaturedBlogs";
 const Home: React.FC = () => {
   return (
     <SimpleGrid id="Home" className="h-full">
-      <Flex className="justify-center">
+      <Flex id="Introduction" className="justify-center">
         <Text className="font-serif text-3xl text-center">
           🚀 Hello, I'm Robert Meszaros
           <Text className="text-sm text-center">
