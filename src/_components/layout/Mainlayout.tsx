@@ -1,10 +1,17 @@
-import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
 const MainLayout: React.FC = () => {
   return (
-    <Stack h="100vh" w="100%" className="overflow-auto">
+    <Stack
+      h="100vh"
+      w="100%"
+      className={`overflow-auto ${useColorModeValue(
+        " bg-gradient-to-tr from-gray-200",
+        " bg-gradient-to-tr from-black"
+      )}`}
+    >
       <Flex className="justify-center py-[1rem] z-50 w-full">
         <Header />
       </Flex>

@@ -1,5 +1,6 @@
 import { Text, Flex, SimpleGrid } from "@chakra-ui/react";
 import FeaturedBlogs from "../_components/ui/FeaturedBlogs";
+import CustomCardContainer from "../_components/ui/CustomCardContainer";
 
 const Home: React.FC = () => {
   return (
@@ -16,8 +17,10 @@ const Home: React.FC = () => {
         <Text className="text-center text-1xl">
           📖 Check out my latest blogs
         </Text>
-        <Flex className="justify-center">
-          <FeaturedBlogs />
+        <Flex className="mt-10 justify-center">
+          <CustomCardContainer>
+            <FeaturedBlogs />
+          </CustomCardContainer>
         </Flex>
       </Flex>
     </SimpleGrid>
