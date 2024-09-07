@@ -10,7 +10,7 @@ import {
   Flex,
   CardProps,
 } from "@chakra-ui/react";
-import { hoverUnderlined } from "./CommonStyles";
+import { hoverImgScaling, hoverUnderlined } from "./CommonStyles";
 interface BlogItemCardProps {
   blog: Blog;
   cardProps?: CardProps;
@@ -34,11 +34,7 @@ const BlogItemCard: React.FC<BlogItemCardProps> = ({ blog, cardProps }) => {
       <CardFooter>
         <Flex className="!justify-between w-full">
           <Flex className="items-center gap-2 ">
-            <Icon
-              as={Image}
-              src={blog.icon}
-              className="transition-all duration-200 ease-in hover:scale-150"
-            />
+            <Icon as={Image} src={blog.icon} className={hoverImgScaling} />
             <Text className="text-xs">{blog.publisher}</Text>
           </Flex>
           <Text className="text-xs text-right">{blog.date}</Text>

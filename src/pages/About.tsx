@@ -1,10 +1,11 @@
-import { Text, SimpleGrid, Flex } from "@chakra-ui/react";
+import { SimpleGrid, Flex } from "@chakra-ui/react";
+import AboutCard from "../_components/AboutCard";
 
 const About: React.FC = () => {
   return (
     <SimpleGrid id="About" className="h-full">
       <Flex className="justify-center items-center">
-        <Text>Coming soon...</Text>
+        <AboutCard />
       </Flex>
     </SimpleGrid>
   );
