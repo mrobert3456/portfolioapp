@@ -20,9 +20,7 @@ const MainLayout: React.FC = () => {
         <Outlet />
       </Box>
       <Box as="footer" className="p-10">
-        <Text className="text-right text-slate-500">
-          {"{Placeholder}@2024"}
-        </Text>
+        <Text className="text-right text-slate-500">{"ForestLake@2024"}</Text>
       </Box>
     </Stack>
   );

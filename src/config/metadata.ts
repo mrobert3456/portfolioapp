@@ -3,7 +3,7 @@ export const INTRO: Metadata = {
   name: "Robert Meszaros",
   location: "Budapest, Hungary",
   company: "IBM",
-  role: "Fullstack developer",
+  role: "Full stack developer",
 };
 
 export const BIO =

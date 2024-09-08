@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   return (
     <Flex as="nav" className="w-full px-6">
       <Text h={10} p={2} className="text-center">
-        {"{Placeholder}"}
+        {"ForestLake"}
       </Text>
 
       <Flex className="!hidden sm:!flex gap-5 justify-center w-full">
