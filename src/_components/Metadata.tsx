@@ -17,7 +17,7 @@ const Metadata: React.FC = () => {
       </Heading>
 
       <Flex className="gap-10">
-        <Image className="hidden md:block" src="" height={50} width={50} />
+        <Image className="hidden sm:block" src="" height={50} width={50} />
 
         <Stack className="!gap-5">
           <SimpleGrid columns={2}>

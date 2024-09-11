@@ -1,9 +1,9 @@
 import { FlexProps } from "@chakra-ui/react";
 
-const CustomCardContainer: React.FC<FlexProps> = ({ children }) => {
+const CustomCardContainer: React.FC<FlexProps> = ({ children, className }) => {
   return (
     <div
-      className={`flex flex-wrap gap-2 justify-center items-ce relative p-5`}
+      className={`${className} flex flex-wrap gap-2 justify-center items-ce relative p-5 `}
     >
       <div className="absolute top-0 right-0 w-[6rem] border-t-4 border-blue-500" />
       <div className="absolute top-0 right-0 h-[6rem]  border-r-4 border-blue-500" />

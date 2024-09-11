@@ -7,9 +7,13 @@ import {
 } from "@chakra-ui/react";
 import FeaturedBlogs from "../_components/ui/FeaturedBlogs";
 import CustomCardContainer from "../_components/ui/CustomCardContainer";
+import { useNavigate } from "react-router-dom";
+import { buttonStyle } from "../_components/ui/CommonStyles";
 
 const Home: React.FC = () => {
   const borderColor = useColorModeValue("border-black", "border-white");
+
+  const navigate = useNavigate();
   return (
     <SimpleGrid id="Home" className="h-full">
       <Flex
@@ -26,7 +30,8 @@ const Home: React.FC = () => {
           </Text>
         </Text>
         <Button
-          className={`!w-20 !rounded-none !text-xs !border-2 !border-sky-500 !bg-transparent hover:!border-sky-700`}
+          className={`!w-20 ${buttonStyle}`}
+          onClick={() => navigate("/contact")}
         >
           Contact me
         </Button>

@@ -3,3 +3,6 @@ export const hoverUnderlined =
 
 export const hoverImgScaling =
   "transition-all duration-200 ease-in hover:scale-125";
+
+export const buttonStyle =
+  "!rounded-none !text-xs !border-2 !border-sky-500 !bg-transparent hover:!border-sky-700";
