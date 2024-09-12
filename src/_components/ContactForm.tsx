@@ -3,6 +3,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Tag,
   Textarea,
   useToast,
 } from "@chakra-ui/react";
@@ -56,7 +57,10 @@ const ContactForm: React.FC = () => {
   };
   return (
     <FormControl className="flex flex-col gap-2 m-3">
-      <FormLabel>Contact</FormLabel>
+      <FormLabel className="!flex !justify-between !mr-0">
+        Contact{" "}
+        <Tag className="!text-xs !rounded-none">Not implemented yet</Tag>
+      </FormLabel>
       <Input
         ref={nameRef}
         type="text"
