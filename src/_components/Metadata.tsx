@@ -8,7 +8,8 @@ import {
 } from "@chakra-ui/react";
 import Websites from "./Websites";
 import { INTRO } from "../config/metadata";
-
+import profileImg from "../assets/profile.jpg";
+import { hoverImgScaling } from "./ui/CommonStyles";
 const Metadata: React.FC = () => {
   return (
     <Stack id="metadata">
@@ -17,7 +18,12 @@ const Metadata: React.FC = () => {
       </Heading>
 
       <Flex className="gap-10">
-        <Image className="hidden sm:block" src="" height={50} width={50} />
+        <Image
+          className={`hidden sm:block ${hoverImgScaling}`}
+          src={profileImg}
+          height={70}
+          width={70}
+        />
 
         <Stack className="!gap-5">
           <SimpleGrid columns={2}>
