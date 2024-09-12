@@ -1,4 +1,5 @@
 import {
+  Button,
   FormControl,
   FormLabel,
   Input,
@@ -16,6 +17,15 @@ const ContactForm: React.FC = () => {
   const toast = useToast();
 
   const handleSubmit = () => {
+    toast({
+      title: "Info",
+      isClosable: true,
+      status: "info",
+      description: "Feature is not implemented yet!",
+      position: "top-right",
+    });
+    return;
+
     const { isValid, errors } = validateForm({
       name: nameRef.current?.value || "",
       email: emailRef.current?.value || "",
@@ -67,11 +77,12 @@ const ContactForm: React.FC = () => {
         className="!rounded-none"
       />
 
-      <Input
-        type="submit"
+      <Button
         className={`${buttonStyle} cursor-pointer`}
         onClick={handleSubmit}
-      />
+      >
+        Send
+      </Button>
     </FormControl>
   );
 };
