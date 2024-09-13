@@ -7,7 +7,7 @@ const MainLayout: React.FC = () => {
     <Stack
       h="100vh"
       w="100%"
-      className={`overflow-auto ${useColorModeValue(
+      className={`!justify-between overflow-auto ${useColorModeValue(
         " bg-gradient-to-tr from-gray-200",
         " bg-gradient-to-tr from-black"
       )}`}
@@ -19,8 +19,8 @@ const MainLayout: React.FC = () => {
       <Box as="main" className="p-8 ">
         <Outlet />
       </Box>
-      <Box as="footer" className="p-10 h-[10rem]">
-        <Text className="text-right text-slate-500">{"ForestLake@2024"}</Text>
+      <Box as="footer" className="p-10 h-[10rem] flex items-end justify-end">
+        <Text className="text-slate-500">{"ForestLake@2024"}</Text>
       </Box>
     </Stack>
   );
