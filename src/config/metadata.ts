@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import oeLogo from "../assets/oe.png";
 export const INTRO: Metadata = {
   name: "Robert Meszaros",
   location: "Budapest, Hungary",
@@ -42,10 +43,9 @@ export const CERTS: Certificate[] = [
 export const EDUCATIONS: Certificate[] = [
   {
     title: "Computer Science Engineer Bsc",
-    img: "https://media.licdn.com/dms/image/v2/C560BAQEvdKc_1EfjjA/company-logo_100_100/company-logo_100_100/0/1630670359917?e=1733356800&v=beta&t=wmpeBMAEQe9ZZPENunKvACYTaTR7KiLVODOrm2dF3Xs",
+    img: oeLogo,
     url: "https://nik.uni-obuda.hu/en/computer-science-engineering-bsc/",
     alt: "Computer Science Engineer Bsc",
     institution: "Obuda University",
-    grade: 5,
   },
 ];

@@ -41,7 +41,6 @@ const Papers: React.FC<PaperProps> = ({
               <Stack>
                 <Text className="text-xs ">{item.institution}</Text>
                 <Text className="text-xs">{item.title}</Text>
-                <Text className="text-xs">Grade: {item.grade}</Text>
               </Stack>
             )}
           </Flex>
