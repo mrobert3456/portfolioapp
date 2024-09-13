@@ -16,10 +16,10 @@ const MainLayout: React.FC = () => {
         <Header />
       </Flex>
 
-      <Box as="main" className="p-8 h-full">
+      <Box as="main" className="p-8 ">
         <Outlet />
       </Box>
-      <Box as="footer" className="p-10">
+      <Box as="footer" className="p-10 h-[10rem]">
         <Text className="text-right text-slate-500">{"ForestLake@2024"}</Text>
       </Box>
     </Stack>
