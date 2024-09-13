@@ -9,6 +9,7 @@ import { WiDaySunny, WiNightClear } from "react-icons/wi";
 import { CustomRoutes } from "./Routes";
 import NavItem from "./NavItem";
 import HamburgerMenu from "./HamburgerMenu";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const { toggleColorMode } = useColorMode();
@@ -23,8 +24,8 @@ const Header: React.FC = () => {
   );
   return (
     <Flex as="nav" className="w-full px-6">
-      <Text h={10} p={2} className="text-center">
-        {"ForestLake"}
+      <Text as={Link} to={"/"} h={10} p={2} className="text-center">
+        ForestLake
       </Text>
 
       <Flex className="!hidden sm:!flex gap-5 justify-center w-full">
