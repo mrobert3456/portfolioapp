@@ -8,14 +8,14 @@ const MainLayout: React.FC = () => {
   return (
     <Stack
       h="100vh"
-      className={`relative overflow-hidden ${useColorModeValue(
+      className={`relative !overflow-hidden ${useColorModeValue(
         " bg-gradient-to-tr from-gray-200",
         " bg-gradient-to-tr from-black"
       )}`}
     >
       <Header routes={customRoutes} />
 
-      <main className="p-8 z-10 mt-16 overflow-auto h-full">
+      <main className="p-8 z-10 mt-20 overflow-y-auto h-full">
         <div ref={pageRef} />
         <Outlet />
       </main>
