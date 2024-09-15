@@ -19,7 +19,7 @@ const Metadata: React.FC = () => {
 
       <Flex className="gap-10">
         <Image
-          className={`hidden sm:block ${hoverImgScaling}`}
+          className={`hidden sm:block ${hoverImgScaling} rounded-full`}
           src={profileImg}
           height={70}
           width={70}
