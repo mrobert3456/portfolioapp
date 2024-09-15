@@ -1,14 +1,14 @@
 import BlogItemCard from "./BlogItemCard";
 import blogs from "../../config/blogs.json";
-import { Flex } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 
 const FeaturedBlogs: React.FC = () => {
   return (
-    <Flex className="gap-2 justify-center flex-wrap">
+    <SimpleGrid spacing={2} columns={{ base: 1, md: 3 }}>
       {blogs.slice(0, 3).map((blog: Blog) => (
         <BlogItemCard key={`featured_blog__${blog.title}`} blog={blog} />
       ))}
-    </Flex>
+    </SimpleGrid>
   );
 };
 export default FeaturedBlogs;
