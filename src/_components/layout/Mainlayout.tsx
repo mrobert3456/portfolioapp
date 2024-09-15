@@ -1,4 +1,4 @@
-import { Box, Flex, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
@@ -6,22 +6,20 @@ const MainLayout: React.FC = () => {
   return (
     <Stack
       h="100vh"
-      w="100%"
-      className={`!justify-between overflow-auto ${useColorModeValue(
+      className={`relative overflow-hidden ${useColorModeValue(
         " bg-gradient-to-tr from-gray-200",
         " bg-gradient-to-tr from-black"
       )}`}
     >
-      <Flex className="justify-center py-[1rem] z-50 w-full">
-        <Header />
-      </Flex>
+      <Header />
 
-      <Box as="main" className="p-8 ">
+      <main className="p-8 z-10 mt-16 overflow-auto h-full">
         <Outlet />
-      </Box>
-      <Box as="footer" className="p-10 h-[10rem] flex items-end justify-end">
+      </main>
+
+      <footer className="p-4 h-[5rem] flex items-start justify-end">
         <Text className="text-slate-500">{"ForestLake@2024"}</Text>
-      </Box>
+      </footer>
     </Stack>
   );
 };
