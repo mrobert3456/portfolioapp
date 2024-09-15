@@ -6,11 +6,9 @@ const Blogs: React.FC = () => {
   return (
     <SimpleGrid id="Blogs" className="h-full">
       <Flex className="justify-center items-center gap-2 flex-wrap">
-        <CustomCardContainer>
-          {blogs.map((blog: Blog) => (
-            <BlogItemCard key={`featured_blog__${blog.title}`} blog={blog} />
-          ))}
-        </CustomCardContainer>
+        {blogs.map((blog: Blog) => (
+          <BlogItemCard key={`featured_blog__${blog.title}`} blog={blog} />
+        ))}
       </Flex>
     </SimpleGrid>
   );
