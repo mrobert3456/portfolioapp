@@ -10,7 +10,9 @@ createRoot(document.getElementById("root")!).render(
     <ChakraProvider>
       <BrowserRouter>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <App />
+        <div className="overflow-hidden">
+          <App />
+        </div>
       </BrowserRouter>
     </ChakraProvider>
   </StrictMode>
