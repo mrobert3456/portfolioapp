@@ -27,7 +27,10 @@ const Header: React.FC<HeaderProps> = ({ routes }) => {
     "!bg-transparent hover:!bg-slate-700"
   );
   return (
-    <Flex as="nav" className="fixed top-0 py-[1rem] !z-50 w-full px-6 h-max">
+    <Flex
+      as="nav"
+      className="fixed top-0 py-[1rem] !z-50 w-full px-6 h-max backdrop-blur-sm"
+    >
       <Text
         as={Link}
         to={"/"}
