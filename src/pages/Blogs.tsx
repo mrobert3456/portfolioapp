@@ -1,7 +1,6 @@
 import { SimpleGrid, Flex } from "@chakra-ui/react";
 import blogs from "../config/blogs.json";
 import BlogItemCard from "../_components/ui/BlogItemCard";
-import CustomCardContainer from "../_components/ui/CustomCardContainer";
 const Blogs: React.FC = () => {
   return (
     <SimpleGrid id="Blogs" className="h-full">
