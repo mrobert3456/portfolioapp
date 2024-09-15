@@ -26,7 +26,7 @@ const Metadata: React.FC = () => {
         />
 
         <Stack className="!gap-5">
-          <SimpleGrid columns={2}>
+          <SimpleGrid columns={2} gridTemplateColumns={"0.6fr 1fr"}>
             {Object.entries(INTRO).map(([key, value]) => (
               <>
                 <Text className="capitalize text-sm">{key}</Text>
