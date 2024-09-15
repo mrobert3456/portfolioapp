@@ -1,8 +1,10 @@
 import { Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import useNavigation from "../../hooks/useNavigation";
 
 const MainLayout: React.FC = () => {
+  const { customRoutes, pageRef } = useNavigation();
   return (
     <Stack
       h="100vh"
@@ -11,9 +13,10 @@ const MainLayout: React.FC = () => {
         " bg-gradient-to-tr from-black"
       )}`}
     >
-      <Header />
+      <Header routes={customRoutes} />
 
       <main className="p-8 z-10 mt-16 overflow-auto h-full">
+        <div ref={pageRef} />
         <Outlet />
       </main>
 

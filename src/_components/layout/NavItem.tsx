@@ -1,8 +1,8 @@
-import { Link, useColorModeValue } from "@chakra-ui/react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { useColorModeValue } from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
 import { hoverUnderlined } from "../ui/CommonStyles";
 
-const NavItem: React.FC<CustomRoute> = ({ path, name }) => {
+const NavItem: React.FC<CustomRoute> = ({ path, name, action }) => {
   const { pathname } = useLocation();
 
   const hoverBgColor = useColorModeValue(
@@ -12,17 +12,16 @@ const NavItem: React.FC<CustomRoute> = ({ path, name }) => {
   const bgColor = useColorModeValue("bg-slate-300", "bg-slate-700");
 
   return (
-    <Link
+    <div
       className={`!no-underline relative min-w-[6rem] cursor-pointer 
             text-center py-1 text-lg ${hoverBgColor} ${
         pathname === path && `before:w-full ${bgColor} `
       } ${hoverUnderlined}  `}
-      as={RouterLink}
-      to={path}
       key={path}
+      onClick={action}
     >
       {name}
-    </Link>
+    </div>
   );
 };
 

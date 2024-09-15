@@ -6,13 +6,17 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { WiDaySunny, WiNightClear } from "react-icons/wi";
-import { CustomRoutes } from "./Routes";
 import NavItem from "./NavItem";
 import HamburgerMenu from "./HamburgerMenu";
 import { Link } from "react-router-dom";
+import useNavigation from "../../hooks/useNavigation";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  routes: CustomRoute[];
+}
+const Header: React.FC<HeaderProps> = ({ routes }) => {
   const { toggleColorMode } = useColorMode();
+  const { pageRef } = useNavigation();
 
   const themeColorIcon = useColorModeValue(
     <WiDaySunny size={36} />,
@@ -24,13 +28,22 @@ const Header: React.FC = () => {
   );
   return (
     <Flex as="nav" className="fixed top-0 py-[1rem] !z-50 w-full px-6 h-max">
-      <Text as={Link} to={"/"} h={10} p={2} className="text-center">
+      <Text
+        as={Link}
+        to={"/"}
+        h={10}
+        p={2}
+        className="text-center"
+        onClick={() => {
+          pageRef.current?.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
         ForestLake
       </Text>
 
       <Flex className="!hidden sm:!flex gap-5 justify-center w-full">
-        {CustomRoutes.map((route: CustomRoute) => (
-          <NavItem path={route.path} name={route.name} />
+        {routes.map((route: CustomRoute) => (
+          <NavItem path={route.path} name={route.name} action={route.action} />
         ))}
       </Flex>
 
@@ -41,7 +54,7 @@ const Header: React.FC = () => {
         aria-label={"Toggle color mode"}
       />
       <Flex className="sm:!hidden justify-end w-full">
-        <HamburgerMenu routes={CustomRoutes} />
+        <HamburgerMenu routes={routes} />
       </Flex>
     </Flex>
   );

@@ -39,7 +39,11 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ routes }) => {
         <MenuDivider />
         {routes.map((route: CustomRoute) => (
           <MenuItem className="flex justify-center">
-            <NavItem path={route.path} name={route.name} />
+            <NavItem
+              path={route.path}
+              name={route.name}
+              action={route.action}
+            />
           </MenuItem>
         ))}
       </MenuList>
