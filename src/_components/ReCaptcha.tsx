@@ -9,13 +9,7 @@ const ReCaptcha: React.FC<ReCaptchaProps> = ({ title, sitekey, callback }) => {
   const captchaRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const onRecaptchaLoad = () => {
-    if (isLoaded) {
-      //@ts-expect-error: grecaptcha is not defined
-      window.grecaptcha.render(captchaRef.current, {
-        sitekey: sitekey,
-        callback: callback,
-      });
-    }
+    setIsLoaded(true);
   };
 
   useEffect(() => {
@@ -30,6 +24,9 @@ const ReCaptcha: React.FC<ReCaptchaProps> = ({ title, sitekey, callback }) => {
         script.async = true;
         script.defer = true;
         document.head.appendChild(script);
+      }
+      //@ts-expect-error: grecaptcha is not defined
+      else if (window.grecaptcha && window.grecaptcha.render) {
         setIsLoaded(true);
       }
     }
@@ -42,6 +39,16 @@ const ReCaptcha: React.FC<ReCaptchaProps> = ({ title, sitekey, callback }) => {
       document.head.removeChild(script);
     };
   }, []);
+
+  useEffect(() => {
+    if (isLoaded) {
+      //@ts-expect-error: grecaptcha is not defined
+      window.grecaptcha.render(captchaRef.current, {
+        sitekey: sitekey,
+        callback: callback,
+      });
+    }
+  }, [isLoaded]);
 
   return (
     <div
