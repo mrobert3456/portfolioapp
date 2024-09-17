@@ -37,8 +37,11 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ routes }) => {
           <Switch onChange={toggleColorMode} />
         </MenuItem>
         <MenuDivider />
-        {routes.map((route: CustomRoute) => (
-          <MenuItem className="flex justify-center">
+        {routes.map((route: CustomRoute, index: number) => (
+          <MenuItem
+            key={`{route.path}_${index}__ham`}
+            className="flex justify-center"
+          >
             <NavItem
               path={route.path}
               name={route.name}
