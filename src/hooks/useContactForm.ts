@@ -5,7 +5,7 @@ const useContactForm = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [, setCaptchaToken] = useState<string | null>(null);
 
   const { isValid, errors } = validateForm({
     name: nameRef.current?.value || "",

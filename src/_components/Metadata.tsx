@@ -26,14 +26,18 @@ const Metadata: React.FC = () => {
         />
 
         <Stack className="!gap-5">
-          <SimpleGrid columns={2} gridTemplateColumns={"0.6fr 1fr"}>
+          <div>
             {Object.entries(INTRO).map(([key, value]) => (
-              <div key={`field__${key}`}>
+              <SimpleGrid
+                key={`field__${key}`}
+                columns={2}
+                gridTemplateColumns={"0.6fr 1fr"}
+              >
                 <Text className="capitalize text-sm">{key}</Text>
                 <Text className="text-sm">{value}</Text>
-              </div>
+              </SimpleGrid>
             ))}
-          </SimpleGrid>
+          </div>
 
           <Websites />
         </Stack>
