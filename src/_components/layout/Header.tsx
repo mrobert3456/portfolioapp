@@ -45,8 +45,14 @@ const Header: React.FC<HeaderProps> = ({ routes }) => {
       </Text>
 
       <Flex className="!hidden sm:!flex gap-5 justify-center w-full">
-        {routes.map((route: CustomRoute) => (
-          <NavItem path={route.path} name={route.name} action={route.action} />
+        {routes.map((route: CustomRoute, index: number) => (
+          <div key={`${route.path}_${index}_desk`}>
+            <NavItem
+              path={route.path}
+              name={route.name}
+              action={route.action}
+            />
+          </div>
         ))}
       </Flex>
 

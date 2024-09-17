@@ -17,7 +17,6 @@ const NavItem: React.FC<CustomRoute> = ({ path, name, action }) => {
             text-center py-1 text-lg ${hoverBgColor} ${
         pathname === path && `before:w-full ${bgColor} `
       } ${hoverUnderlined}  `}
-      key={path}
       onClick={action}
     >
       {name}

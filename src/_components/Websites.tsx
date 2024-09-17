@@ -8,7 +8,12 @@ const Websites: React.FC = () => {
       {WEBSITES.map((item: Website) => {
         const Icon = item.icon;
         return (
-          <Link aria-label={item.title} href={item.url} target="_blank">
+          <Link
+            key={`${item.url}`}
+            aria-label={item.title}
+            href={item.url}
+            target="_blank"
+          >
             <Icon size={24} className={hoverImgScaling} />
           </Link>
         );

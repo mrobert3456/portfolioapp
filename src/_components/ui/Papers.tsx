@@ -22,7 +22,7 @@ const Papers: React.FC<PaperProps> = ({
 
       <Flex className="gap-5">
         {papers.map((item: Certificate) => (
-          <Flex className="gap-3">
+          <Flex className="gap-3" key={`${item.url}`}>
             <Link
               className="flex gap-2 !no-underline"
               aria-label={item.title}
