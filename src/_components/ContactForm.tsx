@@ -85,7 +85,7 @@ const ContactForm: React.FC = () => {
       </Button>
       <ReCaptcha
         title="contact__recaptcha"
-        sitekey={import.meta.env.VITE_SITE_KEY}
+        sitekey={"6LdPfkYqAAAAAJByam8Spj4a8nkQLLDwRKpyfU7g"}
         callback={tokenCallback}
       />
     </FormControl>
