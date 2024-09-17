@@ -8,16 +8,16 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { buttonStyle } from "./ui/CommonStyles";
-import { useRef } from "react";
-import { validateForm } from "../utils/validateContactForm";
+import ReCaptcha from "./ReCaptcha";
+import useContactForm from "../hooks/useContactForm";
 
 const ContactForm: React.FC = () => {
-  const nameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const { nameRef, emailRef, messageRef, handleSubmit, tokenCallback, errors } =
+    useContactForm();
+
   const toast = useToast();
 
-  const handleSubmit = () => {
+  const handleFormSubmit = () => {
     toast({
       title: "Info",
       isClosable: true,
@@ -25,15 +25,10 @@ const ContactForm: React.FC = () => {
       description: "Feature is not implemented yet!",
       position: "top-right",
     });
+
     return;
 
-    const { isValid, errors } = validateForm({
-      name: nameRef.current?.value || "",
-      email: emailRef.current?.value || "",
-      message: messageRef.current?.value || "",
-    });
-
-    if (!isValid) {
+    if (errors.length > 0) {
       if (!toast.isActive("invalid-inputs")) {
         toast({
           id: "invalid-inputs",
@@ -54,6 +49,7 @@ const ContactForm: React.FC = () => {
       }
       return;
     }
+    handleSubmit();
   };
   return (
     <FormControl className="flex flex-col gap-2 m-3">
@@ -83,10 +79,15 @@ const ContactForm: React.FC = () => {
 
       <Button
         className={`${buttonStyle} cursor-pointer`}
-        onClick={handleSubmit}
+        onClick={handleFormSubmit}
       >
         Send
       </Button>
+      <ReCaptcha
+        title="contact__recaptcha"
+        sitekey={import.meta.env.VITE_SITE_KEY}
+        callback={tokenCallback}
+      />
     </FormControl>
   );
 };
