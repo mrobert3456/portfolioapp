@@ -5,65 +5,14 @@ import {
   Input,
   Tag,
   Textarea,
-  useToast,
 } from "@chakra-ui/react";
 import { buttonStyle } from "./ui/CommonStyles";
 import ReCaptcha from "./ReCaptcha";
 import useContactForm from "../hooks/useContactForm";
-import { useEffect } from "react";
 
 const ContactForm: React.FC = () => {
-  const {
-    nameRef,
-    emailRef,
-    messageRef,
-    handleSubmit,
-    tokenCallback,
-    errors,
-    response,
-  } = useContactForm();
-
-  const toast = useToast();
-
-  const handleFormSubmit = () => {
-    if (errors.length > 0) {
-      if (!toast.isActive("invalid-inputs")) {
-        toast({
-          id: "invalid-inputs",
-          title: "invalid-inputs",
-          description: (
-            <ul>
-              {errors.map((error: string) => (
-                <li key={error}>{error}</li>
-              ))}
-            </ul>
-          ),
-          status: "error",
-          duration: 4000,
-          isClosable: true,
-          position: "top-right",
-          containerStyle: { borderRadius: "0px !important" },
-        });
-      }
-      return;
-    }
-    handleSubmit();
-  };
-
-  useEffect(() => {
-    if (response) {
-      toast({
-        id: "email-response",
-        title: "Email",
-        description: `${JSON.parse(response.body)}`,
-        status: response.statusCode === 200 ? "success" : "error",
-        duration: 4000,
-        isClosable: true,
-        position: "top-right",
-        containerStyle: { borderRadius: "0px !important" },
-      });
-    }
-  }, [response]);
+  const { nameRef, emailRef, messageRef, handleSubmit, tokenCallback } =
+    useContactForm();
 
   return (
     <FormControl className="flex flex-col gap-2 m-3">
@@ -93,7 +42,7 @@ const ContactForm: React.FC = () => {
 
       <Button
         className={`${buttonStyle} cursor-pointer`}
-        onClick={handleFormSubmit}
+        onClick={handleSubmit}
       >
         Send
       </Button>
