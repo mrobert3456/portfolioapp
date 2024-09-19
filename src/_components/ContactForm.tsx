@@ -10,24 +10,22 @@ import {
 import { buttonStyle } from "./ui/CommonStyles";
 import ReCaptcha from "./ReCaptcha";
 import useContactForm from "../hooks/useContactForm";
+import { useEffect } from "react";
 
 const ContactForm: React.FC = () => {
-  const { nameRef, emailRef, messageRef, handleSubmit, tokenCallback, errors } =
-    useContactForm();
+  const {
+    nameRef,
+    emailRef,
+    messageRef,
+    handleSubmit,
+    tokenCallback,
+    errors,
+    response,
+  } = useContactForm();
 
   const toast = useToast();
 
   const handleFormSubmit = () => {
-    toast({
-      title: "Info",
-      isClosable: true,
-      status: "info",
-      description: "Feature is not implemented yet!",
-      position: "top-right",
-    });
-
-    return;
-
     if (errors.length > 0) {
       if (!toast.isActive("invalid-inputs")) {
         toast({
@@ -51,6 +49,22 @@ const ContactForm: React.FC = () => {
     }
     handleSubmit();
   };
+
+  useEffect(() => {
+    if (response) {
+      toast({
+        id: "email-response",
+        title: "Email",
+        description: `${JSON.parse(response.body)}`,
+        status: response.statusCode === 200 ? "success" : "error",
+        duration: 4000,
+        isClosable: true,
+        position: "top-right",
+        containerStyle: { borderRadius: "0px !important" },
+      });
+    }
+  }, [response]);
+
   return (
     <FormControl className="flex flex-col gap-2 m-3">
       <FormLabel className="!flex !justify-between !mr-0">
