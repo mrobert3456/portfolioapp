@@ -8,7 +8,7 @@ const useContactForm = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
-  const [, setCaptchaToken] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const toast = useToast();
 
@@ -39,36 +39,38 @@ const useContactForm = () => {
     }
     //recaptcha execute
     //@ts-expect-error: grecaptcha is not defined
-    window.grecaptcha.execute();
+    window.grecaptcha.execute().then(() => {
+      //send captchaToken
+      //form submisson to AWS API gateway
+      console.log(captchaToken);
+      const data = {
+        token: captchaToken || "",
+        name: nameRef.current!.value,
+        email: emailRef.current!.value,
+        message: messageRef.current!.value,
+      };
 
-    //send captchaToken
-    //form submisson to AWS API gateway
-    const data = {
-      name: nameRef.current!.value,
-      email: emailRef.current!.value,
-      message: messageRef.current!.value,
-    };
-
-    fetch(API_GW_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response: Response) => response.json())
-      .then((data: ContactResponse) =>
-        toast({
-          id: "email-response",
-          title: "Email",
-          description: `${JSON.parse(data.body)}`,
-          status: data.statusCode === 200 ? "success" : "error",
-          duration: 4000,
-          isClosable: true,
-          position: "top-right",
-          containerStyle: { borderRadius: "0px !important" },
-        })
-      );
+      fetch(API_GW_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response: Response) => response.json())
+        .then((data: ContactResponse) =>
+          toast({
+            id: "email-response",
+            title: "Email",
+            description: `${JSON.parse(data.body)}`,
+            status: data.statusCode === 200 ? "success" : "error",
+            duration: 4000,
+            isClosable: true,
+            position: "top-right",
+            containerStyle: { borderRadius: "0px !important" },
+          })
+        );
+    });
   };
 
   return {
