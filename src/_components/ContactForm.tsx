@@ -3,21 +3,19 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Tag,
+  Spinner,
   Textarea,
 } from "@chakra-ui/react";
 import { buttonStyle } from "./ui/CommonStyles";
 import useContactForm from "../hooks/useContactForm";
 
 const ContactForm: React.FC = () => {
-  const { nameRef, emailRef, messageRef, handleSubmit } = useContactForm();
+  const { isLoading, nameRef, emailRef, messageRef, handleSubmit } =
+    useContactForm();
 
   return (
     <FormControl className="flex flex-col gap-2 m-3">
-      <FormLabel className="!flex !justify-between !mr-0">
-        Contact{" "}
-        <Tag className="!text-xs !rounded-none">Not implemented yet</Tag>
-      </FormLabel>
+      <FormLabel className="!flex !justify-between !mr-0">Contact </FormLabel>
       <Input
         ref={nameRef}
         type="text"
@@ -39,10 +37,12 @@ const ContactForm: React.FC = () => {
       />
 
       <Button
-        className={`${buttonStyle} cursor-pointer`}
+        className={`${buttonStyle}flex gap-2 cursor-pointer`}
         onClick={handleSubmit}
+        isDisabled={isLoading}
       >
-        Send
+        {isLoading && <Spinner size="sm" />}
+        {isLoading ? "Sending" : "Send"}
       </Button>
     </FormControl>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { validateForm } from "../utils/validateContactForm";
 import { useToast } from "@chakra-ui/react";
 
@@ -8,6 +8,7 @@ const useContactForm = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const toast = useToast();
   useEffect(() => {
@@ -50,6 +51,7 @@ const useContactForm = () => {
       }
       return;
     }
+    setIsLoading(true);
     //@ts-expect-error: grecaptcha is not defined
     window.grecaptcha.ready(() => {
       //@ts-expect-error: grecaptcha is not defined
@@ -74,7 +76,8 @@ const useContactForm = () => {
             body: JSON.stringify(data),
           })
             .then((response: Response) => response.json())
-            .then((data: ContactResponse) =>
+            .then((data: ContactResponse) => {
+              setIsLoading(false);
               toast({
                 id: "email-response",
                 title: "Email",
@@ -84,13 +87,14 @@ const useContactForm = () => {
                 isClosable: true,
                 position: "top-right",
                 containerStyle: { borderRadius: "0px !important" },
-              })
-            );
+              });
+            });
         });
     });
   };
 
   return {
+    isLoading,
     nameRef,
     emailRef,
     messageRef,
