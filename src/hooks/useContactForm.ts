@@ -1,21 +1,34 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { validateForm } from "../utils/validateContactForm";
 import { useToast } from "@chakra-ui/react";
 
 const API_GW_ENDPOINT = "http://localhost:8000/sendEmail";
-
+const SITE_KEY = "6Lf0_UkqAAAAAKbrIXHAZC18GZKY1id9p75rwL9Z";
 const useContactForm = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const toast = useToast();
+  useEffect(() => {
+    const script = document.createElement("script");
 
-  const tokenCallback = (token: string) => {
-    setCaptchaToken(token);
-  };
-  const handleSubmit = () => {
+    if (typeof window !== "undefined") {
+      //@ts-expect-error: grecaptcha is not defined
+      if (!window.grecaptcha) {
+        script.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
+        script.async = true;
+        document.head.appendChild(script);
+      }
+    }
+    return () => {
+      //@ts-expect-error: grecaptcha is not defined
+      window.grecaptcha = null;
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  const handleSubmit = async () => {
     const { isValid, errors } = validateForm({
       name: nameRef.current?.value || "",
       email: emailRef.current?.value || "",
@@ -37,39 +50,43 @@ const useContactForm = () => {
       }
       return;
     }
-    //recaptcha execute
     //@ts-expect-error: grecaptcha is not defined
-    window.grecaptcha.execute().then(() => {
-      //send captchaToken
-      //form submisson to AWS API gateway
-      console.log(captchaToken);
-      const data = {
-        token: captchaToken || "",
-        name: nameRef.current!.value,
-        email: emailRef.current!.value,
-        message: messageRef.current!.value,
-      };
+    window.grecaptcha.ready(() => {
+      //@ts-expect-error: grecaptcha is not defined
+      window.grecaptcha
+        .execute(SITE_KEY, { action: "submit" })
+        .then((token: string) => {
+          //send captchaToken
+          //form submisson to AWS API gateway
+          console.log(token);
+          const data = {
+            token: token,
+            name: nameRef.current!.value,
+            email: emailRef.current!.value,
+            message: messageRef.current!.value,
+          };
 
-      fetch(API_GW_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response: Response) => response.json())
-        .then((data: ContactResponse) =>
-          toast({
-            id: "email-response",
-            title: "Email",
-            description: `${JSON.parse(data.body)}`,
-            status: data.statusCode === 200 ? "success" : "error",
-            duration: 4000,
-            isClosable: true,
-            position: "top-right",
-            containerStyle: { borderRadius: "0px !important" },
+          fetch(API_GW_ENDPOINT, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
           })
-        );
+            .then((response: Response) => response.json())
+            .then((data: ContactResponse) =>
+              toast({
+                id: "email-response",
+                title: "Email",
+                description: `${JSON.parse(data.body)}`,
+                status: data.statusCode === 200 ? "success" : "error",
+                duration: 4000,
+                isClosable: true,
+                position: "top-right",
+                containerStyle: { borderRadius: "0px !important" },
+              })
+            );
+        });
     });
   };
 
@@ -78,7 +95,6 @@ const useContactForm = () => {
     emailRef,
     messageRef,
     handleSubmit,
-    tokenCallback,
   };
 };
 

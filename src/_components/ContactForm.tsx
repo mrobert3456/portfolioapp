@@ -7,12 +7,10 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { buttonStyle } from "./ui/CommonStyles";
-import ReCaptcha from "./ReCaptcha";
 import useContactForm from "../hooks/useContactForm";
 
 const ContactForm: React.FC = () => {
-  const { nameRef, emailRef, messageRef, handleSubmit, tokenCallback } =
-    useContactForm();
+  const { nameRef, emailRef, messageRef, handleSubmit } = useContactForm();
 
   return (
     <FormControl className="flex flex-col gap-2 m-3">
@@ -46,11 +44,6 @@ const ContactForm: React.FC = () => {
       >
         Send
       </Button>
-      <ReCaptcha
-        title="contact__recaptcha"
-        sitekey={"6LdPfkYqAAAAAJByam8Spj4a8nkQLLDwRKpyfU7g"}
-        callback={tokenCallback}
-      />
     </FormControl>
   );
 };
