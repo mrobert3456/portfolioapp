@@ -3,3 +3,8 @@ interface ContactInformation {
   email: string;
   message: string;
 }
+
+interface ContactResponse {
+  body: string;
+  statusCode: number;
+}
