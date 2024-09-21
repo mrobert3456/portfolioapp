@@ -74,7 +74,7 @@ const useContactForm = () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data).toString(),
           })
             .then((response: Response) => response.json())
             .then((data: ContactResponse) => {
