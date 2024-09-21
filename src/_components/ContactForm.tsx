@@ -32,7 +32,7 @@ const ContactForm: React.FC = () => {
 
       <Textarea
         ref={messageRef}
-        placeholder="message"
+        placeholder="Message"
         className="!rounded-none"
       />
 
