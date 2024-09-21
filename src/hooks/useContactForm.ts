@@ -73,7 +73,14 @@ const useContactForm = () => {
             },
             body: JSON.stringify(data),
           })
-            .then((response: Response) => response.json())
+            .then((response: Response) => {
+              if (response.status === 200) {
+                nameRef.current!.value = "";
+                emailRef.current!.value = "";
+                messageRef.current!.value = "";
+              }
+              return response.json();
+            })
             .then((data: ContactResponse) => {
               setIsLoading(false);
               toast({
