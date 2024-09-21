@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { validateForm } from "../utils/validateContactForm";
 import { useToast } from "@chakra-ui/react";
 
-const API_GW_ENDPOINT = "http://localhost:8000/sendEmail";
+const API_GW_ENDPOINT =
+  "https://jra9zep1a7.execute-api.eu-central-1.amazonaws.com/default/send_mail_function";
 const SITE_KEY = "6Lf0_UkqAAAAAKbrIXHAZC18GZKY1id9p75rwL9Z";
 const useContactForm = () => {
   const nameRef = useRef<HTMLInputElement>(null);
