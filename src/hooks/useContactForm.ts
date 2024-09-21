@@ -59,9 +59,6 @@ const useContactForm = () => {
       window.grecaptcha
         .execute(SITE_KEY, { action: "submit" })
         .then((token: string) => {
-          //send captchaToken
-          //form submisson to AWS API gateway
-          console.log(token);
           const data = {
             token: token,
             name: nameRef.current!.value,
@@ -74,7 +71,7 @@ const useContactForm = () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(data).toString(),
+            body: JSON.stringify(data),
           })
             .then((response: Response) => response.json())
             .then((data: ContactResponse) => {
