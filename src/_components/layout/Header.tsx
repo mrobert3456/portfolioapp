@@ -8,7 +8,7 @@ import {
 import { WiDaySunny, WiNightClear } from "react-icons/wi";
 import NavItem from "./NavItem";
 import HamburgerMenu from "./HamburgerMenu";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useNavigation from "../../hooks/useNavigation";
 
 interface HeaderProps {
@@ -17,7 +17,11 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ routes }) => {
   const { toggleColorMode } = useColorMode();
   const { pageRef } = useNavigation();
-
+  const location = useLocation();
+  const headerText =
+    location.pathname === "/"
+      ? "ForestLake"
+      : `ForestLake | ${location.pathname.split("/")[1]}`;
   const themeColorIcon = useColorModeValue(
     <WiDaySunny size={36} />,
     <WiNightClear size={36} />
@@ -36,12 +40,12 @@ const Header: React.FC<HeaderProps> = ({ routes }) => {
         to={"/"}
         h={10}
         p={2}
-        className="text-center"
+        className="text-center whitespace-nowrap capitalize"
         onClick={() => {
           pageRef.current?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        ForestLake
+        {headerText}
       </Text>
 
       <Flex className="!hidden sm:!flex gap-5 justify-center w-full">

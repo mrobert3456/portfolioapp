@@ -1,16 +1,17 @@
-import { SimpleGrid, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import AboutCard from "../_components/AboutCard";
 import CustomCardContainer from "../_components/ui/CustomCardContainer";
+import PageLayout from "../_components/layout/PageLayout";
 
 const About: React.FC = () => {
   return (
-    <SimpleGrid id="About" className="h-full">
+    <PageLayout id="About">
       <Flex className="justify-center items-center">
         <CustomCardContainer>
           <AboutCard />
         </CustomCardContainer>
       </Flex>
-    </SimpleGrid>
+    </PageLayout>
   );
 };
 
