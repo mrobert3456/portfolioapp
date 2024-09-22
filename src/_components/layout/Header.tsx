@@ -8,7 +8,7 @@ import {
 import { WiDaySunny, WiNightClear } from "react-icons/wi";
 import NavItem from "./NavItem";
 import HamburgerMenu from "./HamburgerMenu";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useNavigation from "../../hooks/useNavigation";
 
 interface HeaderProps {
@@ -17,7 +17,11 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ routes }) => {
   const { toggleColorMode } = useColorMode();
   const { pageRef } = useNavigation();
-
+  const location = useLocation();
+  const headerText =
+    location.pathname === "/"
+      ? "ForestLake"
+      : `ForestLake | ${location.pathname.split("/")[1]}`;
   const themeColorIcon = useColorModeValue(
     <WiDaySunny size={36} />,
     <WiNightClear size={36} />
@@ -36,15 +40,15 @@ const Header: React.FC<HeaderProps> = ({ routes }) => {
         to={"/"}
         h={10}
         p={2}
-        className="text-center"
+        className="text-left whitespace-nowrap capitalize w-[13rem] min-w[13rem]"
         onClick={() => {
           pageRef.current?.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        ForestLake
+        {headerText}
       </Text>
 
-      <Flex className="!hidden sm:!flex gap-5 justify-center w-full">
+      <Flex className="!hidden sm:!flex justify-center w-full">
         {routes.map((route: CustomRoute, index: number) => (
           <div key={`${route.path}_${index}_desk`}>
             <NavItem
@@ -56,12 +60,15 @@ const Header: React.FC<HeaderProps> = ({ routes }) => {
         ))}
       </Flex>
 
-      <IconButton
-        className={`!hidden sm:!flex !rounded-none ${iconBgColors} `}
-        icon={themeColorIcon}
-        onClick={toggleColorMode}
-        aria-label={"Toggle color mode"}
-      />
+      <div className="flex justify-end w-[13rem] min-w[13rem]">
+        <IconButton
+          className={`!hidden sm:!flex !rounded-none ${iconBgColors}  `}
+          icon={themeColorIcon}
+          onClick={toggleColorMode}
+          aria-label={"Toggle color mode"}
+        />
+      </div>
+
       <Flex className="sm:!hidden justify-end w-full">
         <HamburgerMenu routes={routes} />
       </Flex>

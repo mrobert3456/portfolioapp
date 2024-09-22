@@ -32,6 +32,15 @@ const useNavigation = () => {
         navigate("/blogs");
       },
     },
+    {
+      path: "/projects",
+      name: "Projects",
+      action: () => {
+        pageRef.current?.scrollIntoView({ behavior: "smooth" });
+
+        navigate("/projects");
+      },
+    },
   ];
 
   return { customRoutes, pageRef };

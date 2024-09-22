@@ -21,7 +21,7 @@ const BlogItemCard: React.FC<BlogItemCardProps> = ({ blog, cardProps }) => {
   };
   return (
     <Card
-      className={`!rounded-none max-w-[15rem] ${hoverUnderlined} cursor-pointer `}
+      className={`!rounded-none !max-w-[15rem] !min-w-[15rem] ${hoverUnderlined} cursor-pointer `}
       onClick={handleClick}
       {...cardProps}
     >

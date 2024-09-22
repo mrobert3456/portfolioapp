@@ -5,6 +5,7 @@ import Notfound from "./pages/Notfound";
 import Blogs from "./pages/Blogs";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="*" element={<Notfound />} />
       </Route>
     </Routes>
