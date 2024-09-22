@@ -140,6 +140,9 @@
         <mxCell id="lWICCTp8y8m39Iwrez-0-61" value="IAM role: SESFullAccess" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="467.79" y="420" width="180" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="lWICCTp8y8m39Iwrez-0-64" value="AWS CloudFront" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="274" y="328" width="130" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
