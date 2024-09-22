@@ -1,4 +1,4 @@
-import { Button, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Button, SimpleGrid } from "@chakra-ui/react";
 import { buttonStyle } from "../ui/CommonStyles";
 import { useNavigate } from "react-router-dom";
 
