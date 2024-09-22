@@ -2,7 +2,30 @@
 
 ## ⚙ Architecture
 
+<div align="center">
+    <img src="./data/architecture.svg" alt="Architecture" >
+</div>
+
 ## 💻 Technologies
+
+| **Category** | **Technology**                                                      |
+| ------------ | ------------------------------------------------------------------- |
+| **Frontend** | React (Vite)                                                        |
+|              | Chakra UI                                                           |
+|              | Tailwind CSS                                                        |
+| **Backend**  | AWS Route 53                                                        |
+|              | AWS API Cloudfront                                                  |
+|              | AWS ACM (Certificate Manager)                                       |
+|              | AWS S3                                                              |
+|              | AWS API Gateway                                                     |
+|              | AWS Lambda                                                          |
+|              | AWS SES                                                             |
+|              | Python lambda mailer (https://github.com/mrobert3456/mailer_lambda) |
+| **CI/CD**    | Github actions                                                      |
+
+## 📫 Contact Form
+
+The form is secured with Google reCAPTCHA v3 to prevent spamming.
 
 ## ⚡ CI/CD pipeline
 
@@ -24,3 +47,24 @@ Workflow steps:
 3. **Deploy** project to Amazon S3
 
 4. **Invalidate Cloudfront** to invalidate CDN
+
+## 🚀 Installation
+
+1. Download this repository by running:
+
+```
+git clone https://github.com/mrobert3456/portfolioapp.git
+cd portfolioapp
+```
+
+2. Install dependencies by running:
+
+```
+npm install
+```
+
+3. Start development server by running:
+
+```
+npm run dev
+```
