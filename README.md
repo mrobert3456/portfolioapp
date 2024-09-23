@@ -3,7 +3,7 @@
 ## ⚙ Architecture
 
 <div align="center">
-    <img src="./data/architecture.svg" alt="Architecture" >
+    <img src="./data/app_architecture.svg" alt="Architecture" >
 </div>
 
 ## 💻 Technologies
