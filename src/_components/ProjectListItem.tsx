@@ -5,6 +5,7 @@ import {
   Heading,
   Tag,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
 import { hoverUnderlined } from "./ui/CommonStyles";
 
@@ -13,14 +14,13 @@ interface ProjectListItemProps {
 }
 const ProjectListItem: React.FC<ProjectListItemProps> = ({ repository }) => {
   const bgColor = useColorModeValue("bg-white", "bg-[#2D3748]");
-  const handleClick = () => {
-    window.open(repository.html_url, "_blank");
-  };
+
   return (
     <Stack
-      as="li"
-      className={`relative p-3 ${bgColor} ${hoverUnderlined} hover:cursor-pointer max-w-[40rem] `}
-      onClick={handleClick}
+      as={Link}
+      href={repository.html_url}
+      target="_blank"
+      className={`relative p-3 ${bgColor} ${hoverUnderlined} hover:cursor-pointer max-w-[40rem] !no-underline`}
     >
       <Heading size="sm">{repository.name}</Heading>
       <Text className="text-xs">{repository.description}</Text>

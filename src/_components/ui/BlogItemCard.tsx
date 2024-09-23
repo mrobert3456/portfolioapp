@@ -9,6 +9,7 @@ import {
   Image,
   Flex,
   CardProps,
+  Link,
 } from "@chakra-ui/react";
 import { hoverImgScaling, hoverUnderlined } from "./CommonStyles";
 interface BlogItemCardProps {
@@ -16,13 +17,12 @@ interface BlogItemCardProps {
   cardProps?: CardProps;
 }
 const BlogItemCard: React.FC<BlogItemCardProps> = ({ blog, cardProps }) => {
-  const handleClick = () => {
-    window.open(blog.link, "_blank");
-  };
   return (
     <Card
-      className={`!rounded-none !max-w-[15rem] !min-w-[15rem] ${hoverUnderlined} cursor-pointer `}
-      onClick={handleClick}
+      as={Link}
+      href={blog.link}
+      target="_blank"
+      className={`!rounded-none !max-w-[15rem] !min-w-[15rem] ${hoverUnderlined} cursor-pointer !no-underline `}
       {...cardProps}
     >
       <CardBody>
