@@ -33,6 +33,13 @@ export const CERTS: Certificate[] = [
   },
 
   {
+    title: "IBM developer experienced",
+    img: "https://images.credly.com/images/415eaba6-0731-464e-a1eb-ed35eff8c3e7/Developer-Experienced1.png",
+    url: "https://www.credly.com/badges/e9a3cb7d-f895-4757-8f9b-a8d8dedabb7e/linked_in_profile",
+    alt: "IBM developer foundation certificate",
+  },
+
+  {
     title: "IBM mentor",
     img: "https://images.credly.com/size/340x340/images/26fe3423-8ead-4ab5-a19e-7d16f242a3ac/IBM-Mentor-template.png",
     url: "https://www.credly.com/badges/e6535ebf-7679-442f-923b-06de17cad18f/linked_in?t=siw1lz",
