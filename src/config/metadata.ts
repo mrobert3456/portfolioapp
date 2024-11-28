@@ -36,7 +36,7 @@ export const CERTS: Certificate[] = [
     title: "IBM developer experienced",
     img: "https://images.credly.com/images/415eaba6-0731-464e-a1eb-ed35eff8c3e7/Developer-Experienced1.png",
     url: "https://www.credly.com/badges/e9a3cb7d-f895-4757-8f9b-a8d8dedabb7e/linked_in_profile",
-    alt: "IBM developer foundation certificate",
+    alt: "IBM developer experienced certificate",
   },
 
   {
