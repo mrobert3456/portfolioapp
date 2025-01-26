@@ -1,5 +1,8 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaMeta } from "react-icons/fa6";
 import oeLogo from "../assets/oe.png";
+import { ChatMetadata } from "../interfaces/Chat";
+import { IoDocumentOutline } from "react-icons/io5";
 export const INTRO: Metadata = {
   name: "Robert Meszaros",
   location: "Budapest, Hungary",
@@ -56,3 +59,16 @@ export const EDUCATIONS: Certificate[] = [
     institution: "Obuda University",
   },
 ];
+
+export const AGENT: ChatMetadata = {
+  documents: {
+    name: "Robert Meszaros CV",
+    url: "",
+    icon: IoDocumentOutline,
+  },
+  model: {
+    name: "llama3-2-1b-instruct-v1:0",
+    icon: FaMeta,
+  },
+  version: "0.1",
+};
