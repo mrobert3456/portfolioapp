@@ -29,12 +29,21 @@ const Home: React.FC = () => {
             I am a Full Stack developer
           </Text>
         </div>
-        <Button
-          className={`!w-20 ${buttonStyle}`}
-          onClick={() => navigate("/contact")}
-        >
-          Contact me
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            className={`!w-20 ${buttonStyle}`}
+            onClick={() => navigate("/contact")}
+          >
+            Contact me
+          </Button>
+
+          <Button
+            className={`!w-20 ${buttonStyle}`}
+            onClick={() => navigate("/chat")}
+          >
+            Let's chat
+          </Button>
+        </div>
       </Flex>
 
       <Flex id="Featured" className="flex-col">
