@@ -3,6 +3,7 @@ import { FaMeta } from "react-icons/fa6";
 import oeLogo from "../assets/oe.png";
 import { ChatMetadata } from "../interfaces/Chat";
 import { IoDocumentOutline } from "react-icons/io5";
+
 export const INTRO: Metadata = {
   name: "Robert Meszaros",
   location: "Budapest, Hungary",
@@ -70,5 +71,5 @@ export const AGENT: ChatMetadata = {
     name: "llama3-2-1b-instruct-v1:0",
     icon: FaMeta,
   },
-  version: "0.1",
+  version: "0.1 - Beta",
 };

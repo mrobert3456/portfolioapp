@@ -3,6 +3,7 @@ import {
   DrawerBody,
   DrawerContent,
   DrawerHeader,
+  DrawerOverlay,
   DrawerProps,
   Text,
 } from "@chakra-ui/react";
@@ -17,7 +18,8 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({
 }) => {
   return (
     <Drawer {...props}>
-      <DrawerContent rounded="md" className="!rounded-none m-[1rem]">
+      <DrawerOverlay />
+      <DrawerContent rounded="md" className="!rounded-none">
         <DrawerHeader>
           <Text>{title}</Text>
         </DrawerHeader>
