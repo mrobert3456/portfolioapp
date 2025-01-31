@@ -64,7 +64,7 @@ export const EDUCATIONS: Certificate[] = [
 export const AGENT: ChatMetadata = {
   documents: {
     name: "Robert Meszaros CV",
-    url: "",
+    url: "https://drive.google.com/file/d/1HWTBxh-SdKGTVLrLRow0fNVPY7kVNl_Z/view?usp=sharing",
     icon: IoDocumentOutline,
   },
   model: {
