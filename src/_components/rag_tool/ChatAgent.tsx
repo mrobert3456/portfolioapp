@@ -27,17 +27,20 @@ const ChatAgent: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <Card id="about_chat_agent__card" className="!rounded-none w-full h-full">
-      <CardBody className="flex flex-col gap-5 flex-wrap justify-end">
+    <Card
+      id="about_chat_agent__card"
+      className="!rounded-none w-full h-full !bg-transparent"
+    >
+      <CardBody className="flex flex-col gap-5 flex-wrap justify-end !p-0 sm:!p-4 ">
         <ChatHeader setIsOpen={setIsOpen} />
         <AgentDetails isOpen={isOpen} setIsOpen={setIsOpen} />
         <ChatBody messages={messages} isLoading={isLoading} error={error} />
 
         {messages.length === 0 && (
-          <div className="hidden sm:flex gap-2">
+          <div className="flex gap-2">
             {PROMPT_EXAMPLES.map((example) => (
               <Tag
-                className={`${buttonStyle} hover:cursor-pointer`}
+                className={`${buttonStyle} hover:cursor-pointer `}
                 onClick={() => {
                   sendMessage(example!);
                   setUserInput("");
@@ -48,6 +51,7 @@ const ChatAgent: React.FC = () => {
             ))}
           </div>
         )}
+
         <div>
           <InputGroup size="md">
             <Input
@@ -84,7 +88,6 @@ const ChatAgent: React.FC = () => {
               </Button>
             </InputRightElement>
           </InputGroup>
-
           <Disclaimer />
         </div>
       </CardBody>
