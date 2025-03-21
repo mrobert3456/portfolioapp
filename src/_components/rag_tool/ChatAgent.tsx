@@ -83,7 +83,7 @@ const ChatAgent: React.FC = () => {
           {error && !isLoading && <p>{error}</p>}
         </div>
         {messages.length === 0 && (
-          <div className="flex gap-2">
+          <div className="hidden sm:flex gap-2">
             {PROMPT_EXAMPLES.map((example) => (
               <Tag
                 className={`${buttonStyle} hover:cursor-pointer`}

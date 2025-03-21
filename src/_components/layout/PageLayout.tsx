@@ -1,4 +1,4 @@
-import { Button, SimpleGrid } from "@chakra-ui/react";
+import { Button, SimpleGrid, Stack } from "@chakra-ui/react";
 import { buttonStyle } from "../ui/CommonStyles";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +9,7 @@ interface PageLayoutProps {
 const PageLayout: React.FC<PageLayoutProps> = ({ id, children }) => {
   const navigate = useNavigate();
   return (
-    <SimpleGrid id={id} className="gap-5 h-full">
+    <Stack id={id} className="gap-5 h-full justify-center">
       <div className="flex justify-end sm:hidden !h-max">
         <Button
           className={`!w-[10rem] ${buttonStyle} `}
@@ -18,8 +18,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({ id, children }) => {
           Back to Home page
         </Button>
       </div>
-      {children}
-    </SimpleGrid>
+      <SimpleGrid className="!h-full">{children}</SimpleGrid>
+    </Stack>
   );
 };
 
