@@ -5,7 +5,7 @@ import PageLayout from "../_components/layout/PageLayout";
 
 const Contact: React.FC = () => {
   return (
-    <PageLayout id="Contact">
+    <PageLayout id="Contact" homeNavigation>
       <Flex className="justify-center items-center">
         <CustomCardContainer className="!min-w-[20rem] !max-w-[30rem]">
           <ContactForm />

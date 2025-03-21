@@ -5,7 +5,7 @@ import PageLayout from "../_components/layout/PageLayout";
 
 const About: React.FC = () => {
   return (
-    <PageLayout id="About">
+    <PageLayout id="About" homeNavigation>
       <Flex className="justify-center items-center">
         <CustomCardContainer>
           <AboutCard />

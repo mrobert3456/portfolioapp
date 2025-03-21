@@ -4,7 +4,7 @@ import PageLayout from "../_components/layout/PageLayout";
 
 const Projects: React.FC = () => {
   return (
-    <PageLayout id="Projects">
+    <PageLayout id="Projects" homeNavigation>
       <Flex className="justify-center items-start sm:items-center ">
         <ProjectList />
       </Flex>
