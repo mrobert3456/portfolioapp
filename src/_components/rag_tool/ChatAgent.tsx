@@ -134,8 +134,15 @@ const ChatAgent: React.FC = () => {
           </InputGroup>
 
           <p className="text-xs text-center">
-            Be aware that the model can make mistakes. Please review my CV to
-            ensure there are no inconsistencies!
+            Be aware that the model can make mistakes. Please review my{" "}
+            <a
+              className="text-xs focus-visible:!shadow-none hover:underline text-blue-500"
+              href={AGENT.documents.url}
+              target="_blank"
+            >
+              CV
+            </a>{" "}
+            to ensure there are no inconsistencies!
           </p>
         </div>
       </CardBody>

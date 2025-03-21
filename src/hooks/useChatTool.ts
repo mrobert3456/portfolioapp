@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const API_GW_CHAT = "http://127.0.0.1:8000/chat";
+const API_GW_CHAT =
+  "https://3new8sc795.execute-api.eu-central-1.amazonaws.com/default/rag_chat_function";
 
 const useChatTool = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);

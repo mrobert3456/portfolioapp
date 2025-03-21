@@ -32,7 +32,7 @@ const AgentDetails: React.FC<AgentDetails> = ({ isOpen, setIsOpen }) => {
                     {<Icon as={value.icon} color={"blue.600"} />}
                     {value.url ? (
                       <Link
-                        className="text-xs"
+                        className="text-xs focus-visible:!shadow-none"
                         key={`${value.url}`}
                         aria-label={value.name}
                         href={value.url}
