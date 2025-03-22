@@ -20,7 +20,11 @@
 |              | AWS API Gateway                                                     |
 |              | AWS Lambda                                                          |
 |              | AWS SES                                                             |
+|              | AWS Bedrock                                                         |
+|              | Langchain                                                           |
+|              | Langgraph                                                           |
 |              | Python lambda mailer (https://github.com/mrobert3456/mailer_lambda) |
+|              | Python lambda RAG (Private Repository)                              |
 | **CI/CD**    | Github actions                                                      |
 
 ## 📫 Contact Form
