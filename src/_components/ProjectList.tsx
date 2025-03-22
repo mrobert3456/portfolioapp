@@ -37,9 +37,9 @@ const ProjectList: React.FC = () => {
   }, []);
 
   return (
-    <Stack>
+    <Stack className="h-full">
       {!error && isLoading && (
-        <Flex className="gap-2">
+        <Flex className="gap-2 items-center justify-center !h-full">
           <Text>Loading... </Text>
           <Spinner />
         </Flex>
