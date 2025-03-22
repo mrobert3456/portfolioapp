@@ -29,9 +29,9 @@ const ChatAgent: React.FC = () => {
   return (
     <Card
       id="about_chat_agent__card"
-      className="!rounded-none w-full h-full !bg-transparent"
+      className="!rounded-none w-full h-full !bg-transparent !border-none !shadow-none"
     >
-      <CardBody className="flex flex-col gap-5 flex-wrap justify-end !p-0 sm:!p-4 ">
+      <CardBody className="flex flex-col gap-5 flex-wrap justify-end !p-0 sm:!p-4">
         <ChatHeader setIsOpen={setIsOpen} />
         <AgentDetails isOpen={isOpen} setIsOpen={setIsOpen} />
         <ChatBody messages={messages} isLoading={isLoading} error={error} />
