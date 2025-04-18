@@ -13,6 +13,10 @@ const NavItem: React.FC<CustomRoute> = ({ path, name, action }) => {
     base: "h-full",
     sm: "w-full",
   });
+  const boxShadow = useBreakpointValue({
+    base: "inset 4.1px 0 0 #3b82f6",
+    sm: "inset 0 -4px 0 #3b82f6",
+  });
   const hoverBgColor = useColorModeValue(
     "hover:bg-slate-300",
     "hover:bg-slate-700"
@@ -25,6 +29,7 @@ const NavItem: React.FC<CustomRoute> = ({ path, name, action }) => {
             text-center py-1 text-lg ${hoverBgColor} ${
         pathname === path && `before:${currentBeforeStyle} ${bgColor} `
       } ${hoverStyle}`}
+      style={{ boxShadow: pathname === path ? boxShadow : "" }}
       onClick={action}
     >
       {name}
