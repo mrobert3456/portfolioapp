@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { LambdaError } from "../interfaces/Chat";
 
-const API_GW_CHAT =
-  "https://3new8sc795.execute-api.eu-central-1.amazonaws.com/default/rag_chat_function";
+const API_GW_CHAT = import.meta.env.VITE_LAMBDA_CHAT_URL!;
+
+//"http://127.0.0.1:8000/chat";
 
 const useChatTool = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -25,8 +27,13 @@ const useChatTool = () => {
         }
         return response.json();
       })
-      .then((data: string) => {
-        setMessages((prevMessages) => [...prevMessages, data]);
+      .then((data: LambdaError | string) => {
+        if ((data as LambdaError)?.errorMessage) {
+          throw new Error(
+            `Lambda function error: ${(data as LambdaError).errorMessage}`
+          );
+        }
+        setMessages((prevMessages) => [...prevMessages, data as string]);
       })
       .catch((error: Error) => {
         setError(error.message);

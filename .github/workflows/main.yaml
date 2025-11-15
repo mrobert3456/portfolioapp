@@ -50,6 +50,9 @@ jobs:
 
       - name: Build project
         run: npm run build --if-present
+        env:
+          VITE_LAMBDA_CHAT_URL: ${{ secrets.LAMBDA_CHAT_URL }}
+          VITE_LAMBDA_CONTACT_URL: ${{ secrets.LAMBDA_CONTACT_URL }}
 
       - name: Run tests
         run: npm test
