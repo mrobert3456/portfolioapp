@@ -82,7 +82,6 @@ const useContactForm = () => {
               return response.json();
             })
             .then((data: ContactResponse) => {
-              setIsLoading(false);
               toast({
                 id: "email-response",
                 title: "Email",
@@ -93,6 +92,24 @@ const useContactForm = () => {
                 position: "top-right",
                 containerStyle: { borderRadius: "0px !important" },
               });
+            })
+            .catch((error: Error) => {
+              toast({
+                id: "error",
+                title: "Error",
+                description: error.message,
+                status: "error",
+                duration: 4000,
+                isClosable: true,
+                position: "top-right",
+                containerStyle: {
+                  borderRadius: "0px !important",
+                  maxW: "2rem",
+                },
+              });
+            })
+            .finally(() => {
+              setIsLoading(false);
             });
         });
     });
