@@ -13,7 +13,7 @@ import { CiUser } from "react-icons/ci";
 interface ChatBodyProps {
   messages: string[];
   isLoading: boolean;
-  error?: string;
+  error?: string | null;
 }
 const ChatBody: React.FC<ChatBodyProps> = ({ messages, isLoading, error }) => {
   const profileColors = useColorModeValue("!bg-slate-300", "!bg-slate-700");
