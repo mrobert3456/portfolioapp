@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { LambdaError } from "../interfaces/Chat";
-import { useToast } from "@chakra-ui/react";
 
 const API_GW_CHAT = import.meta.env.VITE_LAMBDA_CHAT_URL!;
 
@@ -10,7 +9,7 @@ const useChatTool = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [messages, setMessages] = useState<string[]>([]);
   const [error, setError] = useState<string | undefined>();
-  const toast = useToast();
+
   const sendMessage = async (message: string) => {
     setIsLoading(true);
     setMessages((prevMessages) => [...prevMessages, message]);
@@ -37,19 +36,6 @@ const useChatTool = () => {
         setMessages((prevMessages) => [...prevMessages, data as string]);
       })
       .catch((error: Error) => {
-        toast({
-          id: "error",
-          title: "Error",
-          description: error.message,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top-right",
-          containerStyle: {
-            borderRadius: "0px !important",
-            maxW: "2rem",
-          },
-        });
         setError(error.message);
         setMessages((prevMessages) => [
           ...prevMessages,

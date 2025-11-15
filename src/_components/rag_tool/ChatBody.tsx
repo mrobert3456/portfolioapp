@@ -5,6 +5,7 @@ import {
   Box,
   Flex,
   Spinner,
+  useToast,
 } from "@chakra-ui/react";
 import { useRef, useEffect } from "react";
 import { CiUser } from "react-icons/ci";
@@ -17,7 +18,7 @@ interface ChatBodyProps {
 const ChatBody: React.FC<ChatBodyProps> = ({ messages, isLoading, error }) => {
   const profileColors = useColorModeValue("!bg-slate-300", "!bg-slate-700");
   const userMessageBg = useColorModeValue("!bg-slate-300", "!bg-slate-800");
-
+  const toast = useToast();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -25,6 +26,24 @@ const ChatBody: React.FC<ChatBodyProps> = ({ messages, isLoading, error }) => {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
+
+  useEffect(() => {
+    if (error) {
+      toast({
+        id: "error",
+        title: "Error",
+        description: error,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top-right",
+        containerStyle: {
+          borderRadius: "0px !important",
+          maxW: "2rem",
+        },
+      });
+    }
+  }, [error]);
 
   return (
     <Box className="flex-1 gap-3 p-4 overflow-y-auto">
@@ -59,7 +78,6 @@ const ChatBody: React.FC<ChatBodyProps> = ({ messages, isLoading, error }) => {
         <div ref={messagesEndRef} />
       </Flex>
       {isLoading && !error && <Spinner size="sm" color="blue.500" />}
-      {error && !isLoading && <Text color="red.500">{error}</Text>}
     </Box>
   );
 };
