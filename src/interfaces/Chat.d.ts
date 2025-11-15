@@ -10,3 +10,12 @@ interface ChatMetadata {
   model: Content;
   version: string;
 }
+
+interface LambdaError {
+  errorMessage: string;
+  errorType: string;
+  requestId: string;
+  stackTrace: string[];
+}
+
+export type LambdaResponse = LambdaError | string;
