@@ -8,10 +8,11 @@ const API_GW_CHAT = import.meta.env.VITE_LAMBDA_CHAT_URL!;
 const useChatTool = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [messages, setMessages] = useState<string[]>([]);
-  const [error, setError] = useState<string | undefined>();
+  const [error, setError] = useState<string | null>();
 
   const sendMessage = async (message: string) => {
     setIsLoading(true);
+    setError(null);
     setMessages((prevMessages) => [...prevMessages, message]);
     const data = { message: message };
     fetch(API_GW_CHAT, {

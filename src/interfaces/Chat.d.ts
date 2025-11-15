@@ -17,5 +17,3 @@ interface LambdaError {
   requestId: string;
   stackTrace: string[];
 }
-
-export type LambdaResponse = LambdaError | string;
