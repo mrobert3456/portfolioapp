@@ -52,17 +52,9 @@ const AgentDetails: React.FC<AgentDetails> = ({ isOpen, setIsOpen }) => {
             )
           )}
         </div>
-        <div className="flex-col">
-          <h3 className="text-sky-500">Features coming soon</h3>
-          <ul>
-            <li key="option-1" className="text-sm text-gray-500">
-              Conversational memory
-            </li>
-            <li key="option-2" className="text-sm text-gray-500">
-              Hallucination grading
-            </li>
-          </ul>
-        </div>
+
+        <h1>Architecture</h1>
+
         <Image src={AgentGraph} />
       </div>
     </CustomDrawer>
