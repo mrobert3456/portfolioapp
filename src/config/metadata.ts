@@ -45,7 +45,7 @@ export const CERTS: Certificate[] = [
 
   {
     title: "IBM mentor",
-    img: "https://images.credly.com/size/340x340/images/26fe3423-8ead-4ab5-a19e-7d16f242a3ac/IBM-Mentor-template.png",
+    img: "https://images.credly.com/size/340x340/images/9465fcb9-15a0-4139-a216-b049d358b6c3/IBM-Mentor-template.png",
     url: "https://www.credly.com/badges/e6535ebf-7679-442f-923b-06de17cad18f/linked_in?t=siw1lz",
     alt: "IBM mentor certificate",
   },
@@ -64,7 +64,7 @@ export const EDUCATIONS: Certificate[] = [
 export const AGENT: ChatMetadata = {
   documents: {
     name: "Robert Meszaros CV",
-    url: "https://drive.google.com/file/d/1HWTBxh-SdKGTVLrLRow0fNVPY7kVNl_Z/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1s3DrOU_IaYofNm1qZMMk0pdqMucvj9jK/view?usp=sharing",
     icon: IoDocumentOutline,
   },
   model: {
