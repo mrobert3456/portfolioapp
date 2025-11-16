@@ -1,21 +1,19 @@
 import {
   Icon,
-  Text,
   useColorModeValue,
   Box,
   Flex,
   Spinner,
   useToast,
 } from "@chakra-ui/react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
 import { CiUser } from "react-icons/ci";
+import Markdown from "react-markdown";
+import { ChatContext } from "./ChatAgent";
 
-interface ChatBodyProps {
-  messages: string[];
-  isLoading: boolean;
-  error?: string | null;
-}
-const ChatBody: React.FC<ChatBodyProps> = ({ messages, isLoading, error }) => {
+const ChatBody: React.FC = () => {
+  const { messages, isLoading, error } = useContext(ChatContext)!;
+
   const profileColors = useColorModeValue("!bg-slate-300", "!bg-slate-700");
   const userMessageBg = useColorModeValue("!bg-slate-300", "!bg-slate-800");
   const toast = useToast();
@@ -71,7 +69,7 @@ const ChatBody: React.FC<ChatBodyProps> = ({ messages, isLoading, error }) => {
                 index % 2 === 0 && userMessageBg
               }`}
             >
-              <Text>{message}</Text>
+              <Markdown>{message}</Markdown>
             </Box>
           </Flex>
         ))}

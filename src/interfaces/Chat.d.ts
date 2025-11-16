@@ -17,3 +17,10 @@ interface LambdaError {
   requestId: string;
   stackTrace: string[];
 }
+
+interface ChatTool {
+  sendMessage: (message: string) => Promise<void>;
+  messages: string[];
+  error: string | null | undefined;
+  isLoading: booelan;
+}
