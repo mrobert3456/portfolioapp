@@ -5,6 +5,7 @@ import useNavigation from "../../hooks/useNavigation";
 
 const MainLayout: React.FC = () => {
   const { customRoutes } = useNavigation();
+
   return (
     <Stack
       h="100vh"
@@ -19,7 +20,7 @@ const MainLayout: React.FC = () => {
         {/* <div ref={pageRef} /> */}
         <Outlet />
       </main>
-
+      <Stack id="chat-input" className="justify-center items-center" />
       <footer className="p-4 h-[5rem] flex items-start justify-end">
         <Text className="text-slate-500">{"ForestLake@2024"}</Text>
       </footer>
