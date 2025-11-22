@@ -70,13 +70,12 @@ const ChatBody: React.FC = () => {
                 index % 2 === 0 && userMessageBg
               }`}
             >
-              {" "}
               {message.type === "question" && (
                 <Markdown>{message.content as string}</Markdown>
               )}
               {message.type == "email" && (
                 <Flex className="gap-2 items-center">
-                  {"Send email"}
+                  <div>I have prepared the email for you</div>
                   <SendEmailForm
                     message={(message.content as ContactInformation).message}
                     name={(message.content as ContactInformation).name}

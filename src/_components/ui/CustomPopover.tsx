@@ -11,6 +11,7 @@ import {
   PopoverTrigger,
   Portal,
 } from "@chakra-ui/react";
+import { buttonStyle } from "./CommonStyles";
 
 interface CustomPopoverProps extends PopoverProps {
   title?: string;
@@ -24,7 +25,9 @@ const CustomPopover: React.FC<CustomPopoverProps> = ({
   return (
     <Popover {...props}>
       <PopoverTrigger>
-        <Button>trigger</Button>
+        <Button className={`${buttonStyle}flex gap-2 cursor-pointer`} size="sm">
+          See details
+        </Button>
       </PopoverTrigger>
       <Portal>
         <PopoverContent>
