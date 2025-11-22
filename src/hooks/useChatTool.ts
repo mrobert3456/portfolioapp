@@ -14,9 +14,10 @@ const useChatTool = () => {
     setIsLoading(true);
     setError(null);
     setMessages((prevMessages) => [...prevMessages, message]);
-    const history = [...messages].reverse().filter((_, index) => index <= 5);
 
+    const history = [...messages].reverse().filter((_, index) => index <= 5);
     const data = { message: message, history: history };
+
     fetch(API_GW_CHAT, {
       method: "POST",
       headers: {
@@ -42,7 +43,7 @@ const useChatTool = () => {
         setError(error.message);
         setMessages((prevMessages) => [
           ...prevMessages,
-          "Unknown error occured. Please try to rephrase you question!",
+          "Unknown error occured. Please try to rephrase your question!",
         ]);
       })
       .finally(() => {
