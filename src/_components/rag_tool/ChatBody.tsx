@@ -10,6 +10,7 @@ import { useRef, useEffect, useContext } from "react";
 import { CiUser } from "react-icons/ci";
 import Markdown from "react-markdown";
 import { ChatContext } from "./ChatAgent";
+import SendEmailForm from "./SendEmailForm";
 
 const ChatBody: React.FC = () => {
   const { messages, isLoading, error } = useContext(ChatContext)!;
@@ -76,7 +77,14 @@ const ChatBody: React.FC = () => {
               </>
             )}
             {message.type == "email" && (
-              <>{(message.content as ContactInformation).message}</>
+              <Flex className="gap-2">
+                {"Send email"}
+                <SendEmailForm
+                  message={(message.content as ContactInformation).message}
+                  name={(message.content as ContactInformation).name}
+                  email={(message.content as ContactInformation).email}
+                />
+              </Flex>
             )}
           </Flex>
         ))}

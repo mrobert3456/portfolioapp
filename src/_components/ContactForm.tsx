@@ -15,7 +15,7 @@ const ContactForm: React.FC = () => {
 
   return (
     <FormControl className="flex flex-col gap-2 m-3">
-      <FormLabel className="!flex !justify-between !mr-0">Contact </FormLabel>
+      <FormLabel className="!flex !justify-between !mr-0">Contact</FormLabel>
       <Input
         ref={nameRef}
         type="text"

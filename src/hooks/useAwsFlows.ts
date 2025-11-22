@@ -7,8 +7,6 @@ import {
   InvokeFlowCommandOutput,
 } from "@aws-sdk/client-bedrock-agent-runtime";
 import { ActionType, ChatParams } from "../interfaces/Chat";
-import { act, useState } from "react";
-
 const useAwsFlows = () => {
   const CONFIG: BedrockAgentRuntimeClientConfig = {
     region: "eu-central-1",
