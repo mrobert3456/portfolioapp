@@ -11,6 +11,8 @@
     "test": "echo 'no tests are created'"
   },
   "dependencies": {
+    "@aws-sdk/client-bedrock-agent-runtime": "^3.936.0",
+    "@aws-sdk/credential-providers": "^3.936.0",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
