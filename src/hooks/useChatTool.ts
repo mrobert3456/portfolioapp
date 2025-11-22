@@ -14,7 +14,9 @@ const useChatTool = () => {
     setIsLoading(true);
     setError(null);
     setMessages((prevMessages) => [...prevMessages, message]);
-    const data = { message: message };
+    const history = [...messages].reverse().filter((_, index) => index <= 5);
+
+    const data = { message: message, history: history };
     fetch(API_GW_CHAT, {
       method: "POST",
       headers: {

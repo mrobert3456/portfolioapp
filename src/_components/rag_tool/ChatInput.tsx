@@ -12,7 +12,7 @@ import { useContext, useState } from "react";
 import { ChatContext } from "./ChatAgent";
 
 const PROMPT_EXAMPLES = [
-  "What university degree did Robert get?",
+  "I want to send an email to Robert",
   "Where does Robert work?",
   "How many years of experience does Robert have?",
 ];
