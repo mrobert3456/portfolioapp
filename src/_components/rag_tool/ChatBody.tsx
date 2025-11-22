@@ -54,23 +54,30 @@ const ChatBody: React.FC = () => {
             justify={index % 2 === 0 ? "flex-end" : "flex-start"}
             alignSelf={index % 2 === 0 ? "flex-end" : "flex-start"}
           >
-            {index % 2 !== 0 && (
-              <Icon
-                w={30}
-                h={30}
-                p={1}
-                className={`rounded-full ${profileColors}`}
-              >
-                <CiUser size={24} />
-              </Icon>
+            {message.type === "question" && (
+              <>
+                {index % 2 !== 0 && (
+                  <Icon
+                    w={30}
+                    h={30}
+                    p={1}
+                    className={`rounded-full ${profileColors}`}
+                  >
+                    <CiUser size={24} />
+                  </Icon>
+                )}
+                <Box
+                  className={`p-2 rounded-lg break-words ${
+                    index % 2 === 0 && userMessageBg
+                  }`}
+                >
+                  <Markdown>{message.content as string}</Markdown>
+                </Box>
+              </>
             )}
-            <Box
-              className={`p-2 rounded-lg break-words ${
-                index % 2 === 0 && userMessageBg
-              }`}
-            >
-              <Markdown>{message}</Markdown>
-            </Box>
+            {message.type == "email" && (
+              <>{(message.content as ContactInformation).message}</>
+            )}
           </Flex>
         ))}
         <div ref={messagesEndRef} />

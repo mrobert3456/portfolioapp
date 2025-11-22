@@ -29,7 +29,7 @@ const ChatInput: React.FC = () => {
               key={`example-${index}`}
               className={`${buttonStyle} hover:cursor-pointer `}
               onClick={() => {
-                sendMessage(example!);
+                sendMessage({ type: "question", content: example! });
                 setUserInput("");
               }}
             >
@@ -49,7 +49,7 @@ const ChatInput: React.FC = () => {
             }
             onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) => {
               if (userInput && userInput.length > 0 && event.key === "Enter") {
-                sendMessage(userInput!);
+                sendMessage({ type: "question", content: userInput! });
                 setUserInput("");
               }
             }}
@@ -61,7 +61,7 @@ const ChatInput: React.FC = () => {
               h="1.75rem"
               size="sm"
               onClick={() => {
-                sendMessage(userInput!);
+                sendMessage({ type: "question", content: userInput! });
                 setUserInput("");
               }}
               isDisabled={isLoading || !userInput}
