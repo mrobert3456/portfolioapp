@@ -1,61 +1,33 @@
-import {
-  BedrockAgentRuntimeClient,
-  BedrockAgentRuntimeClientConfig,
-  FlowResponseStream,
-  InvokeFlowCommand,
-  InvokeFlowCommandInput,
-  InvokeFlowCommandOutput,
-} from "@aws-sdk/client-bedrock-agent-runtime";
+import { FlowResponseStream } from "@aws-sdk/client-bedrock-agent-runtime";
 import { ActionType, ChatParams } from "../interfaces/Chat";
+
+const FLOW_API_GW = import.meta.env.VITE_FLOW_API_URL!;
+
 const useAwsFlows = () => {
-  const CONFIG: BedrockAgentRuntimeClientConfig = {
-    region: "eu-central-1",
-    credentials: {
-      accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID!,
-      secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY!,
-    },
-  };
-
-  const client = new BedrockAgentRuntimeClient(CONFIG);
-
-  const invokeFlow = async (
+  const invoke = async (
     input_params: ChatParams
   ): Promise<{
     actionType: ActionType;
     result: ContactInformation | string;
   } | null> => {
-    const input: InvokeFlowCommandInput = {
-      flowIdentifier: "",
-      flowAliasIdentifier: "",
-      inputs: [
-        {
-          nodeName: "FlowInputNode",
-          nodeOutputName: "document",
-          content: {
-            document: {
-              message: input_params.message,
-              history: input_params.history,
-            },
-          },
-        },
-      ],
+    const data: ChatParams = {
+      message: input_params.message,
+      history: input_params.history,
     };
-    const command = new InvokeFlowCommand(input);
-    return client
-      .send(command)
-      .then((data: InvokeFlowCommandOutput) => {
-        return data.responseStream;
-      })
-      .then(async (stream: AsyncIterable<FlowResponseStream> | undefined) => {
-        for await (const chunkEvent of stream!) {
-          return chunkEvent;
-        }
+    return fetch(FLOW_API_GW, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        return response.json();
       })
       .then((chunkEvent: FlowResponseStream | undefined) => {
         const { flowOutputEvent } = chunkEvent!;
         let actionType: ActionType | null = null;
         let result: ContactInformation | string | null = null;
-
         if (flowOutputEvent?.nodeName === "FlowOutputNode_5") {
           actionType = "email";
           result = JSON.parse(flowOutputEvent.content!.document as string);
@@ -77,7 +49,7 @@ const useAwsFlows = () => {
   };
 
   return {
-    invokeFlow,
+    invoke,
   };
 };
 

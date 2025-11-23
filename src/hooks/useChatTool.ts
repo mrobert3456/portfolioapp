@@ -1,14 +1,12 @@
 import { useState } from "react";
-import { ChatParams, LambdaError, Message } from "../interfaces/Chat";
+import { ChatParams, Message } from "../interfaces/Chat";
 import useAwsFlows from "./useAwsFlows";
-
-const API_GW_CHAT = import.meta.env.VITE_LAMBDA_CHAT_URL!;
 
 const useChatTool = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [error, setError] = useState<string | null>();
-  const { invokeFlow } = useAwsFlows();
+  const { invoke: invokeFlow } = useAwsFlows();
 
   const sendMessage = async (message: Message) => {
     setIsLoading(true);
