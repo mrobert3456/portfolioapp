@@ -25,8 +25,8 @@ const useAwsFlows = () => {
     result: ContactInformation | string;
   } | null> => {
     const input: InvokeFlowCommandInput = {
-      flowIdentifier: "LIDCGXHSJ1",
-      flowAliasIdentifier: "KRCKX5PV5N",
+      flowIdentifier: "",
+      flowAliasIdentifier: "",
       inputs: [
         {
           nodeName: "FlowInputNode",
