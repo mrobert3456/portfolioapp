@@ -1,6 +1,5 @@
 import {
   Button,
-  Flex,
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -9,7 +8,6 @@ import {
   PopoverHeader,
   PopoverProps,
   PopoverTrigger,
-  Portal,
 } from "@chakra-ui/react";
 import { buttonStyle } from "./CommonStyles";
 
@@ -18,25 +16,24 @@ interface CustomPopoverProps extends PopoverProps {
   children?: React.ReactNode;
 }
 const CustomPopover: React.FC<CustomPopoverProps> = ({
+  id,
   title,
   children,
   ...props
 }) => {
   return (
-    <Popover {...props}>
+    <Popover {...props} id={id}>
       <PopoverTrigger>
         <Button className={`${buttonStyle}flex gap-2 cursor-pointer`} size="sm">
           See details
         </Button>
       </PopoverTrigger>
-      <Portal>
-        <PopoverContent>
-          <PopoverArrow />
-          <PopoverHeader>{title}</PopoverHeader>
-          <PopoverCloseButton />
-          <PopoverBody>{children}</PopoverBody>
-        </PopoverContent>
-      </Portal>
+      <PopoverContent>
+        <PopoverArrow />
+        <PopoverHeader>{title}</PopoverHeader>
+        <PopoverCloseButton />
+        <PopoverBody>{children}</PopoverBody>
+      </PopoverContent>
     </Popover>
   );
 };
