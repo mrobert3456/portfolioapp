@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaMeta } from "react-icons/fa6";
+import { RiAnthropicFill } from "react-icons/ri";
 import oeLogo from "../assets/oe.png";
 import { ChatMetadata } from "../interfaces/Chat";
 import { IoDocumentOutline } from "react-icons/io5";
@@ -68,8 +68,8 @@ export const AGENT: ChatMetadata = {
     icon: IoDocumentOutline,
   },
   model: {
-    name: "llama3-2-1b-instruct-v1:0",
-    icon: FaMeta,
+    name: "claude-3-5-sonnet-20240620-v1:0",
+    icon: RiAnthropicFill,
   },
-  version: "0.1 - Beta",
+  version: "1.0",
 };
