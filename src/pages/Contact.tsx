@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
   return (
     <PageLayout id="Contact" homeNavigation>
       <Flex className="justify-center items-center">
-        <CustomCardContainer className="!min-w-[20rem] !max-w-[30rem]">
+        <CustomCardContainer className="!min-w-[20rem] !max-w-[30rem]  m-3">
           <ContactForm />
         </CustomCardContainer>
       </Flex>
