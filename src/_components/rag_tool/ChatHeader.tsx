@@ -1,6 +1,7 @@
 import { Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import { TbListDetails } from "react-icons/tb";
 import { AGENT } from "../../config/metadata";
+import AgentDisclaimer from "./AgentDisclaimer";
 
 interface ChatHeaderProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,12 +19,16 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ setIsOpen }) => {
         <Icon as={AGENT.model.icon} size={24} color="blue.500" />
         <Text className="text-xs">{AGENT.model.name}</Text>
       </div>
-      <Icon
-        size={24}
-        as={TbListDetails}
-        onClick={() => setIsOpen(true)}
-        className={`hover:cursor-pointer ${iconBgColors}`}
-      />
+      <div className="flex flex-col gap-2">
+        <Icon
+          w={5}
+          h={5}
+          as={TbListDetails}
+          onClick={() => setIsOpen(true)}
+          className={`hover:cursor-pointer ${iconBgColors}`}
+        />
+        <AgentDisclaimer />
+      </div>
     </div>
   );
 };

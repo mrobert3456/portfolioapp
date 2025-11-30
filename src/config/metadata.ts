@@ -72,5 +72,18 @@ export const AGENT: ChatMetadata = {
     icon: RiAnthropicFill,
   },
   version: "1.0",
-  disclaimer: "Agent does not store any user data",
 };
+
+export const CHAT_AGENT_DISCLAIMER =
+  "This chat assistant is an interactive feature of my personal portfolio website. " +
+  "It can only answer questions based on the information in my CV and related public portfolio content.\n\n" +
+  "- The assistant **does not store any data in cookies or other persistent storage on your device**.\n" +
+  "- Your messages and the conversation history **are logged on the server side** so the assistant can:\n" +
+  "  - maintain context during the conversation, and\n" +
+  "  - support monitoring, debugging, and improving the service.\n" +
+  "- These logs may include:\n" +
+  "  - the content of your messages, and\n" +
+  "  - technical information (such as timestamps and request metadata).\n" +
+  "- Logs are **kept for up to 1 week**.\n" +
+  "- Logs are **not used for model training**.\n" +
+  "- Logs are **not used to create marketing profiles** and are **not sold to third parties**.\n\n";
