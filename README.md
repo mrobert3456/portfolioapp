@@ -32,6 +32,10 @@
 
 The form is secured with Google reCAPTCHA v3 to prevent spamming.
 
+## 🤖 Chat agent
+
+Agent does not store any user data - History resets after page refresh.
+
 ## ⚡ CI/CD pipeline
 
 This application is deployed using a CI/CD pipeline created with **Github Actions**.

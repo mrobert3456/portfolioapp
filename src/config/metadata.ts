@@ -72,4 +72,5 @@ export const AGENT: ChatMetadata = {
     icon: RiAnthropicFill,
   },
   version: "1.0",
+  disclaimer: "Agent does not store any user data",
 };

@@ -44,7 +44,7 @@ const AgentDetails: React.FC<AgentDetails> = ({ isOpen, setIsOpen }) => {
                     )}
                   </div>
                 ) : (
-                  <Text className="capitalize text-xs">{value}</Text>
+                  <Text className="text-xs">{value}</Text>
                 )}
               </SimpleGrid>
             )

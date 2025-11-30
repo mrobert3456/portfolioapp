@@ -9,6 +9,7 @@ interface ChatMetadata {
   documents: Content;
   model: Content;
   version: string;
+  disclaimer: string;
 }
 
 interface LambdaError {
