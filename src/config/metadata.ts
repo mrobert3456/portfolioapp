@@ -86,4 +86,5 @@ export const CHAT_AGENT_DISCLAIMER =
   "  - technical information (such as timestamps and request metadata).\n" +
   "- Logs are **kept for up to 1 week**.\n" +
   "- Logs are **not used for model training**.\n" +
-  "- Logs are **not used to create marketing profiles** and are **not sold to third parties**.\n\n";
+  "- Logs are **not used to create marketing profiles** and are **not sold to third parties**.\n\n" +
+  "This disclaimer applies solely to the behavior of the chat assistant. Other parts of the website, your browser, or third-party services (such as hosting providers or analytics tools, if used) may have their own data and cookie practices, which are governed by their respective policies.";
