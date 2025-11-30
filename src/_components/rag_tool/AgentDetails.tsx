@@ -1,10 +1,8 @@
-import { SimpleGrid, Icon, Text, Link, Image } from "@chakra-ui/react";
+import { SimpleGrid, Icon, Text, Link } from "@chakra-ui/react";
 
 import { AGENT } from "../../config/metadata";
 import { Content } from "../../interfaces/Chat";
 import CustomDrawer from "../ui/CustomDrawer";
-import AgentGraph from "../../assets/agent_graph.png";
-
 interface AgentDetails {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -52,10 +50,6 @@ const AgentDetails: React.FC<AgentDetails> = ({ isOpen, setIsOpen }) => {
             )
           )}
         </div>
-
-        <h1>Architecture</h1>
-
-        <Image src={AgentGraph} />
       </div>
     </CustomDrawer>
   );
