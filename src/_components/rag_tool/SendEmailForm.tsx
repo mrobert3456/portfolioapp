@@ -1,15 +1,21 @@
-import { Button, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
+import {
+  Button,
+  Tag,
+  useBreakpointValue,
+  useDisclosure,
+} from "@chakra-ui/react";
 import CustomPopover from "../ui/CustomPopover";
 import { buttonStyle } from "../ui/CommonStyles";
 import CustomDrawer from "../ui/CustomDrawer";
 import ContactForm from "../ContactForm";
-
+import { useState } from "react";
 interface Props {
   message: string;
   name: string;
   email: string;
 }
 const SendEmailForm: React.FC<Props> = ({ message, name, email }) => {
+  const [hidden, sethidden] = useState<boolean>(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const FormContainer = useBreakpointValue({
@@ -38,9 +44,16 @@ const SendEmailForm: React.FC<Props> = ({ message, name, email }) => {
           See details
         </Button>
       )}
+      {hidden && <Tag>Sent</Tag>}
 
       <FormContainer title="Send email" {...FormContainerProps}>
-        <ContactForm name={name} message={message} email={email} />
+        <ContactForm
+          name={name}
+          message={message}
+          email={email}
+          disabled={hidden}
+          onClose={() => sethidden(true)}
+        />
       </FormContainer>
     </>
   );

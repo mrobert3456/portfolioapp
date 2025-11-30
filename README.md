@@ -25,6 +25,7 @@
 |              | Langgraph                                                           |
 |              | Python lambda mailer (https://github.com/mrobert3456/mailer_lambda) |
 |              | Python lambda RAG (Private Repository)                              |
+|              | Python lambda Flow (Private Repository)                             |
 | **CI/CD**    | Github actions                                                      |
 
 ## 📫 Contact Form

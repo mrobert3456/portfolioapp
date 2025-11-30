@@ -13,10 +13,12 @@ import { buttonStyle } from "./CommonStyles";
 
 interface CustomPopoverProps extends PopoverProps {
   title?: string;
+  disabled?: boolean;
   children?: React.ReactNode;
 }
 const CustomPopover: React.FC<CustomPopoverProps> = ({
   id,
+  disabled,
   title,
   children,
   ...props

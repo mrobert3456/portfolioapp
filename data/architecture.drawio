@@ -1,12 +1,9 @@
 <mxfile host="65bd71144e">
     <diagram name="1 oldal" id="wWMJGNwV4Z2LbPfB1Fyh">
-        <mxGraphModel dx="896" dy="607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+        <mxGraphModel dx="793" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="22" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
-                    <mxGeometry x="360" y="610" width="240" height="140" as="geometry"/>
-                </mxCell>
                 <mxCell id="lWICCTp8y8m39Iwrez-0-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" parent="1" source="lWICCTp8y8m39Iwrez-0-9" target="lWICCTp8y8m39Iwrez-0-15" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
@@ -117,9 +114,6 @@
                 <mxCell id="lWICCTp8y8m39Iwrez-0-53" value="AWS API GW" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="204" y="720" width="110" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="lWICCTp8y8m39Iwrez-0-54" value="AWS LAMBDA" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="720" width="120" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="lWICCTp8y8m39Iwrez-0-55" value="V3 recaptcha" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="467.79" y="491.94" width="110" height="30" as="geometry"/>
                 </mxCell>
@@ -146,9 +140,13 @@
                 <mxCell id="lWICCTp8y8m39Iwrez-0-64" value="AWS CloudFront" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="274" y="328" width="130" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;strokeColor=#6C8EBF;" parent="1" source="2" edge="1">
+                <mxCell id="9" style="edgeStyle=none;html=1;strokeWidth=2;strokeColor=#6C8EBF;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="360" y="650" as="targetPoint"/>
+                        <mxPoint x="300" y="650" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="360" y="650"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" parent="1" vertex="1">
@@ -168,8 +166,8 @@
                 <mxCell id="5" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;" parent="1" vertex="1">
                     <mxGeometry x="662" y="780" width="78" height="78" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="AWS Bedrock" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="647.79" y="870" width="110" height="30" as="geometry"/>
+                <mxCell id="6" value="AWS Bedrock Flow" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="632.79" y="870" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.035;entryY=0.035;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#6C8EBF;flowAnimation=1;strokeWidth=2;" parent="1" source="2" target="lWICCTp8y8m39Iwrez-0-1" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -189,23 +187,23 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="13" style="edgeStyle=none;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;strokeColor=#6C8EBF;exitX=1.006;exitY=0.318;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="22" target="5" edge="1">
+                <mxCell id="13" style="edgeStyle=none;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;strokeColor=#6C8EBF;" parent="1" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="720" y="655"/>
+                            <mxPoint x="721" y="650"/>
                         </Array>
-                        <mxPoint x="660" y="680" as="sourcePoint"/>
+                        <mxPoint x="440" y="650" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="14" style="edgeStyle=none;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;strokeColor=#6C8EBF;flowAnimation=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="5" target="22" edge="1">
+                <mxCell id="14" style="edgeStyle=none;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;strokeColor=#6C8EBF;flowAnimation=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="5" target="3" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="682" y="680"/>
+                            <mxPoint x="680" y="666"/>
                         </Array>
-                        <mxPoint x="650" y="720" as="targetPoint"/>
+                        <mxPoint x="600" y="680" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="15" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;strokeColor=#6C8EBF;" parent="1" source="4" edge="1">
+                <mxCell id="15" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;strokeColor=#6C8EBF;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="4" edge="1" target="3">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="400" y="799"/>
@@ -213,20 +211,8 @@
                         <mxPoint x="400" y="750" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="16" value="IAM role: Bedrock InvokeModel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="204.00000000000003" y="870" width="220" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="17" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.ec2;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="513.54" y="639.5" width="50.92" height="53" as="geometry"/>
-                </mxCell>
-                <mxCell id="19" value="Dependency layer" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="460.00000000000006" y="692.5" width="140" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="26" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;flowAnimation=1;" edge="1" parent="1" source="3" target="17">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="430" y="750" as="sourcePoint"/>
-                        <mxPoint x="480" y="700" as="targetPoint"/>
-                    </mxGeometry>
+                <mxCell id="16" value="IAM role: Bedrock InvokeFlow" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="225.00000000000003" y="870" width="210" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
