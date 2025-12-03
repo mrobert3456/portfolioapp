@@ -10,12 +10,14 @@ import { useRef, useEffect, useContext } from "react";
 import { CiUser } from "react-icons/ci";
 import Markdown from "react-markdown";
 import { ChatContext } from "./ChatAgent";
+import SendEmailForm from "./SendEmailForm";
 
 const ChatBody: React.FC = () => {
   const { messages, isLoading, error } = useContext(ChatContext)!;
 
   const profileColors = useColorModeValue("!bg-slate-300", "!bg-slate-700");
   const userMessageBg = useColorModeValue("!bg-slate-300", "!bg-slate-800");
+  const linkColor = useColorModeValue("#0f62fe", "#a6c8ff");
   const toast = useToast();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
@@ -69,7 +71,35 @@ const ChatBody: React.FC = () => {
                 index % 2 === 0 && userMessageBg
               }`}
             >
-              <Markdown>{message}</Markdown>
+              {message.type === "question" && (
+                <Markdown
+                  components={{
+                    a: ({ node, ...props }) => {
+                      return (
+                        <a
+                          className="markdown-link"
+                          style={{ color: linkColor }}
+                          href={props.href as string}
+                        >
+                          {props.children}
+                        </a>
+                      );
+                    },
+                  }}
+                >
+                  {message.content as string}
+                </Markdown>
+              )}
+              {message.type == "email" && (
+                <Flex className="gap-2 items-center">
+                  <div>I have prepared the email for you</div>
+                  <SendEmailForm
+                    message={(message.content as ContactInformation).message}
+                    name={(message.content as ContactInformation).name}
+                    email={(message.content as ContactInformation).email}
+                  />
+                </Flex>
+              )}
             </Box>
           </Flex>
         ))}

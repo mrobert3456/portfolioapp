@@ -9,15 +9,29 @@ import {
 import { buttonStyle } from "./ui/CommonStyles";
 import useContactForm from "../hooks/useContactForm";
 
-const ContactForm: React.FC = () => {
+interface Props {
+  email?: string;
+  name?: string;
+  message?: string;
+  disabled?: boolean;
+  onClose?: () => void;
+}
+const ContactForm: React.FC<Props> = ({
+  email,
+  name,
+  message,
+  disabled = false,
+  onClose,
+}) => {
   const { isLoading, nameRef, emailRef, messageRef, handleSubmit } =
     useContactForm();
 
   return (
-    <FormControl className="flex flex-col gap-2 m-3">
-      <FormLabel className="!flex !justify-between !mr-0">Contact </FormLabel>
+    <FormControl className="flex flex-col gap-2" isDisabled={disabled}>
+      <FormLabel className="!flex !justify-between !mr-0">Contact</FormLabel>
       <Input
         ref={nameRef}
+        defaultValue={name || ""}
         type="text"
         placeholder="Name"
         className="!rounded-none"
@@ -25,6 +39,7 @@ const ContactForm: React.FC = () => {
 
       <Input
         ref={emailRef}
+        defaultValue={email || ""}
         type="email"
         placeholder="Email"
         className="!rounded-none"
@@ -32,14 +47,20 @@ const ContactForm: React.FC = () => {
 
       <Textarea
         ref={messageRef}
+        defaultValue={message || ""}
         placeholder="Message"
         className="!rounded-none"
       />
 
       <Button
         className={`${buttonStyle}flex gap-2 cursor-pointer`}
-        onClick={handleSubmit}
-        isDisabled={isLoading}
+        onClick={() => {
+          handleSubmit();
+          if (onClose) {
+            onClose();
+          }
+        }}
+        isDisabled={isLoading || disabled}
       >
         {isLoading && <Spinner size="sm" />}
         {isLoading ? "Sending" : "Send"}

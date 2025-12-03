@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaMeta } from "react-icons/fa6";
+import { RiAnthropicFill } from "react-icons/ri";
 import oeLogo from "../assets/oe.png";
 import { ChatMetadata } from "../interfaces/Chat";
 import { IoDocumentOutline } from "react-icons/io5";
@@ -68,8 +68,23 @@ export const AGENT: ChatMetadata = {
     icon: IoDocumentOutline,
   },
   model: {
-    name: "llama3-2-1b-instruct-v1:0",
-    icon: FaMeta,
+    name: "claude-3-5-sonnet-20240620-v1:0",
+    icon: RiAnthropicFill,
   },
-  version: "0.1 - Beta",
+  version: "1.0",
 };
+
+export const CHAT_AGENT_DISCLAIMER =
+  "This chat assistant is an interactive feature of my personal portfolio website. " +
+  "It can only answer questions based on the information in my CV.\n\n" +
+  "- The assistant **does not store any data in cookies or other persistent storage on your device**.\n" +
+  "- Your messages and the conversation history **are logged on the server side** so the assistant can:\n" +
+  "  - maintain context during the conversation, and\n" +
+  "  - support monitoring, debugging, and improving the service.\n" +
+  "- These logs may include:\n" +
+  "  - the content of your messages, and\n" +
+  "  - technical information (such as timestamps and request metadata).\n" +
+  "- Logs are **kept for up to 1 week**.\n" +
+  "- Logs are **not used for model training**.\n" +
+  "- Logs are **not used to create marketing profiles** and are **not sold to third parties**.\n\n" +
+  "This disclaimer applies solely to the behavior of the chat assistant. Other parts of the website, your browser, or third-party services (such as hosting providers or analytics tools, if used) may have their own data and cookie practices, which are governed by their respective policies.";

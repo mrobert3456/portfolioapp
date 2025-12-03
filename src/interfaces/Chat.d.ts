@@ -19,8 +19,18 @@ interface LambdaError {
 }
 
 interface ChatTool {
-  sendMessage: (message: string) => Promise<void>;
-  messages: string[];
+  sendMessage: (message: Message) => Promise<void>;
+  messages: Message[];
   error: string | null | undefined;
   isLoading: booelan;
 }
+
+interface ChatParams {
+  message: string;
+  history: string[];
+}
+interface Message {
+  type: ActionType;
+  content: string | ContactInformation;
+}
+type ActionType = "email" | "question";

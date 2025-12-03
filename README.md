@@ -25,11 +25,16 @@
 |              | Langgraph                                                           |
 |              | Python lambda mailer (https://github.com/mrobert3456/mailer_lambda) |
 |              | Python lambda RAG (Private Repository)                              |
+|              | Python lambda Flow (Private Repository)                             |
 | **CI/CD**    | Github actions                                                      |
 
 ## 📫 Contact Form
 
 The form is secured with Google reCAPTCHA v3 to prevent spamming.
+
+## 🤖 Chat agent
+
+Agent does not store any user data - History resets after page refresh.
 
 ## ⚡ CI/CD pipeline
 

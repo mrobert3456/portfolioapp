@@ -5,3 +5,7 @@
 .grecaptcha-badge {
   display: none;
 }
+
+.markdown-link:hover {
+  text-decoration: underline;
+}
