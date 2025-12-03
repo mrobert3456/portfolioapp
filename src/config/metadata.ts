@@ -76,7 +76,7 @@ export const AGENT: ChatMetadata = {
 
 export const CHAT_AGENT_DISCLAIMER =
   "This chat assistant is an interactive feature of my personal portfolio website. " +
-  "It can only answer questions based on the information in my CV and related public portfolio content.\n\n" +
+  "It can only answer questions based on the information in my CV.\n\n" +
   "- The assistant **does not store any data in cookies or other persistent storage on your device**.\n" +
   "- Your messages and the conversation history **are logged on the server side** so the assistant can:\n" +
   "  - maintain context during the conversation, and\n" +
