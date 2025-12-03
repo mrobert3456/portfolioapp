@@ -2,6 +2,7 @@ import {
   Drawer,
   DrawerBody,
   DrawerContent,
+  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerProps,
@@ -27,6 +28,7 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({
           <Text>{title}</Text>
         </DrawerHeader>
         <DrawerBody>{children}</DrawerBody>
+        <DrawerFooter />
       </DrawerContent>
     </Drawer>
   );
