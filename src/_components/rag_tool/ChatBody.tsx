@@ -17,6 +17,7 @@ const ChatBody: React.FC = () => {
 
   const profileColors = useColorModeValue("!bg-slate-300", "!bg-slate-700");
   const userMessageBg = useColorModeValue("!bg-slate-300", "!bg-slate-800");
+  const linkColor = useColorModeValue("#0f62fe", "#a6c8ff");
   const toast = useToast();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
@@ -71,7 +72,23 @@ const ChatBody: React.FC = () => {
               }`}
             >
               {message.type === "question" && (
-                <Markdown>{message.content as string}</Markdown>
+                <Markdown
+                  components={{
+                    a: ({ node, ...props }) => {
+                      return (
+                        <a
+                          className="markdown-link"
+                          style={{ color: linkColor }}
+                          href={props.href as string}
+                        >
+                          {props.children}
+                        </a>
+                      );
+                    },
+                  }}
+                >
+                  {message.content as string}
+                </Markdown>
               )}
               {message.type == "email" && (
                 <Flex className="gap-2 items-center">
