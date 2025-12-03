@@ -54,6 +54,7 @@ jobs:
           VITE_LAMBDA_CHAT_URL: ${{ secrets.LAMBDA_CHAT_URL }}
           VITE_LAMBDA_CONTACT_URL: ${{ secrets.LAMBDA_CONTACT_URL }}
           VITE_SITE_KEY: ${{ secrets.SITE_KEY }}
+          VITE_FLOW_API_URL: ${{ secrets.VITE_FLOW_API_URL }}
 
       - name: Run tests
         run: npm test
