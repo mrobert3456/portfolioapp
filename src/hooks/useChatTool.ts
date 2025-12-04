@@ -42,6 +42,7 @@ const useChatTool = () => {
       })
       .catch((error) => {
         console.log(error);
+        //TODO: graceful error handling
       });
   };
 
