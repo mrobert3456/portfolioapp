@@ -4,6 +4,7 @@ import {
   Box,
   Flex,
   Spinner,
+  Image,
   useToast,
 } from "@chakra-ui/react";
 import { useRef, useEffect, useContext } from "react";
@@ -11,6 +12,7 @@ import { CiUser } from "react-icons/ci";
 import Markdown from "react-markdown";
 import { ChatContext } from "./ChatAgent";
 import SendEmailForm from "./SendEmailForm";
+import blogs from "../../config/blogs.json";
 
 const ChatBody: React.FC = () => {
   const { messages, isLoading, error } = useContext(ChatContext)!;
@@ -74,15 +76,35 @@ const ChatBody: React.FC = () => {
               {message.type === "question" && (
                 <Markdown
                   components={{
+                    p: ({ node, ...props }) => {
+                      return <p className="flex gap-2">{props.children}</p>;
+                    },
                     a: ({ node, ...props }) => {
+                      const blog = blogs.find(
+                        (b: Blog) => b.link === props.href
+                      );
+                      if (!blog)
+                        return (
+                          <a
+                            className="markdown-link"
+                            style={{ color: linkColor }}
+                            href={props.href as string}
+                          >
+                            {props.children}
+                          </a>
+                        );
+
                       return (
-                        <a
-                          className="markdown-link"
-                          style={{ color: linkColor }}
-                          href={props.href as string}
-                        >
-                          {props.children}
-                        </a>
+                        <div className="flex gap-2 items-center">
+                          <a
+                            className="markdown-link"
+                            style={{ color: linkColor }}
+                            href={props.href as string}
+                          >
+                            {props.children}
+                          </a>
+                          <Icon as={Image} src={blog.icon} />
+                        </div>
                       );
                     },
                   }}
