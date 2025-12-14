@@ -26,23 +26,35 @@ const useChatTool = () => {
 
     invokeFlow(data)
       .then((response) => {
-        console.log(response);
-        setIsLoading(false);
-        if (response!.actionType == "question") {
+        if (
+          response === null ||
+          response?.actionType === null ||
+          response?.result === null
+        ) {
+          throw new Error(
+            "I do not understand your question. Please try rephrasing it."
+          );
+        }
+        if (response.actionType == "question") {
           setMessages((prev) => [
             ...prev,
-            { type: "question", content: response!.result as string },
+            { type: "question", content: response.result as string },
           ]);
-        } else if (response!.actionType == "email") {
+        } else if (response.actionType == "email") {
           setMessages((prev) => [
             ...prev,
-            { type: "email", content: response!.result as ContactInformation },
+            { type: "email", content: response.result as ContactInformation },
           ]);
         }
       })
-      .catch((error) => {
-        console.log(error);
-        //TODO: graceful error handling
+      .catch((error: Error) => {
+        setMessages((prev) => [
+          ...prev,
+          { type: "question", content: error.message },
+        ]);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 

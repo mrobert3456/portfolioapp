@@ -28,14 +28,13 @@ const useAwsFlows = () => {
         const { flowOutputEvent } = chunkEvent!;
         let actionType: ActionType | null = null;
         let result: ContactInformation | string | null = null;
+
         if (flowOutputEvent?.nodeName === "FlowOutputNode_5") {
           actionType = "email";
           result = JSON.parse(flowOutputEvent.content!.document as string);
         } else if (flowOutputEvent?.nodeName === "FlowOutputNode_1") {
           actionType = "question";
           result = flowOutputEvent.content!.document as string;
-        } else {
-          console.log(flowOutputEvent);
         }
 
         return {

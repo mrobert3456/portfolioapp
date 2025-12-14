@@ -29,9 +29,10 @@ const ProjectList: React.FC = () => {
           setIsLoading(false);
         })
         .catch((error: Error) => {
-          console.log(error.message);
-          setIsLoading(false);
           setError(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     }
   }, []);
