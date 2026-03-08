@@ -3,7 +3,7 @@ import { RiAnthropicFill } from "react-icons/ri";
 import oeLogo from "../assets/oe.png";
 import { ChatMetadata } from "../interfaces/Chat";
 import { IoDocumentOutline } from "react-icons/io5";
-
+import { SiCredly } from "react-icons/si";
 export const INTRO: Metadata = {
   name: "Robert Meszaros",
   location: "Budapest, Hungary",
@@ -25,6 +25,11 @@ export const WEBSITES: Website[] = [
     title: "LinkedIn",
     url: "https://www.linkedin.com/in/róbert-mészáros-345143233/",
     icon: FaLinkedin,
+  },
+  {
+    title: "Credly",
+    url: "https://www.credly.com/users/robert-meszaros.4ab3a2e4/badges#credly",
+    icon: SiCredly,
   },
 ];
 
@@ -48,6 +53,12 @@ export const CERTS: Certificate[] = [
     img: "https://images.credly.com/size/340x340/images/9465fcb9-15a0-4139-a216-b049d358b6c3/IBM-Mentor-template.png",
     url: "https://www.credly.com/badges/e6535ebf-7679-442f-923b-06de17cad18f/linked_in?t=siw1lz",
     alt: "IBM mentor certificate",
+  },
+  {
+    title: "IBM Recognized Speaker/Presenter",
+    img: "https://images.credly.com/size/340x340/images/3154e547-0202-4491-9c05-4a7ffa05dd1c/Recognized-Speaker-Presenter.png",
+    url: "https://www.credly.com/badges/cf39c736-e904-4be9-850f-3c0775267934",
+    alt: "IBM Recognized Speaker/Presenter certificate",
   },
 ];
 

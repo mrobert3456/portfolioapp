@@ -81,7 +81,7 @@ const ChatBody: React.FC = () => {
                     },
                     a: ({ node, ...props }) => {
                       const blog = blogs.find(
-                        (b: Blog) => b.link === props.href
+                        (b: Blog) => b.link === props.href,
                       );
                       if (!blog)
                         return (
