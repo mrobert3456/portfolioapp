@@ -79,7 +79,7 @@ export const AGENT: ChatMetadata = {
     icon: IoDocumentOutline,
   },
   model: {
-    name: "claude-3-5-sonnet-20240620-v1:0",
+    name: "anthropic.claude-opus-4-6-v1",
     icon: RiAnthropicFill,
   },
   version: "1.0",

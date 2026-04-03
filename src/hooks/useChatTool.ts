@@ -1,54 +1,55 @@
 import { useState } from "react";
-import { ChatParams, Message } from "../interfaces/Chat";
+import { ChatParams, AgentAnswer } from "../interfaces/Chat";
 import useAwsFlows from "./useAwsFlows";
 
 const useChatTool = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [agentAnswers, setAgentAnswers] = useState<AgentAnswer[]>([]);
   const [error, setError] = useState<string | null>();
   const { invoke: invokeFlow } = useAwsFlows();
 
-  const sendMessage = async (message: Message) => {
+  const sendMessage = async (agentAnswer: AgentAnswer) => {
     setIsLoading(true);
     setError(null);
-    setMessages((prevMessages) => [...prevMessages, message]);
+    setAgentAnswers((prevMessages) => [...prevMessages, agentAnswer]);
 
-    const history = [...messages]
+    const history = [...agentAnswers]
       .reverse()
       .filter((item) => item.type == "question")
       .filter((_, index) => index <= 5)
       .map((item) => item.content) as string[];
 
     const data: ChatParams = {
-      message: message.content as string,
+      message: agentAnswer.content as string,
       history: history,
     };
 
     invokeFlow(data)
       .then((response) => {
+        console.log(response);
         if (
           response === null ||
           response?.actionType === null ||
           response?.result === null
         ) {
           throw new Error(
-            "I do not understand your question. Please try rephrasing it."
+            "I do not understand your question. Please try rephrasing it.",
           );
         }
         if (response.actionType == "question") {
-          setMessages((prev) => [
+          setAgentAnswers((prev) => [
             ...prev,
             { type: "question", content: response.result as string },
           ]);
         } else if (response.actionType == "email") {
-          setMessages((prev) => [
+          setAgentAnswers((prev) => [
             ...prev,
             { type: "email", content: response.result as ContactInformation },
           ]);
         }
       })
       .catch((error: Error) => {
-        setMessages((prev) => [
+        setAgentAnswers((prev) => [
           ...prev,
           { type: "question", content: error.message },
         ]);
@@ -60,7 +61,7 @@ const useChatTool = () => {
 
   return {
     sendMessage,
-    messages,
+    agentAnswers,
     error,
     isLoading,
   };

@@ -18,12 +18,12 @@ const PROMPT_EXAMPLES = [
   "Show me his publications with links to them",
 ];
 const ChatInput: React.FC = () => {
-  const { sendMessage, messages, isLoading } = useContext(ChatContext)!;
+  const { sendMessage, agentAnswers, isLoading } = useContext(ChatContext)!;
   const [userInput, setUserInput] = useState<string | undefined>();
 
   return (
     <Stack className="w-[90%]">
-      {messages.length === 0 && (
+      {agentAnswers.length === 0 && (
         <div className="flex gap-2">
           {PROMPT_EXAMPLES.map((example, index) => (
             <Tag

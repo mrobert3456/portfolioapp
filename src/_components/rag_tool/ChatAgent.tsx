@@ -10,12 +10,14 @@ import { ChatTool } from "../../interfaces/Chat";
 export const ChatContext = createContext<ChatTool | null>(null);
 
 const ChatAgent: React.FC = () => {
-  const { sendMessage, messages, error, isLoading } = useChatTool();
+  const { sendMessage, agentAnswers, error, isLoading } = useChatTool();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <ChatContext.Provider value={{ sendMessage, messages, error, isLoading }}>
+    <ChatContext.Provider
+      value={{ sendMessage, agentAnswers, error, isLoading }}
+    >
       <Card
         id="about_chat_agent__card"
         className="!rounded-none !w-full !h-full !bg-transparent !border-none !shadow-none mb-10"
