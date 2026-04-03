@@ -36,13 +36,6 @@ const Home: React.FC = () => {
           >
             Contact me
           </Button>
-
-          <Button
-            className={`!w-20 ${buttonStyle}`}
-            onClick={() => navigate("/chat")}
-          >
-            Let's chat
-          </Button>
         </div>
       </Flex>
 

@@ -22,8 +22,8 @@ const ChatInput: React.FC = () => {
   const [userInput, setUserInput] = useState<string | undefined>();
 
   return (
-    <Stack className="w-[90%]">
-      {agentAnswers.length === 0 && (
+    <>
+      {/* {agentAnswers.length === 0 && (
         <div className="flex gap-2">
           {PROMPT_EXAMPLES.map((example, index) => (
             <Tag
@@ -38,8 +38,8 @@ const ChatInput: React.FC = () => {
             </Tag>
           ))}
         </div>
-      )}
-      <div>
+      )} */}
+      <div className="!w-full">
         <InputGroup size="md" className="w-full">
           <Input
             className={`${buttonStyle}`}
@@ -71,9 +71,8 @@ const ChatInput: React.FC = () => {
             </Button>
           </InputRightElement>
         </InputGroup>
-        <Disclaimer />
       </div>
-    </Stack>
+    </>
   );
 };
 

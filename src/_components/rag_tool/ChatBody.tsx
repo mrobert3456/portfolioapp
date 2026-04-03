@@ -1,5 +1,4 @@
 import {
-  Icon,
   useColorModeValue,
   Box,
   Flex,
@@ -7,7 +6,6 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useRef, useEffect, useContext } from "react";
-import { CiUser } from "react-icons/ci";
 import { ChatContext } from "./ChatAgent";
 import { ActionType, ComponentTypeProps } from "../../interfaces/Chat";
 import EmailComponent from "./Components/EmailComponent";
@@ -21,7 +19,6 @@ const COMPONENTS: Record<ActionType, React.FC<ComponentTypeProps>> = {
 const ChatBody: React.FC = () => {
   const { agentAnswers, isLoading, error } = useContext(ChatContext)!;
 
-  const profileColors = useColorModeValue("!bg-slate-300", "!bg-slate-700");
   const userMessageBg = useColorModeValue("!bg-slate-300", "!bg-slate-800");
   const toast = useToast();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
@@ -62,17 +59,8 @@ const ChatBody: React.FC = () => {
               gap={2}
               justify={index % 2 === 0 ? "flex-end" : "flex-start"}
               alignSelf={index % 2 === 0 ? "flex-end" : "flex-start"}
+              className="text-md"
             >
-              {index % 2 !== 0 && (
-                <Icon
-                  w={30}
-                  h={30}
-                  p={1}
-                  className={`rounded-full ${profileColors}`}
-                >
-                  <CiUser size={24} />
-                </Icon>
-              )}
               <Box
                 className={`p-2 rounded-lg break-words ${
                   index % 2 === 0 && userMessageBg
