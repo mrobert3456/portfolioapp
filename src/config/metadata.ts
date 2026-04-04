@@ -85,6 +85,9 @@ export const AGENT: ChatMetadata = {
   version: "1.0",
 };
 
+export const STARTER_MESSAGE =
+  "Hi, I'm an assistant for Robert's portfolio.\nAsk me anything about his career, blogs, projects or anything you would like to know!\nI can also help you write him an email.";
+
 export const CHAT_AGENT_DISCLAIMER =
   "This chat assistant is an interactive feature of my personal portfolio website. " +
   "It can only answer questions based on the information in my CV.\n\n" +

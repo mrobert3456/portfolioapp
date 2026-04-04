@@ -19,10 +19,10 @@ const CustomModal: React.FC<Props> = ({
   ...props
 }) => {
   return (
-    <Modal {...props}>
+    <Modal isCentered {...props}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Chat Agent & Data Disclaimer</ModalHeader>
+        <ModalHeader>{title}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>{children}</ModalBody>
         <ModalFooter />

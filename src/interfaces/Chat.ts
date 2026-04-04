@@ -25,11 +25,15 @@ export interface ChatParams {
   message: string;
   history: string[];
 }
+
+export type AnswerContent = string | ContactInformation;
+
 export interface AgentAnswer {
   type: ActionType;
-  content: string | ContactInformation;
+  content: AnswerContent;
 }
 export interface ComponentTypeProps {
-  agentAnswer: AgentAnswer;
+  message: AnswerContent;
+  role: "user" | "assistant";
 }
 export type ActionType = "email" | "question";

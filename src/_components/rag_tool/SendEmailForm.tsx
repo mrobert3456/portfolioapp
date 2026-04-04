@@ -4,7 +4,7 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import CustomPopover from "../ui/CustomPopover";
+import CustomModal from "../ui/CustomModal";
 import { buttonStyle } from "../ui/CommonStyles";
 import CustomDrawer from "../ui/CustomDrawer";
 import ContactForm from "../ContactForm";
@@ -20,33 +20,22 @@ const SendEmailForm: React.FC<Props> = ({ message, name, email }) => {
 
   const FormContainer = useBreakpointValue({
     base: CustomDrawer,
-    md: CustomPopover,
+    md: CustomModal,
   }) as React.ElementType;
-
-  const FormContainerProps = useBreakpointValue({
-    base: {
-      isOpen: isOpen,
-      onClose: onClose,
-    },
-    md: {
-      defaultIsOpen: true,
-    },
-  });
 
   return (
     <>
-      {!FormContainerProps?.defaultIsOpen && (
-        <Button
-          className={`${buttonStyle}flex gap-2 cursor-pointer`}
-          size="sm"
-          onClick={onOpen}
-        >
-          See details
-        </Button>
-      )}
+      <Button
+        className={`${buttonStyle}flex gap-2 cursor-pointer`}
+        size="sm"
+        onClick={onOpen}
+      >
+        See details
+      </Button>
+
       {hidden && <Tag>Sent</Tag>}
 
-      <FormContainer title="Send email" {...FormContainerProps}>
+      <FormContainer title="Send email" isOpen={isOpen} onClose={onClose}>
         <ContactForm
           name={name}
           message={message}

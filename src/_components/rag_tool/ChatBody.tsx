@@ -10,6 +10,7 @@ import { ChatContext } from "./ChatAgent";
 import { ActionType, ComponentTypeProps } from "../../interfaces/Chat";
 import EmailComponent from "./Components/EmailComponent";
 import QuestionComponent from "./Components/QuestionComponent";
+import { STARTER_MESSAGE } from "../../config/metadata";
 
 const COMPONENTS: Record<ActionType, React.FC<ComponentTypeProps>> = {
   email: EmailComponent,
@@ -19,7 +20,6 @@ const COMPONENTS: Record<ActionType, React.FC<ComponentTypeProps>> = {
 const ChatBody: React.FC = () => {
   const { agentAnswers, isLoading, error } = useContext(ChatContext)!;
 
-  const userMessageBg = useColorModeValue("!bg-slate-300", "!bg-slate-800");
   const toast = useToast();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
@@ -50,6 +50,9 @@ const ChatBody: React.FC = () => {
   return (
     <Box className="flex-1 gap-3 p-4 overflow-y-auto">
       <Flex direction="column" gap={3} align="flex-start">
+        {agentAnswers.length === 0 && (
+          <QuestionComponent message={STARTER_MESSAGE} role="assistant" />
+        )}
         {agentAnswers.map((agentAnswer, index) => {
           const Component = COMPONENTS[agentAnswer.type];
           return (
@@ -61,13 +64,10 @@ const ChatBody: React.FC = () => {
               alignSelf={index % 2 === 0 ? "flex-end" : "flex-start"}
               className="text-md"
             >
-              <Box
-                className={`p-2 rounded-lg break-words ${
-                  index % 2 === 0 && userMessageBg
-                }`}
-              >
-                <Component agentAnswer={agentAnswer} />
-              </Box>
+              <Component
+                message={agentAnswer.content}
+                role={index % 2 === 0 ? "user" : "assistant"}
+              />
             </Flex>
           );
         })}
