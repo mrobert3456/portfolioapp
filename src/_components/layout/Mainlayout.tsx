@@ -23,7 +23,7 @@ const MainLayout: React.FC = () => {
         <ChatWidget />
       </main>
       <Stack id="chat-input" className="justify-center items-center" />
-      <footer className="p-4 h-[5rem] flex items-start justify-end">
+      <footer className="p-4 h-[5rem] flex items-start justify-start">
         <Text className="text-slate-500">{"ForestLake@2024"}</Text>
       </footer>
     </Stack>
