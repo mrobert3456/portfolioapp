@@ -1,24 +1,11 @@
-import {
-  InputGroup,
-  Input,
-  InputRightElement,
-  Button,
-  Stack,
-  Tag,
-} from "@chakra-ui/react";
+import { InputGroup, Input, InputRightElement, Button } from "@chakra-ui/react";
 import { buttonStyle } from "../ui/CommonStyles";
 import { AGENT } from "../../config/metadata";
 import { useContext, useState } from "react";
-import { ChatContext } from "./ChatAgent";
+import { ChatContext } from "../layout/Mainlayout";
 
-const PROMPT_EXAMPLES = [
-  "I want to send an email to Robert",
-  "Where does Robert work?",
-  "How many years of experience does Robert have?",
-  "Show me his publications with links to them",
-];
 const ChatInput: React.FC = () => {
-  const { sendMessage, agentAnswers, isLoading } = useContext(ChatContext)!;
+  const { sendMessage, isLoading } = useContext(ChatContext)!;
   const [userInput, setUserInput] = useState<string | undefined>();
 
   return (

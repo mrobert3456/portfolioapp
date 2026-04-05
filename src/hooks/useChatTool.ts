@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { ChatParams, AgentAnswer } from "../interfaces/Chat";
 import useAwsFlows from "./useAwsFlows";
+import { useDisclosure } from "@chakra-ui/react";
 
 const useChatTool = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [agentAnswers, setAgentAnswers] = useState<AgentAnswer[]>([]);
   const [error, setError] = useState<string | null>();
+  const { isOpen, onClose, onToggle } = useDisclosure();
   const { invoke: invokeFlow } = useAwsFlows();
 
   const sendMessage = async (agentAnswer: AgentAnswer) => {
@@ -64,6 +66,9 @@ const useChatTool = () => {
     agentAnswers,
     error,
     isLoading,
+    isOpen,
+    onToggle,
+    onClose,
   };
 };
 export default useChatTool;

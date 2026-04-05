@@ -8,18 +8,15 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import useChatTool from "../../hooks/useChatTool";
-import { createContext, useState } from "react";
+import { useContext, useState } from "react";
 import AgentDetails from "./AgentDetails";
 import ChatBody from "./ChatBody";
-import { ChatTool } from "../../interfaces/Chat";
 import ChatInput from "./ChatInput";
 import { BiExpand } from "react-icons/bi";
 import CustomModal from "../ui/CustomModal";
 import CustomPopover, { CustomPopoverProps } from "../ui/CustomPopover";
 import { RiRobot2Fill } from "react-icons/ri";
-
-export const ChatContext = createContext<ChatTool | null>(null);
+import { ChatContext } from "../layout/Mainlayout";
 
 const ChatAgent: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -32,12 +29,10 @@ const ChatAgent: React.FC = () => {
   );
 };
 export const ChatWidget: React.FC = () => {
-  const { isOpen, onClose, onToggle } = useDisclosure();
-
-  const { sendMessage, agentAnswers, error, isLoading } = useChatTool();
   const headerBgColor = useColorModeValue("bg-slate-300", "bg-slate-700");
   const [width, setWidth] = useState<string>("400px");
   const [height, setHeight] = useState<string>("500px");
+  const { onToggle, isOpen, onClose } = useContext(ChatContext)!;
 
   const handleExpand = () => {
     setWidth((prev) => (prev == "600px" ? "400px" : "600px"));
@@ -61,9 +56,7 @@ export const ChatWidget: React.FC = () => {
   });
 
   return (
-    <ChatContext.Provider
-      value={{ sendMessage, agentAnswers, error, isLoading }}
-    >
+    <>
       <IconButton
         onClick={onToggle}
         style={{
@@ -125,7 +118,7 @@ export const ChatWidget: React.FC = () => {
       >
         <ChatAgent />
       </WidgetComponent>
-    </ChatContext.Provider>
+    </>
   );
 };
 

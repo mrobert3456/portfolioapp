@@ -1,3 +1,4 @@
+import { UseDisclosureProps, UseDisclosureReturn } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 export interface Content {
   name: string;
@@ -15,7 +16,7 @@ export interface LambdaError {
   requestId: string;
   stackTrace: string[];
 }
-export interface ChatTool {
+export interface ChatTool extends Partial<UseDisclosureReturn> {
   sendMessage: (agentAnswer: AgentAnswer) => Promise<void>;
   agentAnswers: AgentAnswer[];
   error: string | null | undefined;

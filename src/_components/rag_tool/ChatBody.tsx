@@ -6,11 +6,12 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useRef, useEffect, useContext } from "react";
-import { ChatContext } from "./ChatAgent";
+
 import { ActionType, ComponentTypeProps } from "../../interfaces/Chat";
 import EmailComponent from "./Components/EmailComponent";
 import QuestionComponent from "./Components/QuestionComponent";
 import { STARTER_MESSAGE } from "../../config/metadata";
+import { ChatContext } from "../layout/Mainlayout";
 
 const COMPONENTS: Record<ActionType, React.FC<ComponentTypeProps>> = {
   email: EmailComponent,
