@@ -35,11 +35,14 @@ const CustomModal: React.FC<Props> = ({
   return (
     <Modal isCentered {...props}>
       <ModalOverlay />
-      <ModalContent className="!rounded-none">
-        <ModalHeader {...headerProps}>{title || header}</ModalHeader>
+      <ModalContent className="!rounded-none flex flex-col max-h-[80vh]">
+        <ModalHeader className="shrink-0">{title || header}</ModalHeader>
+
         <ModalCloseButton className="!rounded-none" />
-        <ModalBody>{children}</ModalBody>
-        <ModalFooter className="!block">{footer}</ModalFooter>
+
+        <ModalBody className="flex-1 overflow-y-auto">{children}</ModalBody>
+
+        <ModalFooter className="!block shrink-0">{footer}</ModalFooter>
       </ModalContent>
     </Modal>
   );

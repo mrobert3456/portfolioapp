@@ -58,12 +58,14 @@ const CustomPopover: React.FC<CustomPopoverProps> = ({
         )}
       </PopoverTrigger>
 
-      <PopoverContent width={contentWidth} className="!rounded-none">
+      <PopoverContent width={contentWidth} className="!rounded-none  ">
         <PopoverArrow />
         <PopoverHeader {...headerProps}>{title || header}</PopoverHeader>
         <PopoverCloseButton className="!rounded-none" />
 
-        <PopoverBody height={contentHeight}>{children}</PopoverBody>
+        <PopoverBody className="overflow-auto" height={contentHeight}>
+          {children}
+        </PopoverBody>
         <PopoverFooter>{footer}</PopoverFooter>
       </PopoverContent>
     </Popover>
