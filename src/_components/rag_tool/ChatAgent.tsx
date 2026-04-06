@@ -17,6 +17,7 @@ import CustomModal from "../ui/CustomModal";
 import CustomPopover, { CustomPopoverProps } from "../ui/CustomPopover";
 import { RiRobot2Fill } from "react-icons/ri";
 import { ChatContext } from "../layout/Mainlayout";
+import { hoverImgScaling } from "../ui/CommonStyles";
 
 const ChatAgent: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -88,7 +89,7 @@ export const ChatWidget: React.FC = () => {
           <Flex id="header">
             <Flex className="items-center gap-2">
               <Tooltip label="Expand">
-                <Box className={`hover:cursor-pointer`}>
+                <Box className={`hover:cursor-pointer ${hoverImgScaling}`}>
                   <BiExpand onClick={handleExpand} />
                 </Box>
               </Tooltip>
