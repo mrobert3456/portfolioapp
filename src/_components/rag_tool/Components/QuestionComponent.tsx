@@ -9,7 +9,7 @@ const QuestionComponent: React.FC<ComponentTypeProps> = ({ message, role }) => {
   const linkColor = useColorModeValue("#0f62fe", "#a6c8ff");
   const userMessageBg = useColorModeValue("!bg-sky-300", "!bg-sky-800");
   const assistantMessageBg = useColorModeValue(
-    "!bg-slate-300",
+    "!bg-slate-100",
     "!bg-slate-800",
   );
   return (
