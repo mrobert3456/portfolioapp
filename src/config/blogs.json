@@ -1,5 +1,6 @@
 [
   {
+    "id": 0,
     "title": "Image grayscale with PyCUDA",
     "summary": "Grayscale images using CUDA with Python",
     "date": "2024-08-21",
@@ -8,6 +9,7 @@
     "icon": "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19"
   },
   {
+    "id": 1,
     "title": "Vehicle detection using YOLOv3",
     "summary": "Detecting vehicles using image processing techniques",
     "date": "2024-08-21",
@@ -16,6 +18,7 @@
     "icon": "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19"
   },
   {
+    "id": 2,
     "title": "Lane detection and traffic sign recognition",
     "summary": "Combining lane detection with traffic sign recognition",
     "date": "2023-05-26",

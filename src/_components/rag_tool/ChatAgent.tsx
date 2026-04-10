@@ -89,7 +89,9 @@ export const ChatWidget: React.FC = () => {
           <Flex id="header">
             <Flex className="items-center gap-2">
               <Tooltip label="Expand">
-                <Box className={`hover:cursor-pointer ${hoverImgScaling}`}>
+                <Box
+                  className={`hover:cursor-pointer ${hoverImgScaling} hidden sm:!flex`}
+                >
                   <BiExpand onClick={handleExpand} />
                 </Box>
               </Tooltip>
