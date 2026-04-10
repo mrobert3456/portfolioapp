@@ -7,6 +7,7 @@ import {
   SiReact,
   SiPython,
   SiTensorflow,
+  SiNvidia,
 } from "react-icons/si";
 import { FaAws, FaPython } from "react-icons/fa";
 
@@ -117,5 +118,22 @@ export const PROJECTS: Project[] = [
     ],
 
     description: "Detect vehicles on images using YoloV3 and coco dataset",
+  },
+  {
+    title: "Pycuda Grayscale",
+    url: "https://github.com/mrobert3456/pycuda_grayscale",
+    technologies: [
+      {
+        name: "Python",
+        icon: FaPython,
+      },
+      {
+        name: "Cuda",
+        icon: SiNvidia,
+      },
+    ],
+
+    description: "Grayscaling images using Cuda and Python",
+    blogs: [0],
   },
 ];

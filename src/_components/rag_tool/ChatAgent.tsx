@@ -6,7 +6,6 @@ import {
   Tooltip,
   useBreakpointValue,
   useColorModeValue,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import AgentDetails from "./AgentDetails";
