@@ -64,7 +64,7 @@ const MainLayout: React.FC = () => {
       </main>
       <Stack id="chat-input" className="justify-center items-center" />
       <footer className="p-4 h-[5rem] flex items-start justify-start">
-        <Text className="text-slate-500">{"ForestLake@2024"}</Text>
+        <Text className="text-slate-500">{"ForestLake@2026"}</Text>
       </footer>
     </Stack>
   );
