@@ -39,11 +39,11 @@ export const ChatWidget: React.FC = () => {
     const maxHeight = window.innerHeight - 300;
 
     setWidth((prev) =>
-      prev === "600px" ? "400px" : `${Math.min(600, maxWidth)}px`,
+      prev === "400px" ? `${Math.min(600, maxWidth)}px` : "400px",
     );
 
     setHeight((prev) =>
-      prev === "700px" ? "500px" : `${Math.min(700, maxHeight)}px`,
+      prev === "500px" ? `${Math.min(700, maxHeight)}px` : "500px",
     );
   };
 
