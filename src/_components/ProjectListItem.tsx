@@ -14,6 +14,7 @@ import { BlogReference, Project } from "../config/projects";
 import blogs from "../config/blogs.json";
 import { GoLinkExternal } from "react-icons/go";
 import { BsPostcard } from "react-icons/bs";
+import { Technology } from "../interfaces/About";
 
 interface ProjectListItemProps {
   project: Project;
@@ -24,9 +25,8 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
   const [expanded, setExpanded] = useState(false);
   const hoverCard = `
             transition-all duration-300 ease-out
-            hover:-translate-y-1
             hover:shadow-xl
-            hover:ring-1 hover:ring-blue-500/40
+            hover:ring-1 hover:ring-blue-500
             `;
 
   const visibleBlogs = project?.blogs
@@ -129,10 +129,10 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
 
       <CardFooter>
         <div className="flex flex-wrap gap-3">
-          {project.technologies.map(({ name, icon: Icon }) => (
-            <Tooltip key={name} label={name}>
+          {project.technologies.map((item: Technology) => (
+            <Tooltip key={item.name} label={item.name}>
               <div className="flex justify-center items-center w-9 h-9 ring-1">
-                <Icon className="w-5 h-5" />
+                <item.icon className="w-5 h-5" />
               </div>
             </Tooltip>
           ))}

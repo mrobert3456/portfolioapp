@@ -10,6 +10,7 @@ import HamburgerMenu from "./HamburgerMenu";
 import { Link, useLocation } from "react-router-dom";
 import useNavigation from "../../hooks/useNavigation";
 import { FaGithub } from "react-icons/fa";
+import { CustomRoute } from "../../interfaces/Route";
 interface HeaderProps {
   routes: CustomRoute[];
 }

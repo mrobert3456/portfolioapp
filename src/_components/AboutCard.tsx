@@ -3,6 +3,7 @@ import Metadata from "./Metadata";
 import Bio from "./Bio";
 import Certificates from "./Certificates";
 import Educations from "./Educations";
+import Skills from "./Skills";
 
 const AboutCard: React.FC = () => {
   return (
@@ -12,9 +13,12 @@ const AboutCard: React.FC = () => {
           <Metadata />
           <Bio />
         </Flex>
-        <Flex id="education__items" className="gap-10 flex-wrap">
+        <Flex id="education__certs" className="gap-4">
           <Certificates />
           <Educations />
+        </Flex>
+        <Flex id="metadata__skill" className="gap-10 flex-wrap">
+          <Skills />
         </Flex>
       </CardBody>
     </Card>

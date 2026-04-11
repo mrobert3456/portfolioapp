@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { CustomRoute } from "../interfaces/Route";
 
 const useNavigation = () => {
   const navigate = useNavigate();

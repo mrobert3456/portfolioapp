@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import NavItem from "./NavItem";
+import { CustomRoute } from "../../interfaces/Route";
 
 interface HamburgerMenuProps {
   routes: CustomRoute[];

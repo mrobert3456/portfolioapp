@@ -10,6 +10,7 @@ import {
   SiNvidia,
 } from "react-icons/si";
 import { FaAws, FaPython } from "react-icons/fa";
+import { Technology } from "../interfaces/About";
 
 export type BlogReference = (typeof blogs)[number]["id"];
 
@@ -17,7 +18,7 @@ export interface Project {
   title: string;
   url: string;
   description?: string;
-  technologies: { name: string; icon: IconType }[];
+  technologies: Technology[];
   blogs?: BlogReference[];
 }
 export const PROJECTS: Project[] = [

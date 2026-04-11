@@ -1,5 +1,6 @@
-import { UseDisclosureProps, UseDisclosureReturn } from "@chakra-ui/react";
+import { UseDisclosureReturn } from "@chakra-ui/react";
 import { IconType } from "react-icons";
+import { ContactInformation } from "./Contact";
 export interface Content {
   name: string;
   icon: IconType;
