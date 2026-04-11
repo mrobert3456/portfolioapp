@@ -10,6 +10,7 @@ import {
   SiRuby,
   SiTensorflow,
   SiTypescript,
+  SiLanggraph,
 } from "react-icons/si";
 import {
   Certificate,
@@ -25,10 +26,6 @@ export const INTRO: Metadata = {
   company: "IBM",
   role: "Full stack developer",
 };
-
-export const BIO =
-  "I am a computer science engineer with a focus on web application development and a deep interest in image processing.\
- I explore innovative techniques and convolutional neural networks (CNNs) to create advanced solutions for image analysis and processing tasks.";
 
 export const WEBSITES: Website[] = [
   {
@@ -124,8 +121,8 @@ export const SKILLS: Technology[] = [
     icon: SiLangchain,
   },
   {
-    name: "Langchain",
-    icon: SiLangchain,
+    name: "Langgraph",
+    icon: SiLanggraph,
   },
   {
     name: "Tensorflow",

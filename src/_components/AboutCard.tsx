@@ -7,16 +7,15 @@ import Skills from "./Skills";
 
 const AboutCard: React.FC = () => {
   return (
-    <Card id="about__card" className="!rounded-none ">
-      <CardBody className="flex flex-col gap-5 flex-wrap">
+    <Card id="about__card" className="!rounded-none">
+      <CardBody className="flex flex-col gap-5 flex-wrap w-full">
         <Flex id="metadata__items" className="gap-10 flex-wrap">
           <Metadata />
           <Bio />
         </Flex>
-        <Flex id="education__certs" className="gap-4">
-          <Certificates />
-          <Educations />
-        </Flex>
+
+        <Certificates />
+        <Educations />
         <Flex id="metadata__skill" className="gap-10 flex-wrap">
           <Skills />
         </Flex>
