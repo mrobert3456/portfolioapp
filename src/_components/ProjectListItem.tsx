@@ -51,7 +51,7 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
         hover:border-blue-500/30
       `}
     >
-      <CardBody className="flex flex-col gap-3">
+      <CardBody className="flex flex-col gap-3 !h-full">
         {/* top content */}
         <Stack className="gap-1 justify-center">
           <Heading
@@ -68,7 +68,9 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
             "
           >
             {project.title}
-            <GoLinkExternal size={14} className="opacity-60  transition" />
+            <div>
+              <GoLinkExternal size={14} className="opacity-60  transition" />
+            </div>
           </Heading>
 
           <Text className="text-xs line-clamp-2 opacity-80">

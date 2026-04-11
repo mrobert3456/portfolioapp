@@ -22,7 +22,7 @@ const Home: React.FC = () => {
         id="Introduction"
         className="flex-col justify-center items-center gap-5"
       >
-        <div className="font-serif text-3xl text-center ">
+        <div className="font-serif text-3xl text-center">
           Hello, I'm Robert Meszaros
           <span className={`border-r-2 animate-blink ${borderColor}`}>
             &nbsp;

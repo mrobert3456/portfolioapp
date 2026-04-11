@@ -35,8 +35,16 @@ export const ChatWidget: React.FC = () => {
   const { onToggle, isOpen, onClose } = useContext(ChatContext)!;
 
   const handleExpand = () => {
-    setWidth((prev) => (prev == "600px" ? "400px" : "600px"));
-    setHeight((prev) => (prev == "700px" ? "500px" : "700px"));
+    const maxWidth = window.innerWidth - 32;
+    const maxHeight = window.innerHeight - 300;
+
+    setWidth((prev) =>
+      prev === "600px" ? "400px" : `${Math.min(600, maxWidth)}px`,
+    );
+
+    setHeight((prev) =>
+      prev === "700px" ? "500px" : `${Math.min(700, maxHeight)}px`,
+    );
   };
 
   const WidgetComponent = useBreakpointValue({

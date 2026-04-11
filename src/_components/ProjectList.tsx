@@ -5,7 +5,11 @@ import { Project, PROJECTS } from "../config/projects";
 
 const ProjectList: React.FC = () => {
   return (
-    <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={2}>
+    <SimpleGrid
+      columns={{ base: 1, md: 2, lg: 3 }}
+      spacing={2}
+      alignItems="stretch"
+    >
       {PROJECTS.map((repo: Project) => (
         <ProjectListItem key={repo.url} project={repo} />
       ))}
