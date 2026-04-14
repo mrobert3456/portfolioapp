@@ -1,4 +1,3 @@
-import { IconType } from "react-icons";
 import blogs from "../config/blogs.json";
 import {
   SiGithubactions,
@@ -17,7 +16,8 @@ export type BlogReference = (typeof blogs)[number]["id"];
 export interface Project {
   title: string;
   url: string;
-  description?: string;
+  subtitle?: string;
+  highlights?: string[];
   technologies: Technology[];
   blogs?: BlogReference[];
 }
@@ -47,7 +47,11 @@ export const PROJECTS: Project[] = [
         icon: FaAws,
       },
     ],
-    description: "Own portfolio web application showcasing my blogs and work.",
+    subtitle: "Own portfolio web application showcasing my blogs and work.",
+    highlights: [
+      "Static website hosted on AWS S3",
+      "Chat agent created with AWS flows and Lambda",
+    ],
   },
   {
     title: "Lane detection and Traffic sign recognition",
@@ -63,9 +67,13 @@ export const PROJECTS: Project[] = [
       },
     ],
 
-    description:
+    subtitle:
       "Combining image processing techniques with CNN to detect lanes and traffic signs.",
     blogs: [2],
+    highlights: [
+      "Lane detection using traditional image processing techniques",
+      "Traffic sign detection and recognition using YoloV3 model and custom CNN",
+    ],
   },
 
   {
@@ -82,9 +90,14 @@ export const PROJECTS: Project[] = [
       },
     ],
 
-    description:
+    subtitle:
       "Training CNN's to detect and recognize traffic signs on GTSRB and GTSDB datasets. Complete pipeline for dataset preprocessing before training.",
     blogs: [2],
+    highlights: [
+      "Traffic sign detection and recognition using YoloV3 model and custom CNN",
+      "Traning custom CNN's on GTSRB and GTSDB using tensorflow gpu and jupyter notebook",
+      "Evaluating different CNN's and choosing best model",
+    ],
   },
 
   {
@@ -97,8 +110,9 @@ export const PROJECTS: Project[] = [
       },
     ],
 
-    description: "Detect vehicles on images using YoloV3 and coco dataset",
+    subtitle: "Detect vehicles on images using YoloV3 and coco dataset",
     blogs: [1],
+    highlights: ["Detecting vehicles using YoloV3 trained on the coco dataset"],
   },
   {
     title: "Mailer Lambda function",
@@ -118,7 +132,8 @@ export const PROJECTS: Project[] = [
       },
     ],
 
-    description: "Detect vehicles on images using YoloV3 and coco dataset",
+    subtitle: "Detect vehicles on images using YoloV3 and coco dataset",
+    highlights: ["Python script hosted on AWS lambda"],
   },
   {
     title: "Pycuda Grayscale",
@@ -134,7 +149,8 @@ export const PROJECTS: Project[] = [
       },
     ],
 
-    description: "Grayscaling images using Cuda and Python",
+    subtitle: "Grayscaling images using Cuda and Python",
     blogs: [0],
+    highlights: ["Grayscaling image using CUDA and Python"],
   },
 ];

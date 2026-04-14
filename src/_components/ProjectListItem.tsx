@@ -73,9 +73,23 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
             </div>
           </Heading>
 
-          <Text className="text-xs line-clamp-2 opacity-80">
-            {project.description}
+          <Text className="text-xs line-clamp-2 opacity-50">
+            {project.subtitle}
           </Text>
+
+          <ul className="flex flex-col gap-2 mt-1">
+            {project.highlights?.map((item: string) => (
+              <li
+                key={item}
+                className="relative pl-4 text-sm leading-relaxed text-dark-200
+                before:content-[''] before:block before:absolute before:left-0
+                before:top-[0.55rem] before:w-1.5 before:h-1.5
+                before:bg-blue-500 before:rounded-full "
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </Stack>
 
         {/* related posts */}
@@ -83,9 +97,7 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
           <Stack className="gap-1 mt-1">
             <div className="flex gap-2 items-center">
               <BsPostcard />
-              <Text className="text-xs font-semibold opacity-70">
-                Related posts
-              </Text>
+              <Text className="text-xs font-semibold ">Related posts</Text>
             </div>
 
             {visibleBlogs.map((id: BlogReference) => {
@@ -99,7 +111,6 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
                   className="
                   text-xs
                   truncate
-                  opacity-80
                   hover:text-blue-500
                   transition-colors
                   
