@@ -17,13 +17,19 @@ import CustomPopover, { CustomPopoverProps } from "../ui/CustomPopover";
 import { RiRobot2Fill } from "react-icons/ri";
 import { ChatContext } from "../layout/Mainlayout";
 import { hoverImgScaling } from "../ui/CommonStyles";
+import { CgDetailsMore } from "react-icons/cg";
 
-const ChatAgent: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
+interface ChatAgentProps {
+  isDetailsOpen: boolean;
+  setDetailsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const ChatAgent: React.FC<ChatAgentProps> = ({
+  isDetailsOpen,
+  setDetailsOpen,
+}) => {
   return (
     <Box className="overflow-auto">
-      <AgentDetails isOpen={isOpen} setIsOpen={setIsOpen} />
+      <AgentDetails isOpen={isDetailsOpen} setIsOpen={setDetailsOpen} />
       <ChatBody />
     </Box>
   );
@@ -33,7 +39,7 @@ export const ChatWidget: React.FC = () => {
   const [width, setWidth] = useState<string>("400px");
   const [height, setHeight] = useState<string>("500px");
   const { onToggle, isOpen, onClose } = useContext(ChatContext)!;
-
+  const [isDetailsOpen, setDetailsOpen] = useState<boolean>(false);
   const handleExpand = () => {
     const maxWidth = window.innerWidth - 32;
     const maxHeight = window.innerHeight - 300;
@@ -93,7 +99,7 @@ export const ChatWidget: React.FC = () => {
         isOpen={isOpen}
         onClose={onClose}
         header={
-          <Flex id="header">
+          <Flex id="header" className="items-center gap-2">
             <Flex className="items-center gap-2">
               <Tooltip label="Expand">
                 <Box
@@ -106,6 +112,12 @@ export const ChatWidget: React.FC = () => {
               <div className="w-2 h-2 rounded-full !bg-green-500" />
               <h2>ForestLake Assistant</h2>
             </Flex>
+
+            <Tooltip label="Details">
+              <Box className={`hover:cursor-pointer hidden sm:!flex`}>
+                <CgDetailsMore onClick={() => setDetailsOpen(true)} />
+              </Box>
+            </Tooltip>
           </Flex>
         }
         footer={
@@ -126,7 +138,10 @@ export const ChatWidget: React.FC = () => {
           />
         }
       >
-        <ChatAgent />
+        <ChatAgent
+          setDetailsOpen={setDetailsOpen}
+          isDetailsOpen={isDetailsOpen}
+        />
       </WidgetComponent>
     </>
   );
