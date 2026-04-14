@@ -1,6 +1,7 @@
 import BlogItemCard from "./BlogItemCard";
 import blogs from "../../config/blogs.json";
 import { SimpleGrid } from "@chakra-ui/react";
+import { Blog } from "../../interfaces/Blog";
 
 const FeaturedBlogs: React.FC = () => {
   return (

@@ -1,6 +1,7 @@
 import { Flex, useColorModeValue } from "@chakra-ui/react";
 import { ComponentTypeProps } from "../../../interfaces/Chat";
 import SendEmailForm from "../SendEmailForm";
+import { ContactInformation } from "../../../interfaces/Contact";
 
 const EmailComponent: React.FC<ComponentTypeProps> = ({ message }) => {
   const assistantMessageBg = useColorModeValue(

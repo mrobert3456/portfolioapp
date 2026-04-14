@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { validateForm } from "../utils/validateContactForm";
 import { useToast } from "@chakra-ui/react";
+import { ContactResponse } from "../interfaces/Contact";
 
 const API_GW_ENDPOINT = import.meta.env.VITE_LAMBDA_CONTACT_URL!;
 const SITE_KEY = import.meta.env.VITE_SITE_KEY;

@@ -1,5 +1,6 @@
 import { Stack, Heading, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { hoverImgScaling } from "./CommonStyles";
+import { Certificate } from "../../interfaces/About";
 
 interface PaperProps {
   id?: string;

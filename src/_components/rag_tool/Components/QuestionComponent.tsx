@@ -4,6 +4,7 @@ import Markdown from "react-markdown";
 import blogs from "../../../config/blogs.json";
 import { GoCopy } from "react-icons/go";
 import { hoverImgScaling } from "../../ui/CommonStyles";
+import { Blog } from "../../../interfaces/Blog";
 
 const QuestionComponent: React.FC<ComponentTypeProps> = ({ message, role }) => {
   const linkColor = useColorModeValue("#0f62fe", "#a6c8ff");

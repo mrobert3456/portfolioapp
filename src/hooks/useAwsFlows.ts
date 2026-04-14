@@ -1,11 +1,12 @@
 import { FlowResponseStream } from "@aws-sdk/client-bedrock-agent-runtime";
 import { ActionType, ChatParams } from "../interfaces/Chat";
+import { ContactInformation } from "../interfaces/Contact";
 
 const FLOW_API_GW = import.meta.env.VITE_FLOW_API_URL!;
 
 const useAwsFlows = () => {
   const invoke = async (
-    input_params: ChatParams
+    input_params: ChatParams,
   ): Promise<{
     actionType: ActionType;
     result: ContactInformation | string;

@@ -1,6 +1,5 @@
 import { InputGroup, Input, InputRightElement, Button } from "@chakra-ui/react";
 import { buttonStyle } from "../ui/CommonStyles";
-import { AGENT } from "../../config/metadata";
 import { useContext, useState } from "react";
 import { ChatContext } from "../layout/Mainlayout";
 
@@ -64,17 +63,3 @@ const ChatInput: React.FC = () => {
 };
 
 export default ChatInput;
-
-const Disclaimer: () => React.ReactNode = () => (
-  <p className="text-xs text-center">
-    Be aware that the model can make mistakes. Please review my{" "}
-    <a
-      className="text-xs focus-visible:!shadow-none hover:underline text-blue-500"
-      href={AGENT.documents.url}
-      target="_blank"
-    >
-      CV
-    </a>{" "}
-    to ensure there are no inconsistencies!
-  </p>
-);

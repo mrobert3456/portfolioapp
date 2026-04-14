@@ -2,6 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import blogs from "../config/blogs.json";
 import BlogItemCard from "../_components/ui/BlogItemCard";
 import PageLayout from "../_components/layout/PageLayout";
+import { Blog } from "../interfaces/Blog";
 const Blogs: React.FC = () => {
   return (
     <PageLayout id="Blogs" homeNavigation>
