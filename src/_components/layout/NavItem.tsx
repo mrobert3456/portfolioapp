@@ -1,6 +1,7 @@
 import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 import { hoverSidelined, hoverUnderlined } from "../ui/CommonStyles";
+import { CustomRoute } from "../../interfaces/Route";
 
 const NavItem: React.FC<CustomRoute> = ({ path, name, action }) => {
   const { pathname } = useLocation();
@@ -19,7 +20,7 @@ const NavItem: React.FC<CustomRoute> = ({ path, name, action }) => {
   });
   const hoverBgColor = useColorModeValue(
     "hover:bg-slate-300",
-    "hover:bg-slate-700"
+    "hover:bg-slate-700",
   );
   const bgColor = useColorModeValue("bg-slate-300", "bg-slate-700");
 
@@ -27,8 +28,8 @@ const NavItem: React.FC<CustomRoute> = ({ path, name, action }) => {
     <div
       className={`!no-underline relative min-w-[6rem] cursor-pointer 
             text-center py-1 text-lg ${hoverBgColor} ${
-        pathname === path && `before:${currentBeforeStyle} ${bgColor} `
-      } ${hoverStyle}`}
+              pathname === path && `before:${currentBeforeStyle} ${bgColor} `
+            } ${hoverStyle}`}
       style={{ boxShadow: pathname === path ? boxShadow : "" }}
       onClick={action}
     >

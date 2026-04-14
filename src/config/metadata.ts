@@ -1,9 +1,26 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { RiAnthropicFill } from "react-icons/ri";
+import { FaGithub, FaLinkedin, FaPython, FaReact } from "react-icons/fa";
+import { RiAnthropicFill, RiNextjsLine } from "react-icons/ri";
 import oeLogo from "../assets/oe.png";
 import { ChatMetadata } from "../interfaces/Chat";
 import { IoDocumentOutline } from "react-icons/io5";
-import { SiCredly } from "react-icons/si";
+import {
+  SiCredly,
+  SiGithubactions,
+  SiLangchain,
+  SiRuby,
+  SiTensorflow,
+  SiTypescript,
+  SiLanggraph,
+} from "react-icons/si";
+import {
+  Certificate,
+  Metadata,
+  Technology,
+  Website,
+} from "../interfaces/About";
+import { FaAws } from "react-icons/fa6";
+import { PiRobot } from "react-icons/pi";
+import { Blog } from "../interfaces/Blog";
 export const INTRO: Metadata = {
   name: "Robert Meszaros",
   location: "Budapest, Hungary",
@@ -11,9 +28,9 @@ export const INTRO: Metadata = {
   role: "Full stack developer",
 };
 
-export const BIO =
-  "I am a computer science engineer with a focus on web application development and a deep interest in image processing.\
- I explore innovative techniques and convolutional neural networks (CNNs) to create advanced solutions for image analysis and processing tasks.";
+import laneGif from "../assets/lane_detection.gif";
+import grayscaleImg from "../assets/grayscale.jpg";
+import vehicleGif from "../assets/vehicle_detection.gif";
 
 export const WEBSITES: Website[] = [
   {
@@ -35,19 +52,17 @@ export const WEBSITES: Website[] = [
 
 export const CERTS: Certificate[] = [
   {
-    title: "IBM developer foundation",
-    img: "https://images.credly.com/size/340x340/images/f870e8bb-0b8b-44f5-b926-791d6081e659/Developer-Foundation1.png",
-    url: "https://www.credly.com/badges/6499bae5-f083-4e72-97b6-9799a8273f47/linked_in_profile",
-    alt: "IBM developer foundation certificate",
-  },
-
-  {
     title: "IBM developer experienced",
     img: "https://images.credly.com/images/415eaba6-0731-464e-a1eb-ed35eff8c3e7/Developer-Experienced1.png",
     url: "https://www.credly.com/badges/e9a3cb7d-f895-4757-8f9b-a8d8dedabb7e/linked_in_profile",
     alt: "IBM developer experienced certificate",
   },
-
+  {
+    title: "Data Science Profession - Experienced",
+    img: "https://images.credly.com/size/680x680/images/4f37fc04-3ade-4dce-90db-4d689cf0322a/Data-Scientist-Experienced.png",
+    url: "https://www.credly.com/badges/01116a50-a4b2-441d-b8fa-fa68c867d094",
+    alt: "Data Science Profession - Experienced certificate",
+  },
   {
     title: "IBM mentor",
     img: "https://images.credly.com/size/340x340/images/9465fcb9-15a0-4139-a216-b049d358b6c3/IBM-Mentor-template.png",
@@ -84,6 +99,89 @@ export const AGENT: ChatMetadata = {
   },
   version: "1.0",
 };
+
+export const SKILLS: Technology[] = [
+  {
+    name: "Typescript",
+    icon: SiTypescript,
+  },
+  {
+    name: "Python",
+    icon: FaPython,
+  },
+  {
+    name: "React.Js",
+    icon: FaReact,
+  },
+  {
+    name: "Next.Js",
+    icon: RiNextjsLine,
+  },
+  {
+    name: "Ruby",
+    icon: SiRuby,
+  },
+  {
+    name: "Langchain",
+    icon: SiLangchain,
+  },
+  {
+    name: "Langgraph",
+    icon: SiLanggraph,
+  },
+  {
+    name: "Tensorflow",
+    icon: SiTensorflow,
+  },
+  {
+    name: "AWS",
+    icon: FaAws,
+  },
+  {
+    name: "WatsonX Orchestrate",
+    icon: PiRobot,
+  },
+  {
+    name: "Github Actions",
+    icon: SiGithubactions,
+  },
+];
+
+export const BLOGS: Blog[] = [
+  {
+    id: 0,
+    title: "Image grayscale with PyCUDA",
+    summary: "Grayscale images using CUDA with Python",
+    date: "2024-08-21",
+    publisher: "Medium",
+    thumbnail: grayscaleImg,
+    link: "https://medium.com/@mrobert3456/image-grayscale-with-pycuda-1e20e81babc7",
+    icon: "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19",
+  },
+  {
+    id: 1,
+    title: "Vehicle detection using YOLOv3",
+    summary: "Detecting vehicles using image processing techniques",
+    date: "2024-08-21",
+    publisher: "Medium",
+    thumbnail: vehicleGif,
+    link: "https://medium.com/@mrobert3456/vehicle-detection-using-yolov3-c5f426a3fa92",
+    icon: "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19",
+  },
+  {
+    id: 2,
+    title: "Lane detection and traffic sign recognition",
+    summary: "Combining lane detection with traffic sign recognition",
+    date: "2023-05-26",
+    publisher: "IEEE",
+    thumbnail: laneGif,
+    link: "https://ieeexplore.ieee.org/abstract/document/10158539",
+    icon: "https://ieeexplore.ieee.org/assets/img/favicon.ico",
+  },
+];
+
+export const STARTER_MESSAGE =
+  "Hi, I'm an assistant for Robert's portfolio.\nAsk me anything about his career, blogs, projects or anything you would like to know!\nI can also help you write him an email.";
 
 export const CHAT_AGENT_DISCLAIMER =
   "This chat assistant is an interactive feature of my personal portfolio website. " +

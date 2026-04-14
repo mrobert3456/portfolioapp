@@ -9,10 +9,12 @@ import FeaturedBlogs from "../_components/ui/FeaturedBlogs";
 import CustomCardContainer from "../_components/ui/CustomCardContainer";
 import { useNavigate } from "react-router-dom";
 import { buttonStyle } from "../_components/ui/CommonStyles";
+import { ChatContext } from "../_components/layout/Mainlayout";
+import { useContext } from "react";
 
 const Home: React.FC = () => {
   const borderColor = useColorModeValue("border-black", "border-white");
-
+  const { onToggle } = useContext(ChatContext)!;
   const navigate = useNavigate();
   return (
     <SimpleGrid id="Home" className="h-full">
@@ -20,7 +22,7 @@ const Home: React.FC = () => {
         id="Introduction"
         className="flex-col justify-center items-center gap-5"
       >
-        <div className="font-serif text-3xl text-center ">
+        <div className="font-serif text-3xl text-center">
           Hello, I'm Robert Meszaros
           <span className={`border-r-2 animate-blink ${borderColor}`}>
             &nbsp;
@@ -36,12 +38,8 @@ const Home: React.FC = () => {
           >
             Contact me
           </Button>
-
-          <Button
-            className={`!w-20 ${buttonStyle}`}
-            onClick={() => navigate("/chat")}
-          >
-            Let's chat
+          <Button className={`${buttonStyle}`} onClick={onToggle}>
+            Ask me anything
           </Button>
         </div>
       </Flex>

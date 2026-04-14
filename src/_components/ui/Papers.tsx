@@ -1,5 +1,6 @@
 import { Stack, Heading, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { hoverImgScaling } from "./CommonStyles";
+import { Certificate } from "../../interfaces/About";
 
 interface PaperProps {
   id?: string;
@@ -20,7 +21,7 @@ const Papers: React.FC<PaperProps> = ({
         {title}
       </Heading>
 
-      <Flex className="gap-5">
+      <Flex className="gap-5 flex-wrap">
         {papers.map((item: Certificate) => (
           <Flex className="gap-3" key={`${item.url}`}>
             <Link

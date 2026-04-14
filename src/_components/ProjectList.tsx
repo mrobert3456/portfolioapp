@@ -1,59 +1,19 @@
-import { Flex, Spinner, Stack, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { SimpleGrid } from "@chakra-ui/react";
+
 import ProjectListItem from "./ProjectListItem";
+import { Project, PROJECTS } from "../config/projects";
 
 const ProjectList: React.FC = () => {
-  const [repositories, setRepositories] = useState<Repository[] | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
-  useEffect(() => {
-    if (!repositories) {
-      setIsLoading(true);
-      fetch("https://api.github.com/users/mrobert3456/repos", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response: Response) => response.json())
-        .then((data: Repository[]) => {
-          setRepositories(
-            data
-              .filter((item: Repository) => item.description !== null)
-              .sort((a: Repository, b: Repository) => {
-                const aDate = new Date(a.created_at).getTime();
-                const bDate = new Date(b.created_at).getTime();
-                return bDate - aDate;
-              })
-          );
-          setIsLoading(false);
-        })
-        .catch((error: Error) => {
-          setError(error);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }
-  }, []);
-
   return (
-    <Stack className="h-full">
-      {!error && isLoading && (
-        <Flex className="gap-2 items-center justify-center !h-full">
-          <Text>Loading... </Text>
-          <Spinner />
-        </Flex>
-      )}
-      {error && !isLoading && <Stack>{error?.message}</Stack>}
-
-      {!error &&
-        !isLoading &&
-        repositories &&
-        repositories?.map((repo: Repository) => (
-          <ProjectListItem key={repo.id} repository={repo} />
-        ))}
-    </Stack>
+    <SimpleGrid
+      className="justify-center w-full sm:[grid-template-columns:repeat(auto-fit,minmax(415px,0))]"
+      spacing={2}
+      alignItems="stretch"
+    >
+      {PROJECTS.map((repo: Project) => (
+        <ProjectListItem key={repo.url} project={repo} />
+      ))}
+    </SimpleGrid>
   );
 };
 

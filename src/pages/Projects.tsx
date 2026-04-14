@@ -1,13 +1,18 @@
-import { Flex } from "@chakra-ui/react";
 import ProjectList from "../_components/ProjectList";
 import PageLayout from "../_components/layout/PageLayout";
+import PageTitle from "../_components/ui/PageTitle";
 
 const Projects: React.FC = () => {
   return (
     <PageLayout id="Projects" homeNavigation>
-      <Flex className="justify-center items-start sm:items-center ">
+      <PageTitle
+        title="Projects"
+        subtitle=" List of projects that I worked on or working on."
+      />
+
+      <div className="mt-2">
         <ProjectList />
-      </Flex>
+      </div>
     </PageLayout>
   );
 };

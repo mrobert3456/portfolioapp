@@ -1,4 +1,6 @@
+import { UseDisclosureReturn } from "@chakra-ui/react";
 import { IconType } from "react-icons";
+import { ContactInformation } from "./Contact";
 export interface Content {
   name: string;
   icon: IconType;
@@ -15,7 +17,7 @@ export interface LambdaError {
   requestId: string;
   stackTrace: string[];
 }
-export interface ChatTool {
+export interface ChatTool extends Partial<UseDisclosureReturn> {
   sendMessage: (agentAnswer: AgentAnswer) => Promise<void>;
   agentAnswers: AgentAnswer[];
   error: string | null | undefined;
@@ -25,11 +27,15 @@ export interface ChatParams {
   message: string;
   history: string[];
 }
+
+export type AnswerContent = string | ContactInformation;
+
 export interface AgentAnswer {
   type: ActionType;
-  content: string | ContactInformation;
+  content: AnswerContent;
 }
 export interface ComponentTypeProps {
-  agentAnswer: AgentAnswer;
+  message: AnswerContent;
+  role: "user" | "assistant";
 }
 export type ActionType = "email" | "question";

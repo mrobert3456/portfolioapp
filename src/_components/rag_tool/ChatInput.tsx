@@ -1,29 +1,15 @@
-import {
-  InputGroup,
-  Input,
-  InputRightElement,
-  Button,
-  Stack,
-  Tag,
-} from "@chakra-ui/react";
+import { InputGroup, Input, InputRightElement, Button } from "@chakra-ui/react";
 import { buttonStyle } from "../ui/CommonStyles";
-import { AGENT } from "../../config/metadata";
 import { useContext, useState } from "react";
-import { ChatContext } from "./ChatAgent";
+import { ChatContext } from "../layout/Mainlayout";
 
-const PROMPT_EXAMPLES = [
-  "I want to send an email to Robert",
-  "Where does Robert work?",
-  "How many years of experience does Robert have?",
-  "Show me his publications with links to them",
-];
 const ChatInput: React.FC = () => {
-  const { sendMessage, agentAnswers, isLoading } = useContext(ChatContext)!;
+  const { sendMessage, isLoading } = useContext(ChatContext)!;
   const [userInput, setUserInput] = useState<string | undefined>();
 
   return (
-    <Stack className="w-[90%]">
-      {agentAnswers.length === 0 && (
+    <>
+      {/* {agentAnswers.length === 0 && (
         <div className="flex gap-2">
           {PROMPT_EXAMPLES.map((example, index) => (
             <Tag
@@ -38,8 +24,8 @@ const ChatInput: React.FC = () => {
             </Tag>
           ))}
         </div>
-      )}
-      <div>
+      )} */}
+      <div className="!w-full">
         <InputGroup size="md" className="w-full">
           <Input
             className={`${buttonStyle}`}
@@ -71,24 +57,9 @@ const ChatInput: React.FC = () => {
             </Button>
           </InputRightElement>
         </InputGroup>
-        <Disclaimer />
       </div>
-    </Stack>
+    </>
   );
 };
 
 export default ChatInput;
-
-const Disclaimer: () => React.ReactNode = () => (
-  <p className="text-xs text-center">
-    Be aware that the model can make mistakes. Please review my{" "}
-    <a
-      className="text-xs focus-visible:!shadow-none hover:underline text-blue-500"
-      href={AGENT.documents.url}
-      target="_blank"
-    >
-      CV
-    </a>{" "}
-    to ensure there are no inconsistencies!
-  </p>
-);

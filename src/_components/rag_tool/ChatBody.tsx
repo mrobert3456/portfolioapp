@@ -1,17 +1,11 @@
-import {
-  Icon,
-  useColorModeValue,
-  Box,
-  Flex,
-  Spinner,
-  useToast,
-} from "@chakra-ui/react";
+import { Box, Flex, Spinner, Text, useToast } from "@chakra-ui/react";
 import { useRef, useEffect, useContext } from "react";
-import { CiUser } from "react-icons/ci";
-import { ChatContext } from "./ChatAgent";
+
 import { ActionType, ComponentTypeProps } from "../../interfaces/Chat";
 import EmailComponent from "./Components/EmailComponent";
 import QuestionComponent from "./Components/QuestionComponent";
+import { STARTER_MESSAGE } from "../../config/metadata";
+import { ChatContext } from "../layout/Mainlayout";
 
 const COMPONENTS: Record<ActionType, React.FC<ComponentTypeProps>> = {
   email: EmailComponent,
@@ -21,8 +15,6 @@ const COMPONENTS: Record<ActionType, React.FC<ComponentTypeProps>> = {
 const ChatBody: React.FC = () => {
   const { agentAnswers, isLoading, error } = useContext(ChatContext)!;
 
-  const profileColors = useColorModeValue("!bg-slate-300", "!bg-slate-700");
-  const userMessageBg = useColorModeValue("!bg-slate-300", "!bg-slate-800");
   const toast = useToast();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
@@ -53,6 +45,9 @@ const ChatBody: React.FC = () => {
   return (
     <Box className="flex-1 gap-3 p-4 overflow-y-auto">
       <Flex direction="column" gap={3} align="flex-start">
+        {agentAnswers.length === 0 && (
+          <QuestionComponent message={STARTER_MESSAGE} role="assistant" />
+        )}
         {agentAnswers.map((agentAnswer, index) => {
           const Component = COMPONENTS[agentAnswer.type];
           return (
@@ -62,30 +57,23 @@ const ChatBody: React.FC = () => {
               gap={2}
               justify={index % 2 === 0 ? "flex-end" : "flex-start"}
               alignSelf={index % 2 === 0 ? "flex-end" : "flex-start"}
+              className="text-md"
             >
-              {index % 2 !== 0 && (
-                <Icon
-                  w={30}
-                  h={30}
-                  p={1}
-                  className={`rounded-full ${profileColors}`}
-                >
-                  <CiUser size={24} />
-                </Icon>
-              )}
-              <Box
-                className={`p-2 rounded-lg break-words ${
-                  index % 2 === 0 && userMessageBg
-                }`}
-              >
-                <Component agentAnswer={agentAnswer} />
-              </Box>
+              <Component
+                message={agentAnswer.content}
+                role={index % 2 === 0 ? "user" : "assistant"}
+              />
             </Flex>
           );
         })}
         <div ref={messagesEndRef} />
       </Flex>
-      {isLoading && !error && <Spinner size="sm" color="blue.500" />}
+      {isLoading && !error && (
+        <div className="flex items-center gap-2">
+          <Text>Thinking...</Text>
+          <Spinner size="sm" color="blue.500" />
+        </div>
+      )}
     </Box>
   );
 };

@@ -1,15 +1,14 @@
-import { Heading, Stack, Text } from "@chakra-ui/react";
-import { BIO } from "../config/metadata";
+import { Heading, Stack } from "@chakra-ui/react";
+import BIO from "../config/bio.md?raw";
+import Markdown from "react-markdown";
 
 const Bio: React.FC = () => {
   return (
-    <Stack id="Bio">
+    <Stack id="Bio" className="max-w-[40rem]">
       <Heading as="h1" className="!text-sm">
         Bio
       </Heading>
-      <Text as="p" className="text-sm max-w-[25rem]">
-        {BIO}
-      </Text>
+      <Markdown>{BIO}</Markdown>
     </Stack>
   );
 };

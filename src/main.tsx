@@ -8,7 +8,7 @@ import theme from "./theme/theme.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <BrowserRouter>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <div className="overflow-hidden">
@@ -16,5 +16,5 @@ createRoot(document.getElementById("root")!).render(
         </div>
       </BrowserRouter>
     </ChakraProvider>
-  </StrictMode>
+  </StrictMode>,
 );

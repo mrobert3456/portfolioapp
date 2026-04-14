@@ -12,6 +12,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { hoverImgScaling, hoverUnderlined } from "./CommonStyles";
+import { Blog } from "../../interfaces/Blog";
 interface BlogItemCardProps {
   blog: Blog;
   cardProps?: CardProps;

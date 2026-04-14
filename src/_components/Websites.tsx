@@ -1,6 +1,7 @@
 import { Flex, Link } from "@chakra-ui/react";
 import { WEBSITES } from "../config/metadata";
 import { hoverImgScaling } from "./ui/CommonStyles";
+import { Website } from "../interfaces/About";
 
 const Websites: React.FC = () => {
   return (
