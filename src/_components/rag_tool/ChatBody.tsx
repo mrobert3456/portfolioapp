@@ -1,10 +1,4 @@
-import {
-  useColorModeValue,
-  Box,
-  Flex,
-  Spinner,
-  useToast,
-} from "@chakra-ui/react";
+import { Box, Flex, Spinner, Text, useToast } from "@chakra-ui/react";
 import { useRef, useEffect, useContext } from "react";
 
 import { ActionType, ComponentTypeProps } from "../../interfaces/Chat";
@@ -74,7 +68,12 @@ const ChatBody: React.FC = () => {
         })}
         <div ref={messagesEndRef} />
       </Flex>
-      {isLoading && !error && <Spinner size="sm" color="blue.500" />}
+      {isLoading && !error && (
+        <div className="flex items-center gap-2">
+          <Text>Thinking...</Text>
+          <Spinner size="sm" color="blue.500" />
+        </div>
+      )}
     </Box>
   );
 };
