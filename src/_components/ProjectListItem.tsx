@@ -146,7 +146,7 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
       </CardBody>
 
       <CardFooter>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 mt-2">
           {project.technologies.map((item: Technology) => (
             <Tooltip key={item.name} label={item.name}>
               <div className="flex justify-center items-center w-9 h-9 ring-1">
