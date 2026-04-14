@@ -9,12 +9,16 @@ const Blogs: React.FC = () => {
   return (
     <PageLayout id="Blogs" homeNavigation>
       <PageTitle title="Blogs" subtitle=" List of blogs that I've published." />
-
-      <Flex className="gap-2 mt-2 flex-wrap">
-        {BLOGS.map((blog: Blog) => (
-          <DetailedBlogCard key={`featured_blog__${blog.title}`} blog={blog} />
-        ))}
-      </Flex>
+      <div className="mt-2">
+        <Flex className="justify-center  gap-2 flex-wrap">
+          {BLOGS.map((blog: Blog) => (
+            <DetailedBlogCard
+              key={`featured_blog__${blog.title}`}
+              blog={blog}
+            />
+          ))}
+        </Flex>
+      </div>
     </PageLayout>
   );
 };
