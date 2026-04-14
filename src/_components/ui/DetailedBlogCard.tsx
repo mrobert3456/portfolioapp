@@ -27,12 +27,11 @@ const DetailedBlogCard: React.FC<DetailedBlogCardProps> = ({
       as={Link}
       href={blog.link}
       target="_blank"
-      className={`!rounded-none !max-w-[30rem] !min-w-[30rem] ${hoverUnderlined} cursor-pointer !no-underline`}
+      className={`!rounded-none !max-w-[30rem] !min-w-[15rem] !w-full  ${hoverUnderlined} cursor-pointer !no-underline`}
       {...cardProps}
     >
       <Flex className="w-full items-stretch">
-        {/* LEFT SQUARE IMAGE (top-to-bottom) */}
-        <div className="h-full aspect-square overflow-hidden">
+        <div className="h-full aspect-square overflow-hidden hidden sm:block">
           <Image
             height={200}
             width={200}
