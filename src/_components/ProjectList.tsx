@@ -6,7 +6,7 @@ import { Project, PROJECTS } from "../config/projects";
 const ProjectList: React.FC = () => {
   return (
     <SimpleGrid
-      columns={{ base: 1, md: 2, lg: 3 }}
+      className="justify-center w-full sm:[grid-template-columns:repeat(auto-fit,minmax(415px,0))]"
       spacing={2}
       alignItems="stretch"
     >

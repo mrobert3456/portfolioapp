@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChatParams, AgentAnswer } from "../interfaces/Chat";
 import useAwsFlows from "./useAwsFlows";
 import { useDisclosure } from "@chakra-ui/react";
+import { ContactInformation } from "../interfaces/Contact";
 
 const useChatTool = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);

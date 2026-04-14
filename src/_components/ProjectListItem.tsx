@@ -38,6 +38,7 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
   return (
     <Card
       className={`
+        w-full
         group
         relative 
         p-4 
@@ -97,27 +98,32 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
           <Stack className="gap-1 mt-1">
             <div className="flex gap-2 items-center">
               <BsPostcard />
-              <Text className="text-xs font-semibold ">Related posts</Text>
+              <Text className="text-xs font-semibold opacity-70 ">
+                Related posts
+              </Text>
             </div>
 
             {visibleBlogs.map((id: BlogReference) => {
               const blog = blogs.find((item) => item.id === id);
 
               return (
-                <Link
-                  key={blog?.link}
-                  href={blog?.link}
-                  target="_blank"
-                  className="
-                  text-xs
-                  truncate
-                  hover:text-blue-500
-                  transition-colors
-                  
-                "
-                >
-                  {blog?.title}
-                </Link>
+                <div>
+                  <Link
+                    key={blog?.link}
+                    href={blog?.link}
+                    target="_blank"
+                    className="
+                          text-xs
+                          truncate
+                          hover:text-blue-500
+                          transition-colors
+                          opacity-70
+                          p-1 "
+                    style={{ border: "1px solid", textDecoration: "none" }}
+                  >
+                    {blog?.title}
+                  </Link>
+                </div>
               );
             })}
 

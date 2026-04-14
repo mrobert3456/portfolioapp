@@ -8,7 +8,7 @@ const Skills: React.FC = () => {
         Skills
       </Heading>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         {SKILLS.map((item: Technology) => (
           <Tooltip key={`skill__${item.name}`} label={item.name}>
             <div className="flex justify-center items-center w-9 h-9 ring-1">
