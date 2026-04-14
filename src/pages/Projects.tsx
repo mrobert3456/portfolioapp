@@ -1,18 +1,18 @@
-import { Heading, Text } from "@chakra-ui/react";
 import ProjectList from "../_components/ProjectList";
 import PageLayout from "../_components/layout/PageLayout";
+import PageTitle from "../_components/ui/PageTitle";
 
 const Projects: React.FC = () => {
   return (
     <PageLayout id="Projects" homeNavigation>
-      <div className="flex flex-col self-start">
-        <Heading>Projects</Heading>
-        <Text className="self-start text-md opacity-80">
-          List of projects that I worked on or working on.
-        </Text>
-      </div>
+      <PageTitle
+        title="Projects"
+        subtitle=" List of projects that I worked on or working on."
+      />
 
-      <ProjectList />
+      <div className="mt-2">
+        <ProjectList />
+      </div>
     </PageLayout>
   );
 };

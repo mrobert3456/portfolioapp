@@ -20,12 +20,17 @@ import {
 } from "../interfaces/About";
 import { FaAws } from "react-icons/fa6";
 import { PiRobot } from "react-icons/pi";
+import { Blog } from "../interfaces/Blog";
 export const INTRO: Metadata = {
   name: "Robert Meszaros",
   location: "Budapest, Hungary",
   company: "IBM",
   role: "Full stack developer",
 };
+
+import laneGif from "../assets/lane_detection.gif";
+import grayscaleImg from "../assets/grayscale.jpg";
+import vehicleGif from "../assets/vehicle_detection.gif";
 
 export const WEBSITES: Website[] = [
   {
@@ -141,6 +146,40 @@ export const SKILLS: Technology[] = [
     icon: SiGithubactions,
   },
 ];
+
+export const BLOGS: Blog[] = [
+  {
+    id: 0,
+    title: "Image grayscale with PyCUDA",
+    summary: "Grayscale images using CUDA with Python",
+    date: "2024-08-21",
+    publisher: "Medium",
+    thumbnail: grayscaleImg,
+    link: "https://medium.com/@mrobert3456/image-grayscale-with-pycuda-1e20e81babc7",
+    icon: "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19",
+  },
+  {
+    id: 1,
+    title: "Vehicle detection using YOLOv3",
+    summary: "Detecting vehicles using image processing techniques",
+    date: "2024-08-21",
+    publisher: "Medium",
+    thumbnail: vehicleGif,
+    link: "https://medium.com/@mrobert3456/vehicle-detection-using-yolov3-c5f426a3fa92",
+    icon: "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19",
+  },
+  {
+    id: 2,
+    title: "Lane detection and traffic sign recognition",
+    summary: "Combining lane detection with traffic sign recognition",
+    date: "2023-05-26",
+    publisher: "IEEE",
+    thumbnail: laneGif,
+    link: "https://ieeexplore.ieee.org/abstract/document/10158539",
+    icon: "https://ieeexplore.ieee.org/assets/img/favicon.ico",
+  },
+];
+
 export const STARTER_MESSAGE =
   "Hi, I'm an assistant for Robert's portfolio.\nAsk me anything about his career, blogs, projects or anything you would like to know!\nI can also help you write him an email.";
 

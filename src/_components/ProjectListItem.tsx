@@ -11,10 +11,11 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { BlogReference, Project } from "../config/projects";
-import blogs from "../config/blogs.json";
 import { GoLinkExternal } from "react-icons/go";
 import { BsPostcard } from "react-icons/bs";
 import { Technology } from "../interfaces/About";
+import { Blog } from "../interfaces/Blog";
+import { BLOGS } from "../config/metadata";
 
 interface ProjectListItemProps {
   project: Project;
@@ -104,7 +105,7 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
             </div>
 
             {visibleBlogs.map((id: BlogReference) => {
-              const blog = blogs.find((item) => item.id === id);
+              const blog = BLOGS.find((item: Blog) => item.id === id);
 
               return (
                 <div>
