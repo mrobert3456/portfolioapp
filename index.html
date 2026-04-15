@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="color-scheme" content="dark light" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ForestLake</title>
@@ -9,5 +10,22 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function () {
+        try {
+          var mode = localStorage.getItem("chakra-ui-color-mode");
+          var systemDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          var initial = mode || (systemDark ? "dark" : "light");
+
+          document.documentElement.style.setProperty("color-scheme", initial);
+
+          document.documentElement.classList.add(
+            initial === "dark" ? "chakra-ui-dark" : "chakra-ui-light",
+          );
+        } catch (e) {}
+      })();
+    </script>
   </body>
 </html>
