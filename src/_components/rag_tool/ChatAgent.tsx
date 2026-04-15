@@ -18,6 +18,7 @@ import { RiRobot2Fill } from "react-icons/ri";
 import { ChatContext } from "../layout/Mainlayout";
 import { hoverImgScaling } from "../ui/CommonStyles";
 import { CgDetailsMore } from "react-icons/cg";
+import AgentDisclaimer from "./AgentDisclaimer";
 
 interface ChatAgentProps {
   isDetailsOpen: boolean;
@@ -40,6 +41,11 @@ export const ChatWidget: React.FC = () => {
   const [height, setHeight] = useState<string>("500px");
   const { onToggle, isOpen, onClose } = useContext(ChatContext)!;
   const [isDetailsOpen, setDetailsOpen] = useState<boolean>(false);
+
+  const iconBgColors = useColorModeValue(
+    "!bg-transparent hover:!bg-slate-300",
+    "!bg-transparent hover:!bg-slate-700",
+  );
   const handleExpand = () => {
     const maxWidth = window.innerWidth - 32;
     const maxHeight = window.innerHeight - 300;
@@ -112,11 +118,16 @@ export const ChatWidget: React.FC = () => {
               <div className="w-2 h-2 rounded-full !bg-green-500" />
               <h2>ForestLake Assistant</h2>
             </Flex>
-
             <Tooltip label="Details">
-              <Box className={`hover:cursor-pointer hidden sm:!flex`}>
+              <Box className={`hover:cursor-pointer ${iconBgColors}`}>
                 <CgDetailsMore onClick={() => setDetailsOpen(true)} />
               </Box>
+            </Tooltip>
+
+            <Tooltip label="Disclaimer">
+              <div>
+                <AgentDisclaimer />
+              </div>
             </Tooltip>
           </Flex>
         }

@@ -11,9 +11,10 @@ import CustomDrawer from "../ui/CustomDrawer";
 import CustomModal from "../ui/CustomModal";
 const AgentDisclaimer: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const iconBgColors = useColorModeValue(
     "!bg-transparent hover:!bg-slate-300",
-    "!bg-transparent hover:!bg-slate-700"
+    "!bg-transparent hover:!bg-slate-700",
   );
 
   const Container = useBreakpointValue({
@@ -29,6 +30,7 @@ const AgentDisclaimer: React.FC = () => {
         onClick={onOpen}
         className={`hover:cursor-pointer ${iconBgColors}`}
       />
+
       <Container
         title="Chat Agent & Data Disclaimer"
         isOpen={isOpen}
