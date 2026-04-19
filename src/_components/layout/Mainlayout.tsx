@@ -1,17 +1,17 @@
-import { Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Stack, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import useNavigation from "../../hooks/useNavigation";
 import { ChatWidget } from "../rag_tool/ChatAgent";
 import useChatTool from "../../hooks/useChatTool";
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { ChatTool } from "../../interfaces/Chat";
 
 export const ChatContext = createContext<ChatTool | null>(null);
 
 const MainLayout: React.FC = () => {
   const { customRoutes } = useNavigation();
-
+  const { setColorMode } = useColorMode();
   const {
     sendMessage,
     agentAnswers,
@@ -21,6 +21,10 @@ const MainLayout: React.FC = () => {
     onToggle,
     onClose,
   } = useChatTool();
+
+  useEffect(() => {
+    setColorMode("dark");
+  }, []);
 
   return (
     <Stack
