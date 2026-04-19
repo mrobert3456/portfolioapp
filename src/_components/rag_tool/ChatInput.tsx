@@ -33,7 +33,7 @@ const ChatInput: React.FC = () => {
       <FormControl className="flex flex-col gap-2 !w-full">
         <InputGroup size="md" className="w-full">
           <Input
-            className={`${buttonStyle}`}
+            className={`${buttonStyle.replace("!text-xs", "!text-base")} `}
             paddingRight="5rem"
             placeholder="Ask me anything"
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
