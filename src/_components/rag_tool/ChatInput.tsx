@@ -1,4 +1,10 @@
-import { InputGroup, Input, InputRightElement, Button } from "@chakra-ui/react";
+import {
+  InputGroup,
+  Input,
+  InputRightElement,
+  Button,
+  FormControl,
+} from "@chakra-ui/react";
 import { buttonStyle } from "../ui/CommonStyles";
 import { useContext, useState } from "react";
 import { ChatContext } from "../layout/Mainlayout";
@@ -6,7 +12,6 @@ import { ChatContext } from "../layout/Mainlayout";
 const ChatInput: React.FC = () => {
   const { sendMessage, isLoading } = useContext(ChatContext)!;
   const [userInput, setUserInput] = useState<string | undefined>();
-
   return (
     <>
       {/* {agentAnswers.length === 0 && (
@@ -25,7 +30,7 @@ const ChatInput: React.FC = () => {
           ))}
         </div>
       )} */}
-      <div className="!w-full">
+      <FormControl className="flex flex-col gap-2 !w-full">
         <InputGroup size="md" className="w-full">
           <Input
             className={`${buttonStyle}`}
@@ -57,7 +62,7 @@ const ChatInput: React.FC = () => {
             </Button>
           </InputRightElement>
         </InputGroup>
-      </div>
+      </FormControl>
     </>
   );
 };
