@@ -52,10 +52,10 @@ export const WEBSITES: Website[] = [
 
 export const CERTS: Certificate[] = [
   {
-    title: "IBM developer experienced",
-    img: "https://images.credly.com/images/415eaba6-0731-464e-a1eb-ed35eff8c3e7/Developer-Experienced1.png",
-    url: "https://www.credly.com/badges/e9a3cb7d-f895-4757-8f9b-a8d8dedabb7e/linked_in_profile",
-    alt: "IBM developer experienced certificate",
+    title: "Developer Profession - Level 3 Expert",
+    img: "https://images.credly.com/size/340x340/images/e180861f-3352-491b-94ae-f0bf4c4730bd/Developer-Expert1.png",
+    url: "https://www.credly.com/badges/046fa5ee-edcd-4e43-9e67-1c95ba2d4b83",
+    alt: "IBM developer expert level certificate",
   },
   {
     title: "Data Science Profession - Experienced",
