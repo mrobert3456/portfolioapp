@@ -19,13 +19,14 @@
 |              | AWS S3                                                              |
 |              | AWS API Gateway                                                     |
 |              | AWS Lambda                                                          |
+|              | AWS Agentcore (MCP server, Strands agent, gateway)                  |
 |              | AWS SES                                                             |
 |              | AWS Bedrock                                                         |
 |              | Langchain                                                           |
-|              | Langgraph                                                           |
 |              | Python lambda mailer (https://github.com/mrobert3456/mailer_lambda) |
-|              | Python lambda RAG (Private Repository)                              |
-|              | Python lambda Flow (Private Repository)                             |
+|              | Python Strands Agent (Private Repository)                           |
+|              | Python MCP Server (Private Repository)                              |
+|              | Pinecone vectorstore                                                |
 | **CI/CD**    | Github actions                                                      |
 
 ## 📫 Contact Form
@@ -43,12 +44,10 @@ This application is deployed using a CI/CD pipeline created with **Github Action
 Workflow steps:
 
 1. **Scan** repository
-
    - **Detect Secrets** to avoid pushing sensitive information
    - **Lint** to enforce coding standards
 
 2. **Build** project
-
    - **npm ci** to install dependencies
    - **npm run build** to build project
    - **npm run test** to run unit tests
