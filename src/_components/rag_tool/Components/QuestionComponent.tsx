@@ -15,9 +15,9 @@ const QuestionComponent: React.FC<ComponentTypeProps> = ({ message, role }) => {
   );
   return (
     <Box
-      className={`p-2 flex justify-between  rounded-lg break-words  ${role == "assistant" ? assistantMessageBg : userMessageBg} ${role == "assistant" ? "rounded-tl-sm" : "rounded-tr-sm"}`}
+      className={`p-2 flex justify-between  rounded-lg break-words  ${role == "assistant" ? (!!message ? assistantMessageBg : "") : userMessageBg} ${role == "assistant" ? "rounded-tl-sm" : "rounded-tr-sm"}`}
     >
-      <div>
+      <div className="mr-1">
         <Markdown
           components={{
             p: ({ node, ...props }) => {
@@ -52,7 +52,7 @@ const QuestionComponent: React.FC<ComponentTypeProps> = ({ message, role }) => {
           {message as string}
         </Markdown>
       </div>
-      {role === "assistant" && (
+      {role === "assistant" && !!message && (
         <Tooltip label="Copy">
           <div
             className={`self-end hover:cursor-pointer ${hoverImgScaling}`}
