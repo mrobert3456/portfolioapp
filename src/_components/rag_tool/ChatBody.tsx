@@ -49,6 +49,9 @@ const ChatBody: React.FC = () => {
           <QuestionComponent message={STARTER_MESSAGE} role="assistant" />
         )}
         {agentAnswers.map((agentAnswer, index) => {
+          const role = index % 2 === 0 ? "user" : "assistant";
+
+          if (role === "assistant" && isLoading) return <></>;
           const Component = COMPONENTS[agentAnswer.type];
           return (
             <Flex
@@ -59,10 +62,7 @@ const ChatBody: React.FC = () => {
               alignSelf={index % 2 === 0 ? "flex-end" : "flex-start"}
               className="text-md"
             >
-              <Component
-                message={agentAnswer.content}
-                role={index % 2 === 0 ? "user" : "assistant"}
-              />
+              <Component message={agentAnswer.content} role={role} />
             </Flex>
           );
         })}
