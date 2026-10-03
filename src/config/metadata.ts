@@ -59,13 +59,13 @@ export const CERTS: Certificate[] = [
   },
   {
     title: "Data Science Profession - Experienced",
-    img: "https://images.credly.com/size/680x680/images/4f37fc04-3ade-4dce-90db-4d689cf0322a/Data-Scientist-Experienced.png",
+    img: "https://images.credly.com/size/340x340/images/20058f48-b880-43dd-8074-b6a779ddae60/69eb64bd462e30fd7ff73ac2.png",
     url: "https://www.credly.com/badges/01116a50-a4b2-441d-b8fa-fa68c867d094",
     alt: "Data Science Profession - Experienced certificate",
   },
   {
     title: "IBM mentor",
-    img: "https://images.credly.com/size/340x340/images/9465fcb9-15a0-4139-a216-b049d358b6c3/IBM-Mentor-template.png",
+    img: "https://images.credly.com/size/340x340/images/6c88ebf4-5ef0-47ef-bf93-2bed3b3c8f3b/IBM-Mentor-template.png",
     url: "https://www.credly.com/badges/e6535ebf-7679-442f-923b-06de17cad18f/linked_in?t=siw1lz",
     alt: "IBM mentor certificate",
   },
