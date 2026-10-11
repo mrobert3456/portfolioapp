@@ -8,26 +8,25 @@
 
 ## 💻 Technologies
 
-| **Category** | **Technology**                                                      |
-| ------------ | ------------------------------------------------------------------- |
-| **Frontend** | React (Vite)                                                        |
-|              | Chakra UI                                                           |
-|              | Tailwind CSS                                                        |
-| **Backend**  | AWS Route 53                                                        |
-|              | AWS API Cloudfront                                                  |
-|              | AWS ACM (Certificate Manager)                                       |
-|              | AWS S3                                                              |
-|              | AWS API Gateway                                                     |
-|              | AWS Lambda                                                          |
-|              | AWS Agentcore (MCP server, Strands agent, gateway)                  |
-|              | AWS SES                                                             |
-|              | AWS Bedrock                                                         |
-|              | Langchain                                                           |
-|              | Python lambda mailer (https://github.com/mrobert3456/mailer_lambda) |
-|              | Python Strands Agent (Private Repository)                           |
-|              | Python MCP Server (Private Repository)                              |
-|              | Pinecone vectorstore                                                |
-| **CI/CD**    | Github actions                                                      |
+| **Category**   | **Technology**                                                      |
+| -------------- | ------------------------------------------------------------------- |
+| **Frontend**   | React (Vite)                                                        |
+|                | Chakra UI                                                           |
+|                | Tailwind CSS                                                        |
+| **Backend**    | AWS Route 53                                                        |
+|                | AWS API Cloudfront                                                  |
+|                | AWS ACM (Certificate Manager)                                       |
+|                | AWS S3                                                              |
+|                | AWS API Gateway                                                     |
+|                | AWS Lambda                                                          |
+|                | AWS Agentcore (MCP server, Strands agent, gateway)                  |
+|                | AWS SES                                                             |
+|                | AWS Bedrock                                                         |
+|                | Pinecone vectorstore                                                |
+|                | Python lambda mailer (https://github.com/mrobert3456/mailer_lambda) |
+| **Agent**      | https://github.com/mrobert3456/portfolio_agent                      |
+| **MCP server** | https://github.com/mrobert3456/portfolio_mcp                        |
+| **CI/CD**      | Github actions                                                      |
 
 ## 📫 Contact Form
 
