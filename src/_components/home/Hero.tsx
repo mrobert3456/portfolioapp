@@ -4,11 +4,16 @@ import { GoLocation } from "react-icons/go";
 import CustomCardContainer from "../ui/CustomCardContainer";
 import Websites from "../Websites";
 import { buttonStyle, fadeUp, primaryButtonStyle } from "../ui/CommonStyles";
-import { BLOGS, CERTS, INTRO } from "../../config/metadata";
+import {
+  BLOGS,
+  CERTS,
+  INTRO,
+  YEARS_OF_EXPERIENCE,
+} from "../../config/metadata";
 import { PROJECTS } from "../../config/projects";
 
 const STATS = [
-  { value: "5+", label: "Years of experience" },
+  { value: YEARS_OF_EXPERIENCE, label: "Years of experience" },
   { value: PROJECTS.length, label: "Projects" },
   { value: BLOGS.length, label: "Publications" },
   { value: CERTS.length, label: "Certifications" },
