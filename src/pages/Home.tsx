@@ -2,7 +2,6 @@ import Hero from "../_components/home/Hero";
 import Toolkit from "../_components/home/Toolkit";
 import SelectedProjects from "../_components/home/SelectedProjects";
 import Writing from "../_components/home/Writing";
-import ClosingCta from "../_components/home/ClosingCta";
 
 const Home: React.FC = () => {
   return (
