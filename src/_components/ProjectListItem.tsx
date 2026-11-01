@@ -46,14 +46,14 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
         ${bgColor}
         ${hoverCard}
         !no-underline
-        aspect-square
+        sm:aspect-square
         justify-between
         !rounded-none
         border border-transparent
         hover:border-blue-500/30
       `}
     >
-      <CardBody className="flex flex-col gap-3 !h-full">
+      <CardBody className="flex flex-col gap-3">
         {/* top content */}
         <Stack className="gap-1 justify-center">
           <Heading
@@ -114,6 +114,8 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({ project }) => {
                     href={blog?.link}
                     target="_blank"
                     className="
+                          inline-block
+                          max-w-full
                           text-xs
                           truncate
                           hover:text-blue-500
