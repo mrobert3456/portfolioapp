@@ -5,6 +5,7 @@ import {
   PopoverBody,
   PopoverCloseButton,
   PopoverContent,
+  PopoverContentProps,
   PopoverFooter,
   PopoverHeader,
   PopoverHeaderProps,
@@ -19,6 +20,7 @@ interface Props extends PopoverProps {
   headerProps?: PopoverHeaderProps;
   contentWidth?: string;
   contentHeight?: string;
+  contentProps?: PopoverContentProps;
   triggerComponent?: React.ReactNode;
   children?: React.ReactNode;
   footer?: React.ReactNode;
@@ -40,6 +42,7 @@ const CustomPopover: React.FC<CustomPopoverProps> = ({
   triggerComponent,
   contentWidth,
   contentHeight,
+  contentProps,
   footer,
   ...props
 }) => {
@@ -58,7 +61,11 @@ const CustomPopover: React.FC<CustomPopoverProps> = ({
         )}
       </PopoverTrigger>
 
-      <PopoverContent width={contentWidth} className="!rounded-none  ">
+      <PopoverContent
+        width={contentWidth}
+        className="!rounded-none  "
+        {...contentProps}
+      >
         <PopoverArrow />
         <PopoverHeader {...headerProps}>{title || header}</PopoverHeader>
         <PopoverCloseButton className="!rounded-none" />

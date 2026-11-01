@@ -3,6 +3,7 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
+  ModalContentProps,
   ModalFooter,
   ModalHeader,
   ModalHeaderProps,
@@ -11,10 +12,11 @@ import {
 } from "@chakra-ui/react";
 import { WithHeader, WithTitle } from "../../interfaces/ui";
 
-interface CustomModalProps extends ModalProps {
+export interface CustomModalProps extends ModalProps {
   defaultIsOpen?: boolean;
   footer?: React.ReactNode;
   headerProps?: ModalHeaderProps;
+  contentProps?: ModalContentProps;
 }
 
 type ModalWithTitle = WithTitle & CustomModalProps;
@@ -30,12 +32,19 @@ const CustomModal: React.FC<Props> = ({
   children,
   headerProps,
   footer,
+  contentProps,
   ...props
 }) => {
+  const { className: contentClassName = "", ...restContentProps } =
+    contentProps ?? {};
+
   return (
     <Modal isCentered {...props}>
       <ModalOverlay />
-      <ModalContent className="!rounded-none flex flex-col max-h-[80vh]">
+      <ModalContent
+        className={`!rounded-none flex flex-col max-h-[80vh] ${contentClassName}`}
+        {...restContentProps}
+      >
         <ModalHeader className="shrink-0">{title || header}</ModalHeader>
 
         <ModalCloseButton className="!rounded-none" />
