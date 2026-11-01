@@ -4,12 +4,13 @@ import { Blog } from "../interfaces/Blog";
 import PageTitle from "../_components/ui/PageTitle";
 import { BLOGS } from "../config/metadata";
 import DetailedBlogCard from "../_components/ui/DetailedBlogCard";
+import { fadeUp } from "../_components/ui/CommonStyles";
 
 const Blogs: React.FC = () => {
   return (
     <PageLayout id="Blogs" homeNavigation>
       <PageTitle title="Blogs" subtitle=" List of blogs that I've published." />
-      <div className="mt-2">
+      <div className={`mt-2 ${fadeUp}`}>
         <Flex className="justify-center  gap-2 flex-wrap">
           {BLOGS.map((blog: Blog) => (
             <DetailedBlogCard

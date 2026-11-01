@@ -12,8 +12,13 @@ import {
 } from "../../config/metadata";
 import { PROJECTS } from "../../config/projects";
 
+const DETAILS = [
+  { value: `${YEARS_OF_EXPERIENCE} years`, label: "Experience" },
+  { value: INTRO.company, label: "Currently" },
+  { value: INTRO.location, label: "Location" },
+];
+
 const STATS = [
-  { value: YEARS_OF_EXPERIENCE, label: "Years of experience" },
   { value: PROJECTS.length, label: "Projects" },
   { value: BLOGS.length, label: "Publications" },
   { value: CERTS.length, label: "Certifications" },
@@ -21,6 +26,7 @@ const STATS = [
 
 const Hero: React.FC = () => {
   const borderColor = useColorModeValue("border-black", "border-white");
+  const dividerColor = useColorModeValue("divide-black/10", "divide-white/10");
 
   return (
     <section
@@ -79,20 +85,35 @@ const Hero: React.FC = () => {
       </div>
 
       <div className={`${fadeUp} [animation-delay:300ms]`}>
-        <CustomCardContainer className="w-full !p-8">
-          <dl className="grid w-full grid-cols-2 gap-8">
-            {STATS.map((stat) => (
-              <div
-                key={`stat__${stat.label}`}
-                className="flex flex-col-reverse gap-1"
-              >
-                <dt className="text-xs opacity-60">{stat.label}</dt>
-                <dd className="font-serif text-4xl lining-nums md:text-5xl">
-                  {stat.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
+        <CustomCardContainer className="w-full !p-0">
+          <div className={`w-full divide-y ${dividerColor}`}>
+            <dl className={`divide-y ${dividerColor}`}>
+              {DETAILS.map((detail) => (
+                <div
+                  key={`detail__${detail.label}`}
+                  className="flex items-center justify-between gap-4 px-6 py-4"
+                >
+                  <dt className="text-xs uppercase tracking-[0.25em] opacity-60">
+                    {detail.label}
+                  </dt>
+                  <dd className="text-right font-medium">{detail.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <dl className={`grid grid-cols-3 divide-x ${dividerColor}`}>
+              {STATS.map((stat) => (
+                <div
+                  key={`stat__${stat.label}`}
+                  className="flex flex-col-reverse items-center gap-1 px-2 py-6 text-center"
+                >
+                  <dt className="text-xs opacity-60">{stat.label}</dt>
+                  <dd className="font-serif text-4xl lining-nums text-blue-300 md:text-5xl">
+                    {stat.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </CustomCardContainer>
       </div>
     </section>
