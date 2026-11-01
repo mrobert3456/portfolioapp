@@ -14,6 +14,7 @@ import {
 } from "react-icons/si";
 import {
   Certificate,
+  FocusArea,
   Metadata,
   Technology,
   Website,
@@ -27,6 +28,8 @@ export const INTRO: Metadata = {
   company: "IBM",
   role: "Full stack developer",
 };
+
+export const YEARS_OF_EXPERIENCE = "5+";
 
 import laneGif from "../assets/lane_detection.gif";
 import grayscaleImg from "../assets/grayscale.jpg";
@@ -144,6 +147,27 @@ export const SKILLS: Technology[] = [
   {
     name: "Github Actions",
     icon: SiGithubactions,
+  },
+];
+
+export const FOCUS_AREAS: FocusArea[] = [
+  {
+    title: "Web applications",
+    description:
+      "Full-stack applications, from the interface to the deployment pipeline.",
+    skills: ["Typescript", "React.Js", "Next.Js", "Ruby", "Github Actions"],
+  },
+  {
+    title: "AI agents",
+    description:
+      "Agents built on modern orchestration tools, like the ForestLake Assistant on this site.",
+    skills: ["Langchain", "Langgraph", "WatsonX Orchestrate", "AWS"],
+  },
+  {
+    title: "Image processing",
+    description:
+      "Traditional algorithms and CNNs, from lane detection to traffic sign recognition.",
+    skills: ["Python", "Tensorflow"],
   },
 ];
 

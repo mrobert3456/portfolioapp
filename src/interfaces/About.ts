@@ -26,3 +26,9 @@ export interface Technology {
   name: string;
   icon: IconType;
 }
+
+export interface FocusArea {
+  title: string;
+  description: string;
+  skills: string[];
+}

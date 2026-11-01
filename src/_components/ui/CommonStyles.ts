@@ -7,5 +7,10 @@ export const hoverImgScaling =
 export const buttonStyle =
   "!rounded-none !text-xs !border-2 !border-sky-500 !bg-transparent hover:!border-sky-700";
 
+export const primaryButtonStyle =
+  "!rounded-none !text-xs !border-2 !border-sky-700 !bg-sky-700 !text-white hover:!border-sky-800 hover:!bg-sky-800";
+
+export const fadeUp = "animate-fade-up motion-reduce:animate-none";
+
 export const hoverSidelined =
   "hover:before:h-full before:block before:absolute before:top-0 before:left-0 before:bg-blue-500 before:w-[4px] before:h-0 before:!transition-height before:!duration-300 before:!ease-in-out";

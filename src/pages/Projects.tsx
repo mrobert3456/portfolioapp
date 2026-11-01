@@ -1,5 +1,6 @@
 import ProjectList from "../_components/ProjectList";
 import PageLayout from "../_components/layout/PageLayout";
+import { fadeUp } from "../_components/ui/CommonStyles";
 import PageTitle from "../_components/ui/PageTitle";
 
 const Projects: React.FC = () => {
@@ -10,7 +11,7 @@ const Projects: React.FC = () => {
         subtitle=" List of projects that I worked on or working on."
       />
 
-      <div className="mt-2">
+      <div className={`mt-2 ${fadeUp}`}>
         <ProjectList />
       </div>
     </PageLayout>

@@ -2,7 +2,6 @@ import {
   Box,
   Flex,
   IconButton,
-  ModalProps,
   Tooltip,
   useBreakpointValue,
   useColorModeValue,
@@ -12,13 +11,17 @@ import AgentDetails from "./AgentDetails";
 import ChatBody from "./ChatBody";
 import ChatInput from "./ChatInput";
 import { BiExpand } from "react-icons/bi";
-import CustomModal from "../ui/CustomModal";
+import CustomModal, { CustomModalProps } from "../ui/CustomModal";
 import CustomPopover, { CustomPopoverProps } from "../ui/CustomPopover";
 import { RiRobot2Fill } from "react-icons/ri";
 import { ChatContext } from "../layout/Mainlayout";
 import { hoverImgScaling } from "../ui/CommonStyles";
 import { CgDetailsMore } from "react-icons/cg";
 import AgentDisclaimer from "./AgentDisclaimer";
+
+const HEADER_HEIGHT = "4.5rem";
+// Chat button (20px offset + 60px height) plus the gap above it
+const TRIGGER_SPACE = "6rem";
 
 interface ChatAgentProps {
   isDetailsOpen: boolean;
@@ -47,16 +50,8 @@ export const ChatWidget: React.FC = () => {
     "!bg-transparent hover:!bg-slate-700",
   );
   const handleExpand = () => {
-    const maxWidth = window.innerWidth - 32;
-    const maxHeight = window.innerHeight - 300;
-
-    setWidth((prev) =>
-      prev === "400px" ? `${Math.min(600, maxWidth)}px` : "400px",
-    );
-
-    setHeight((prev) =>
-      prev === "500px" ? `${Math.min(700, maxHeight)}px` : "500px",
-    );
+    setWidth((prev) => (prev === "400px" ? "600px" : "400px"));
+    setHeight((prev) => (prev === "500px" ? "700px" : "500px"));
   };
 
   const WidgetComponent = useBreakpointValue({
@@ -67,11 +62,22 @@ export const ChatWidget: React.FC = () => {
   const widgetProps = useBreakpointValue({
     base: {
       size: "full",
-    } as ModalProps,
+      contentProps: {
+        className: "!h-full !min-h-0 !max-h-full",
+        containerProps: {
+          top: HEADER_HEIGHT,
+          height: `calc(100dvh - ${HEADER_HEIGHT})`,
+        },
+      },
+    } as CustomModalProps,
     sm: {
       placement: "top-start",
       contentWidth: width,
       contentHeight: height,
+      contentProps: {
+        maxWidth: "calc(100vw - 2rem)",
+        maxHeight: `calc(100dvh - ${HEADER_HEIGHT} - ${TRIGGER_SPACE})`,
+      },
     } as CustomPopoverProps,
   });
 
